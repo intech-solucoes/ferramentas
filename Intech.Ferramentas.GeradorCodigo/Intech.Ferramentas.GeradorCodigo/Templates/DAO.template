@@ -1,0 +1,99 @@
+﻿#region Usings
+using Dapper;
+using Intech.Lib.Dapper;
+using Intech.Lib.Web;
+using @(Model.Sistema.Namespaces.Entidades);
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+#endregion
+
+namespace @(Model.Sistema.Namespaces.Dados).DAO
+{   
+    public abstract class @(Model.ConfigEntidade.Nome)DAO : BaseDAO<@(Model.ConfigEntidade.Nome)Entidade>
+    {
+        
+        @for (int i = 0; i < @Model.Consultas.Count; i++) {
+        
+            @Raw("\t\tpublic virtual ") 
+        
+            if (@Model.Consultas[i].RetornaLista)
+            {
+                @Raw("IEnumerable<" + @Model.Consultas[i].Retorno + "> ")
+            }
+            else
+            {
+                @Raw(@Model.Consultas[i].Retorno + " ")
+            } 
+
+            @Raw(@Model.Consultas[i].Nome + "(");
+
+            for(int i2 = 0; i2 < @Model.Consultas[i].Parametros.Count; i2++) {
+                @Model.Consultas[i].Parametros[i2].Key
+                @Raw(" ")
+                @Model.Consultas[i].Parametros[i2].Value
+
+                if(i2+1 < @Model.Consultas[i].Parametros.Count)
+                {
+                    @Raw(", ")
+                }
+            }
+
+            @Raw(")\r\n")
+            @Raw("\t\t{\r\n")
+            
+            @Raw("\t\t\tif(AppSettings.IS_SQL_SERVER_PROVIDER)\r\n")
+            @Raw("\t\t\t\treturn Conexao.Query")
+            
+            if (!@Model.Consultas[i].RetornaLista) {
+                @Raw("SingleOrDefault")
+            }
+
+            @Raw("<" + @Model.Consultas[i].Retorno + ">(\"")
+
+            @Raw(@Model.Consultas[i].QuerySqlServer)
+
+            @Raw("\", new { ")
+            
+            for(int i2 = 0; i2 < @Model.Consultas[i].Parametros.Count; i2++) {
+                @Model.Consultas[i].Parametros[i2].Value
+
+                if(i2+1 < @Model.Consultas[i].Parametros.Count)
+                {
+                    @Raw(", ")
+                }
+            }
+
+            @Raw(" });\r\n")
+
+            @Raw("\t\t\telse if(AppSettings.IS_ORACLE_PROVIDER)\r\n")
+            @Raw("\t\t\t\treturn Conexao.Query")
+            
+            if (!@Model.Consultas[i].RetornaLista) {
+                @Raw("SingleOrDefault")
+            }
+
+            @Raw("<" + @Model.Consultas[i].Retorno + ">(\"")
+
+            @Raw(@Model.Consultas[i].QueryOracle)
+
+            @Raw("\", new { ")
+            
+            for(int i2 = 0; i2 < @Model.Consultas[i].Parametros.Count; i2++) {
+                @Model.Consultas[i].Parametros[i2].Value
+
+                if(i2+1 < @Model.Consultas[i].Parametros.Count)
+                {
+                    @Raw(", ")
+                }
+            }
+
+            @Raw(" });\r\n")
+
+            @Raw("\t\t\telse\r\n")
+            @Raw("\t\t\t\tthrow new Exception(\"Provider não suportado!\");\r\n")
+            
+            @Raw("\t\t}\r\n")
+        }
+    }
+}

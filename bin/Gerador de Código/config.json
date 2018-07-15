@@ -1,0 +1,38 @@
+﻿{
+    "Conexao": {
+        "Provider": "sqlserver",
+        "DataSource": "10.10.170.13",
+        "Username": "sysdba",
+        "Password": "masterkey",
+        "Database": "PREVES_260618"
+    },
+    "DiretorioPortal": "C:\\tfs\\Portal\\v2",
+    "Sistema": [
+        {
+            "Nome": "PrevSystem",
+            "Diretorios": {
+                "Dados": "C:\\git\\prevsystem\\Intech.PrevSystem.Dados",
+                "Entidades": "C:\\git\\prevsystem\\Intech.PrevSystem.Entidades",
+                "Negocio": "C:\\git\\prevsystem\\Intech.PrevSystem.Negocio"
+            },
+            "Namespaces": {
+                "Dados": "Intech.PrevSystem.Dados",
+                "Entidades": "Intech.PrevSystem.Entidades",
+                "Negocio": "Intech.PrevSystem.Negocio"
+            }
+        },
+        {
+            "Nome": "Advanced",
+            "Diretorios": {
+                "Dados": "C:\\git\\advanced-api\\Intech.Advanced.Dados",
+                "Negocio": "C:\\git\\advanced-api\\Intech.Advanced.Negocio",
+                "Entidades": "C:\\git\\advanced-api\\Intech.Advanced.Entidades"
+            },
+            "Namespaces": {
+                "Dados": "Intech.Advanced.Dados",
+                "Negocio": "Intech.Advanced.Negocio",
+                "Entidades": "Intech.Advanced.Entidades"
+            }
+        }
+    ]
+}
