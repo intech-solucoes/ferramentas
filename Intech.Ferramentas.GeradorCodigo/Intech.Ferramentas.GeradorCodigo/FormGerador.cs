@@ -62,6 +62,8 @@ namespace Intech.Ferramentas.GeradorCodigo
 
             var gerador = new GeradorSqlServer(Config, SistemaSelecionado, listaConfigsEntidades);
             gerador.Gerar(CheckBoxGerarEntidade.Checked, CheckBoxGerarDAO.Checked, CheckBoxGerarProxy.Checked);
+
+            MessageBox.Show("Gerado com sucesso!");
         }
 
         private void ComboBoxSistemas_SelectedIndexChanged(object sender, System.EventArgs e)

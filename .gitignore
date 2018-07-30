@@ -64,3 +64,4 @@ packages
 obj
 *.dll
 !bin/*
+.vs/

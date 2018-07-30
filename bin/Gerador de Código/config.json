@@ -1,11 +1,11 @@
 ﻿{
-    "Conexao": {
-        "Provider": "sqlserver",
-        "DataSource": "10.10.170.13",
-        "Username": "sysdba",
-        "Password": "masterkey",
-        "Database": "PREVES_260618"
-    },
+  "Conexao": {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.13",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PREVES_240718"
+  },
     "DiretorioPortal": "C:\\tfs\\Portal\\v2",
     "Sistema": [
         {

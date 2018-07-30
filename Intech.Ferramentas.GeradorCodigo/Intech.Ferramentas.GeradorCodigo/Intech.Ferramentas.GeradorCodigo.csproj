@@ -224,6 +224,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="..\..\..\Lib\Intech.Lib.Data\Intech.Lib.Data.projitems" Label="Shared" />
+  <Import Project="..\..\..\lib\dotnet-lib\Intech.Lib.Data\Intech.Lib.Data.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
