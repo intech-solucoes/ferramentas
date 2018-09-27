@@ -149,6 +149,7 @@
     <Compile Include="Code\Config.cs" />
     <Compile Include="Code\ConfigEntidade.cs" />
     <Compile Include="Code\GeradorSqlServer.cs" />
+    <Compile Include="Code\IGerador.cs" />
     <Compile Include="FormConfiguracao.cs">
       <SubType>Form</SubType>
     </Compile>

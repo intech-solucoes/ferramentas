@@ -3,6 +3,8 @@ using Intech.Ferramentas.GeradorCodigo.Code;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 #endregion
 
@@ -17,7 +19,7 @@ namespace Intech.Ferramentas.GeradorCodigo
         public FormGerador()
         {
             InitializeComponent();
-            
+
             Config = ConfigManager.Get();
         }
 
@@ -69,6 +71,45 @@ namespace Intech.Ferramentas.GeradorCodigo
         private void ComboBoxSistemas_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             BuscarEntidades();
+        }
+
+        private void ListEntidades_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            var podeGerarProxy = true;
+            var listaConfigsEntidades = new List<ConfigEntidade>();
+
+            foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
+            {
+                var caminho = entidade.FullName;
+                var nomeEntidade = entidade.Name;
+
+                var metodos = GetAllMethodNames(Path.Combine(SistemaSelecionado.Diretorios.Negocio, "Proxy", nomeEntidade + "Proxy.cs"));
+                if (metodos.Count > 0)
+                    podeGerarProxy = false;
+            }
+
+            CheckBoxGerarProxy.Enabled = podeGerarProxy;
+            CheckBoxGerarProxy.Checked = podeGerarProxy;
+        }
+
+        public List<string> GetAllMethodNames(string strFileName)
+        {
+            List<string> methodNames = new List<string>();
+            var strMethodLines = File.ReadAllLines(strFileName);
+
+            var metodos = strMethodLines.Where(a => (a.Contains("protected") ||
+                                                    a.Contains("private") ||
+                                                    a.Contains("public")) &&
+                                                    !a.Contains("class"));
+            foreach (var item in metodos)
+            {
+                if (item.IndexOf("(") != -1)
+                {
+                    string strTemp = string.Join("", item.Substring(0, item.IndexOf("(")).Reverse());
+                    methodNames.Add(string.Join("", strTemp.Substring(0, strTemp.IndexOf(" ")).Reverse()));
+                }
+            }
+            return methodNames.Distinct().ToList();
         }
     }
 }

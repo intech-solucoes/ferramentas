@@ -1,21 +1,19 @@
-﻿using Dapper;
-using System;
+﻿#region Usings
+using Dapper;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq; 
+#endregion
 
 namespace Intech.Ferramentas.GeradorCodigo.Code
 {
-    public class GeradorSqlServer : BaseGerador
+    public class GeradorSqlServer : BaseGerador, IGerador
     {
         public GeradorSqlServer(Config config, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades) : base(config, sistemaSelecionado, configsEntidades) { }
 
         private SqlConnection Conexao;
 
-        protected override void CriarConexao()
+        public override void CriarConexao()
         {
             Conexao = new SqlConnection(Config.ConnectionString);
             Conexao.Open();
@@ -25,7 +23,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         /// Faz select na tabela sys.columns para buscar as colunas da tabela
         /// </summary>
         /// <returns></returns>
-        protected override void BuscarColunas(ConfigEntidade configEntidade)
+        public override void BuscarColunas(ConfigEntidade configEntidade)
         {
             var listaColunas = new List<Coluna>();
 

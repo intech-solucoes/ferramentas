@@ -48,8 +48,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             }
         }
 
-        protected virtual void CriarConexao() => throw new NotImplementedException();
-        protected virtual void BuscarColunas(ConfigEntidade configEntidade) => throw new NotImplementedException();
+        public virtual void CriarConexao() => throw new NotImplementedException();
+        public virtual void BuscarColunas(ConfigEntidade configEntidade) => throw new NotImplementedException();
 
         private void BuscarConsultas(ConfigEntidade configEntidade)
         {

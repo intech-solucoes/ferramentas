@@ -129,6 +129,7 @@
             this.ListEntidades.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.ListEntidades.Size = new System.Drawing.Size(209, 290);
             this.ListEntidades.TabIndex = 6;
+            this.ListEntidades.SelectedIndexChanged += new System.EventHandler(this.ListEntidades_SelectedIndexChanged);
             // 
             // groupBox4
             // 
