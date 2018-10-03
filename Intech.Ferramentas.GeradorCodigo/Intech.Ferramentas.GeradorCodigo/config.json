@@ -39,7 +39,7 @@
             "Diretorios": {
                 "Dados": "C:\\git\\efd-reinf\\Intech.EfdReinf.Dados",
                 "Negocio": "C:\\git\\efd-reinf\\Intech.EfdReinf.Negocio",
-                "Entidades": "C:\\git\\efd-reinf\\Intech.Advanced.Entidades"
+                "Entidades": "C:\\git\\efd-reinf\\Intech.EfdReinf.Entidades"
             },
             "Namespaces": {
                 "Dados": "Intech.EfdReinf.Dados",

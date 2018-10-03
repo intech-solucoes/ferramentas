@@ -39,6 +39,12 @@ namespace Intech.Ferramentas.GeradorCodigo
 
         private void BuscarEntidades()
         {
+            if (!Directory.Exists(SistemaSelecionado.Diretorios.Dados))
+            {
+                MessageBox.Show("Projeto não encontrato!");
+                return;
+            }
+
             var listaEntidades = new List<DirectoryInfo>();
             var diretorioEntidades = Directory.EnumerateDirectories(Path.Combine(SistemaSelecionado.Diretorios.Dados, "Scripts"));
 
@@ -82,10 +88,18 @@ namespace Intech.Ferramentas.GeradorCodigo
             {
                 var caminho = entidade.FullName;
                 var nomeEntidade = entidade.Name;
+                var nomeArquivo = Path.Combine(SistemaSelecionado.Diretorios.Negocio, "Proxy", nomeEntidade + "Proxy.cs");
 
-                var metodos = GetAllMethodNames(Path.Combine(SistemaSelecionado.Diretorios.Negocio, "Proxy", nomeEntidade + "Proxy.cs"));
-                if (metodos.Count > 0)
+                if (!File.Exists(nomeArquivo))
+                {
                     podeGerarProxy = false;
+                }
+                else
+                {
+                    var metodos = GetAllMethodNames(nomeArquivo);
+                    if (metodos.Count > 0)
+                        podeGerarProxy = false;
+                }
             }
 
             CheckBoxGerarProxy.Enabled = podeGerarProxy;
