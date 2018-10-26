@@ -11,8 +11,15 @@ namespace @Model.Sistema.Namespaces.Entidades
             if (@Model.ColunasEntidade[i].ChavePrimaria) {
                 @Raw("\t\t[Key]\r\n")
             }
+
+            if(@Model.ColunasEntidade[i].IsColunaExtra)
+            {
+                @Raw("\t\t[Write(false)] ")
+            } else {
+                @Raw("\t\t")
+            }
             
-            @Raw("\t\tpublic " + @Model.ColunasEntidade[i].Tipo)
+            @Raw("public " + @Model.ColunasEntidade[i].Tipo)
 
             if(@Model.ColunasEntidade[i].AceitaNulo && @Model.ColunasEntidade[i].Tipo != "string")
             {

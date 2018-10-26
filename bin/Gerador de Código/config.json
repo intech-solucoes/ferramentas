@@ -1,10 +1,10 @@
 ﻿{
     "Conexao": {
         "Provider": "sqlserver",
-        "DataSource": "10.10.170.13",
+        "DataSource": "10.10.170.39",
         "Username": "sysdba",
         "Password": "masterkey",
-        "Database": "PREVES_240718"
+        "Database": "REGIUS_01032016"
     },
     "DiretorioPortal": "C:\\tfs\\Portal\\v2",
     "Sistema": [
@@ -39,7 +39,7 @@
             "Diretorios": {
                 "Dados": "C:\\git\\efd-reinf\\Intech.EfdReinf.Dados",
                 "Negocio": "C:\\git\\efd-reinf\\Intech.EfdReinf.Negocio",
-                "Entidades": "C:\\git\\efd-reinf\\Intech.Advanced.Entidades"
+                "Entidades": "C:\\git\\efd-reinf\\Intech.EfdReinf.Entidades"
             },
             "Namespaces": {
                 "Dados": "Intech.EfdReinf.Dados",

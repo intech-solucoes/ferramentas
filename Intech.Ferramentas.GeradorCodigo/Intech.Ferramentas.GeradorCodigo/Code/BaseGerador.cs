@@ -94,6 +94,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             
             foreach (var colunaExtra in configEntidade.ColunasExtras)
             {
+                colunaExtra.IsColunaExtra = true;
                 ColunasEntidade.Add(colunaExtra);
             }
         }

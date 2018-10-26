@@ -92,7 +92,7 @@ namespace Intech.Ferramentas.GeradorCodigo
 
                 if (!File.Exists(nomeArquivo))
                 {
-                    podeGerarProxy = false;
+                    podeGerarProxy = true;
                 }
                 else
                 {

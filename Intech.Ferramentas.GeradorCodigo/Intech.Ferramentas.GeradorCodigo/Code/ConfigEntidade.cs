@@ -17,6 +17,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public string Tipo { get; set; }
         public bool AceitaNulo { get; set; }
         public bool ChavePrimaria { get; set; }
+        public bool IsColunaExtra { get; set; }
     }
 
     public class Consulta
