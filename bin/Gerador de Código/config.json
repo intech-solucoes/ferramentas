@@ -4,7 +4,7 @@
         "DataSource": "10.10.170.39",
         "Username": "sysdba",
         "Password": "masterkey",
-        "Database": "REGIUS_01032016"
+        "Database": "EFD_REINF"
     },
     "DiretorioPortal": "C:\\tfs\\Portal\\v2",
     "Sistema": [

@@ -44,13 +44,29 @@ namespace @(Model.Sistema.Namespaces.Dados).DAO
             
             @Raw("\t\t\ttry\r\n\t\t\t{\r\n")
             @Raw("\t\t\t\tif(AppSettings.IS_SQL_SERVER_PROVIDER)\r\n")
-            @Raw("\t\t\t\t\treturn Conexao.Query")
+            @Raw("\t\t\t\t\t")
             
-            if (!@Model.Consultas[i].RetornaLista) {
-                @Raw("SingleOrDefault")
+            if(@Model.Consultas[i].Retorno != "void") {
+                @Raw("return ")
             }
 
-            @Raw("<" + @Model.Consultas[i].Retorno + ">(\"")
+            @Raw("Conexao.")
+            
+            if (!@Model.Consultas[i].RetornaLista && @Model.Consultas[i].Retorno != "void") {
+                @Raw("QuerySingleOrDefault")
+            }
+            else if(@Model.Consultas[i].Retorno == "void") {
+                @Raw("Execute")
+            }
+            else {
+                @Raw("Query")
+            }
+
+            if(@Model.Consultas[i].Retorno != "void") {
+                @Raw("<" + @Model.Consultas[i].Retorno + ">")
+            }
+
+            @Raw("(\"")
 
             @Raw(@Model.Consultas[i].QuerySqlServer)
 
@@ -68,13 +84,29 @@ namespace @(Model.Sistema.Namespaces.Dados).DAO
             @Raw(" });\r\n")
 
             @Raw("\t\t\t\telse if(AppSettings.IS_ORACLE_PROVIDER)\r\n")
-            @Raw("\t\t\t\t\treturn Conexao.Query")
+            @Raw("\t\t\t\t\t")
             
-            if (!@Model.Consultas[i].RetornaLista) {
-                @Raw("SingleOrDefault")
+            if(@Model.Consultas[i].Retorno != "void") {
+                @Raw("return ")
             }
 
-            @Raw("<" + @Model.Consultas[i].Retorno + ">(\"")
+            @Raw("Conexao.")
+            
+            if (!@Model.Consultas[i].RetornaLista && @Model.Consultas[i].Retorno != "void") {
+                @Raw("QuerySingleOrDefault")
+            }
+            else if(@Model.Consultas[i].Retorno == "void") {
+                @Raw("Execute")
+            }
+            else {
+                @Raw("Query")
+            }
+
+            if(@Model.Consultas[i].Retorno != "void") {
+                @Raw("<" + @Model.Consultas[i].Retorno + ">")
+            }
+
+            @Raw("(\"")
 
             @Raw(@Model.Consultas[i].QueryOracle)
 

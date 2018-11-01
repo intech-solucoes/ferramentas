@@ -68,7 +68,9 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
                 var querySqlServer = new Regex("\r\n").Replace(sql, " ");
                 querySqlServer = querySqlServer.Substring(querySqlServer.IndexOf("*/") + 2).Trim();
 
-                var queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer);
+                var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria);
+
+                var queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
 
                 var consulta = new Consulta
                 {
