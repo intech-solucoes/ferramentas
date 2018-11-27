@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Dapper.Contrib.Extensions;
 
@@ -9,7 +9,7 @@ namespace @Model.Sistema.Namespaces.Entidades
     {
         @for (int i = 0; i < @Model.ColunasEntidade.Count; i++) {
             if (@Model.ColunasEntidade[i].ChavePrimaria) {
-                @Raw("\t\t[Key]\r\n")
+                @Raw("\t\t[Key]\n")
             }
 
             if(@Model.ColunasEntidade[i].IsColunaExtra)
@@ -26,7 +26,7 @@ namespace @Model.Sistema.Namespaces.Entidades
                 @Raw("?")
             }
 
-            @Raw(" " + @Model.ColunasEntidade[i].Nome + " { get; set; }\r\n")
+            @Raw(" " + @Model.ColunasEntidade[i].Nome + " { get; set; }\n")
         }
         
     }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions; 
 #endregion
 
@@ -114,7 +115,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             var template = File.ReadAllText("Templates/Entidade.template");
             var entidade = RazorEngine.Engine.Razor.RunCompile(template, "templateEntidade", null, model);
 
-            File.WriteAllText(Path.Combine(DirEntidades.FullName, $"{configEntidade.Nome}Entidade.cs"), entidade);
+            File.WriteAllText(Path.Combine(DirEntidades.FullName, $"{configEntidade.Nome}Entidade.cs"), entidade, Encoding.UTF8);
         }
 
         protected void SalvarDAO(ConfigEntidade configEntidade)
@@ -131,7 +132,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             var template = File.ReadAllText("Templates/DAO.template");
             var dao = RazorEngine.Engine.Razor.RunCompile(template, "templateDao", null, model);
 
-            File.WriteAllText(Path.Combine(DirDAO.FullName, $"{configEntidade.Nome}DAO.cs"), dao);
+            File.WriteAllText(Path.Combine(DirDAO.FullName, $"{configEntidade.Nome}DAO.cs"), dao, Encoding.UTF8);
         }
 
         protected void SalvarProxy(ConfigEntidade configEntidade)
@@ -148,7 +149,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             var template = File.ReadAllText("Templates/Proxy.template");
             var dao = RazorEngine.Engine.Razor.RunCompile(template, "templateProxy", null, model);
 
-            File.WriteAllText(Path.Combine(DirProxy.FullName, $"{configEntidade.Nome}Proxy.cs"), dao);
+            File.WriteAllText(Path.Combine(DirProxy.FullName, $"{configEntidade.Nome}Proxy.cs"), dao, Encoding.UTF8);
         }
         
         /// <summary>

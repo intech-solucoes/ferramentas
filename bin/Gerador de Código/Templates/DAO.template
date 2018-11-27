@@ -1,4 +1,4 @@
-﻿#region Usings
+#region Usings
 using Dapper;
 using Intech.Lib.Dapper;
 using Intech.Lib.Web;
@@ -39,11 +39,11 @@ namespace @(Model.Sistema.Namespaces.Dados).DAO
                 }
             }
 
-            @Raw(")\r\n")
-            @Raw("\t\t{\r\n")
+            @Raw(")\n")
+            @Raw("\t\t{\n")
             
-            @Raw("\t\t\ttry\r\n\t\t\t{\r\n")
-            @Raw("\t\t\t\tif(AppSettings.IS_SQL_SERVER_PROVIDER)\r\n")
+            @Raw("\t\t\ttry\n\t\t\t{\n")
+            @Raw("\t\t\t\tif(AppSettings.IS_SQL_SERVER_PROVIDER)\n")
             @Raw("\t\t\t\t\t")
             
             if(@Model.Consultas[i].Retorno != "void") {
@@ -81,9 +81,9 @@ namespace @(Model.Sistema.Namespaces.Dados).DAO
                 }
             }
 
-            @Raw(" });\r\n")
+            @Raw(" });\n")
 
-            @Raw("\t\t\t\telse if(AppSettings.IS_ORACLE_PROVIDER)\r\n")
+            @Raw("\t\t\t\telse if(AppSettings.IS_ORACLE_PROVIDER)\n")
             @Raw("\t\t\t\t\t")
             
             if(@Model.Consultas[i].Retorno != "void") {
@@ -121,17 +121,17 @@ namespace @(Model.Sistema.Namespaces.Dados).DAO
                 }
             }
 
-            @Raw(" });\r\n")
+            @Raw(" });\n")
 
-            @Raw("\t\t\t\telse\r\n")
-            @Raw("\t\t\t\t\tthrow new Exception(\"Provider não suportado!\");\r\n")
+            @Raw("\t\t\t\telse\n")
+            @Raw("\t\t\t\t\tthrow new Exception(\"Provider não suportado!\");\n")
 
-            @Raw("\t\t\t}\r\n")
-            @Raw("\t\t\tfinally\r\n\t\t\t{\r\n")
-            @Raw("\t\t\t\tConexao.Close();\r\n")
-            @Raw("\t\t\t}\r\n")
+            @Raw("\t\t\t}\n")
+            @Raw("\t\t\tfinally\n\t\t\t{\n")
+            @Raw("\t\t\t\tConexao.Close();\n")
+            @Raw("\t\t\t}\n")
             
-            @Raw("\t\t}\r\n\r\n")
+            @Raw("\t\t}\n\n")
         }
     }
 }
