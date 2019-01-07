@@ -25,11 +25,11 @@ namespace Intech.Ferramentas.GeradorCodigo
 
         private void FormGerador_Load(object sender, System.EventArgs e)
         {
-            BuscarClientes();
+            BuscarSistemas();
             BuscarEntidades();
         }
 
-        private void BuscarClientes()
+        private void BuscarSistemas()
         {
             foreach (var cliente in Config.Sistema)
                 ComboBoxSistemas.Items.Add(cliente.Nome);

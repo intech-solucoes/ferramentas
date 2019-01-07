@@ -1,10 +1,10 @@
 ﻿{
     "Conexao": {
         "Provider": "sqlserver",
-        "DataSource": "10.10.170.13",
+        "DataSource": "10.10.170.39",
         "Username": "sysdba",
         "Password": "masterkey",
-        "Database": "FSF_191218"
+        "Database": "EFD_REINF"
     },
     "DiretorioPortal": "C:\\tfs\\Portal\\v2",
     "Sistema": [
