@@ -1,7 +1,7 @@
 import MasterPage from "./MasterPage";
-import Home from "./Home";
+import Gerador from "./Gerador";
 
 export {
     MasterPage,
-    Home
+    Gerador
 }

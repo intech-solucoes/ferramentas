@@ -1,0 +1,43 @@
+{
+    "sistemas": [
+        {
+            "nome": "PrevSystem",
+            "diretorios": {
+                "dados": "${baseGit}/Intech.PrevSystem.Dados",
+                "entidades": "${baseGit}/Intech.PrevSystem.Entidades",
+                "negocio": "${baseGit}/Intech.PrevSystem.Negocio"
+            },
+            "namespaces": {
+                "dados": "Intech.PrevSystem.Dados",
+                "entidades": "Intech.PrevSystem.Entidades",
+                "negocio": "Intech.PrevSystem.Negocio"
+            }
+        },
+        {
+            "nome": "Advanced",
+            "diretorios": {
+                "dados": "${baseGit}/advanced-api/Intech.Advanced.Dados",
+                "entidades": "${baseGit}/advanced-api/Intech.Advanced.Entidades",
+                "negocio": "${baseGit}/advanced-api/Intech.Advanced.Negocio"
+            },
+            "namespaces": {
+                "dados": "Intech.Advanced.Dados",
+                "entidades": "Intech.Advanced.Entidades",
+                "negocio": "Intech.Advanced.Negocio"
+            }
+        },
+        {
+            "nome": "EFD-Reinf",
+            "diretorios": {
+                "dados": "${baseGit}/efd-reinf/Intech.EfdReinf.Dados",
+                "entidades": "${baseGit}/efd-reinf/Intech.EfdReinf.Entidades",
+                "negocio": "${baseGit}/efd-reinf/Intech.EfdReinf.Negocio"
+            },
+            "namespaces": {
+                "dados": "Intech.EfdReinf.Dados",
+                "entidades": "Intech.EfdReinf.Entidades",
+                "negocio": "Intech.EfdReinf.Negocio"
+            }
+        }
+    ] 
+}

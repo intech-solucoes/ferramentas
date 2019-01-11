@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Box } from "@intechprev/componentes-web";
+
 import { MasterPage } from "./";
 
-export default class Home extends Component {
+export default class Gerador extends Component {
 
     constructor(props) {
         super(props);
@@ -12,7 +14,11 @@ export default class Home extends Component {
     render() {
         return (
             <MasterPage {...this.props} ref={this.page}>
-                Home
+                
+                <Box>
+                    Gerador
+                </Box>
+
             </MasterPage>
         );
     }

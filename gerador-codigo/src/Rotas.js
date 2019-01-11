@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Home } from "./pages";
+import { Gerador } from "./pages";
 
 function GetRotas() {
     const rotas = [
         {
-            titulo: "Home",
-            icone: "fas fa-home",
+            titulo: "Gerador",
+            icone: "fas fa-code",
             caminho: "/",
-            componente: routeProps => <Home {...routeProps} />,
+            componente: routeProps => <Gerador {...routeProps} />,
             mostrarMenu: true,
             exact: true,
-            id: "home"
+            id: "gerador"
         }
     ];
 

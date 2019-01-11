@@ -29,19 +29,6 @@ export default class MasterPage extends Component {
                                     else return "";
                                 })
                             }
-                            <li>
-                                <a href="." onClick={this.selecionarContribuinte}>
-                                    <i className="fas fa-exchange-alt"></i>
-                                    Selecionar Contribuinte
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="." onClick={this.logout}>
-                                    <i className="fas fa-sign-out-alt"></i>
-                                    Sair
-                                </a>
-                            </li>
                         </ul>
                     </nav>
 
