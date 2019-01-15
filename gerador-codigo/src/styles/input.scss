@@ -14,3 +14,13 @@
         outline: 0 none;
     }
 }
+
+.col-form-label {
+    font-weight: bold;
+}
+
+.rc-checkbox-checked 
+.rc-checkbox-inner {
+    border-color: $color-primary !important;
+    background-color: $color-primary !important;
+}

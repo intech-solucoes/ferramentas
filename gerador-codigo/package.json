@@ -5,8 +5,10 @@
   "homepage": "./",
   "main": "src/main.js",
   "dependencies": {
-    "@intechprev/componentes-web": "^1.0.0",
+    "@intechprev/componentes-web": "^1.0.3",
+    "@intechprev/react-lib": "^0.0.5",
     "bootstrap": "^4.2.1",
+    "rc-checkbox": "^2.1.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1"
