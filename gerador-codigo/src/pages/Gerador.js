@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Box, Row, Col, Button } from "@intechprev/componentes-web";
+import { filesystem } from "gluegun";
 import Checkbox from "rc-checkbox";
 import 'rc-checkbox/assets/index.css';
 
@@ -17,6 +18,17 @@ export default class Gerador extends Component {
         super(props);
 
         this.page = React.createRef();
+    }
+
+    componentDidMount = async () => {
+        var conexoes = await filesystem.listAsync("../config/conexoes");
+        console.log(conexoes);
+    }
+
+    onChange = async (e) => {
+        await this.setState({
+            [e.target.name]: e.target.checked
+        });
     }
 
     render() {
@@ -69,13 +81,16 @@ export default class Gerador extends Component {
 
                     <Row>
                         <Col tamanho={"2"} className={"mt-2"}>
-                            <Checkbox />&nbsp; Entidade
+                            <Checkbox name={"gerarEntidade"} checked={this.state.gerarEntidade} onChange={this.onChange} />
+                            &nbsp; Entidade
                         </Col>
                         <Col tamanho={"2"} className={"mt-2"}>
-                            <Checkbox checked={this.state.gerarDAO} />&nbsp; DAO
+                            <Checkbox name={"gerarDAO"} checked={this.state.gerarDAO} onChange={this.onChange} />
+                            &nbsp; DAO
                         </Col>
                         <Col tamanho={"2"} className={"mt-2"}>
-                            <Checkbox checked={this.state.gerarProxy} />&nbsp; Proxy
+                            <Checkbox name={"gerarProxy"} checked={this.state.gerarProxy} onChange={this.onChange} />
+                            &nbsp; Proxy
                         </Col>
                         <Col tamanho={"2"} className={"offset-md-4"}>
                             <Button titulo={"Gerar"} tipo={"primary"} block />

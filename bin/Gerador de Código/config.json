@@ -1,10 +1,10 @@
 ﻿{
     "Conexao": {
         "Provider": "sqlserver",
-        "DataSource": "10.10.170.39",
+        "DataSource": "10.10.170.13",
         "Username": "sysdba",
         "Password": "masterkey",
-        "Database": "FACEB_FORMULA"
+        "Database": "REGIUS_100119"
     },
     "DiretorioPortal": "C:\\tfs\\Portal\\v2",
     "Sistema": [
