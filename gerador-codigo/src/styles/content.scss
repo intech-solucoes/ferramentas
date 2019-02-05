@@ -49,3 +49,14 @@
     text-align: center;
     padding-top: 10%;
 }
+
+.float-panel {
+    bottom: 0px;
+    background: #FFF;
+    position: fixed;
+    z-index: 9998;
+    right: 0px;
+    left: 250px;
+    padding: 10px;
+    border-top: 1px solid #CCC;
+}

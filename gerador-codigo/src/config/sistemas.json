@@ -3,9 +3,9 @@
         {
             "nome": "PrevSystem",
             "diretorios": {
-                "dados": "${baseGit}/Intech.PrevSystem.Dados",
-                "entidades": "${baseGit}/Intech.PrevSystem.Entidades",
-                "negocio": "${baseGit}/Intech.PrevSystem.Negocio"
+                "dados": "${baseGit}/prevsystem/Intech.PrevSystem.Dados",
+                "entidades": "${baseGit}/prevsystem/Intech.PrevSystem.Entidades",
+                "negocio": "${baseGit}/prevsystem/Intech.PrevSystem.Negocio"
             },
             "namespaces": {
                 "dados": "Intech.PrevSystem.Dados",
