@@ -78,7 +78,6 @@
       <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
     </Reference>
@@ -146,10 +145,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\BaseGerador.cs" />
+    <Compile Include="Code\Conexoes.cs" />
     <Compile Include="Code\Config.cs" />
     <Compile Include="Code\ConfigEntidade.cs" />
     <Compile Include="Code\GeradorSqlServer.cs" />
     <Compile Include="Code\IGerador.cs" />
+    <Compile Include="Controles\ControleConexoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ControleConexoes.Designer.cs">
+      <DependentUpon>ControleConexoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ControleGerador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ControleGerador.Designer.cs">
+      <DependentUpon>ControleGerador.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConfiguracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controles\ControleConexoes.resx">
+      <DependentUpon>ControleConexoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ControleGerador.resx">
+      <DependentUpon>ControleGerador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,11 +196,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Intech.Ferramentas.GeradorCodigo.Code.Conexao.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -212,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="internet.ico" />
+    <None Include="Resources\plus-big-512.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

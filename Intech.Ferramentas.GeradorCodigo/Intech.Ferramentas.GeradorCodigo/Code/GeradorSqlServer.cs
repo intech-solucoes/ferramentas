@@ -9,13 +9,14 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
 {
     public class GeradorSqlServer : BaseGerador, IGerador
     {
-        public GeradorSqlServer(Config config, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades) : base(config, sistemaSelecionado, configsEntidades) { }
+        public GeradorSqlServer(Config config, Conexao conexao, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades) 
+            : base(config, conexao, sistemaSelecionado, configsEntidades) { }
 
         private SqlConnection Conexao;
 
         public override void CriarConexao()
         {
-            Conexao = new SqlConnection(Config.ConnectionString);
+            Conexao = new SqlConnection(ConfigConexao.ConnectionString);
             Conexao.Open();
         }
 

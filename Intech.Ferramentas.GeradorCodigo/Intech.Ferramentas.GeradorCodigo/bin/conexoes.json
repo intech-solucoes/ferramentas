@@ -1,0 +1,10 @@
+[
+  {
+    "ID": "ab251e6c-fa6c-498b-8d85-5a4716782739",
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "FACEB_FORMULA"
+  }
+]

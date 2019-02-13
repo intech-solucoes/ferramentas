@@ -14,6 +14,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
     public abstract class BaseGerador
     {
         protected Config Config;
+        protected Conexao ConfigConexao;
         protected Sistema Sistema;
         protected List<ConfigEntidade> ConfigsEntidades;
         protected List<Consulta> Consultas = new List<Consulta>();
@@ -24,9 +25,10 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         DirectoryInfo DirProxy => new DirectoryInfo(Path.Combine(Sistema.Diretorios.Negocio, "Proxy"));
         DirectoryInfo DirEntidades => new DirectoryInfo(Sistema.Diretorios.Entidades);
 
-        public BaseGerador(Config config, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades)
+        public BaseGerador(Config config, Conexao conexao, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades)
         {
             Config = config;
+            ConfigConexao = conexao;
             ConfigsEntidades = configsEntidades;
             Sistema = sistemaSelecionado;
         }
