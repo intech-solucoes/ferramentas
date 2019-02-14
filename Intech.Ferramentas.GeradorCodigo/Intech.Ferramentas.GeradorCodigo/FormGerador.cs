@@ -17,5 +17,14 @@ namespace Intech.Ferramentas.GeradorCodigo
         {
             InitializeComponent();
         }
+
+        private void FormGerador_Load(object sender, System.EventArgs e)
+        {
+            if(UserConfigManager.Get() == null)
+            {
+                var formConfig = new FormConfiguracao();
+                formConfig.ShowDialog();
+            }
+        }
     }
 }

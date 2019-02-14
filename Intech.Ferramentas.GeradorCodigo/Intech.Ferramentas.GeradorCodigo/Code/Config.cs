@@ -7,21 +7,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
     public class ConfigManager
     {
         public static Config Get() => 
-            JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "config.json")));
+            JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "sistemas.json")));
     }
 
     public class Config
     {
         public List<Sistema> Sistema { get; set; }
-        public Conexao Conexao { get; set; }
-
-        public string ConnectionString =>
-            PROVIDER_ORACLE ?
-            $"data source={Conexao.DataSource};user id={Conexao.Username};password={Conexao.Password};persist security info=True" :
-            $"Data Source={Conexao.DataSource};Initial Catalog={Conexao.Database};User ID={Conexao.Username};Password={Conexao.Password};Persist Security Info=True";
-
-        public bool PROVIDER_ORACLE => Conexao.Provider == "oracle";
-        public bool PROVIDER_SQL_SERVER => Conexao.Provider == "sqlserver";
     }
 
     public class Sistema

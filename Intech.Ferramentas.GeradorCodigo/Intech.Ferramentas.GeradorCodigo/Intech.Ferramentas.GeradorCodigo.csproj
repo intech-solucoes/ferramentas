@@ -150,6 +150,7 @@
     <Compile Include="Code\ConfigEntidade.cs" />
     <Compile Include="Code\GeradorSqlServer.cs" />
     <Compile Include="Code\IGerador.cs" />
+    <Compile Include="Code\UserConfig.cs" />
     <Compile Include="Controles\ControleConexoes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,7 +199,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="config.json">
+    <None Include="sistemas.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
