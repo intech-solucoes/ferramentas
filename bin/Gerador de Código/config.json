@@ -3,9 +3,9 @@
         {
             "Nome": "PrevSystem",
             "Diretorios": {
-                "Dados": "C:\\git\\prevsystem\\Intech.PrevSystem.Dados",
-                "Entidades": "C:\\git\\prevsystem\\Intech.PrevSystem.Entidades",
-                "Negocio": "C:\\git\\prevsystem\\Intech.PrevSystem.Negocio"
+                "Dados": "{0}\\prevsystem\\Intech.PrevSystem.Dados",
+                "Entidades": "{0}\\prevsystem\\Intech.PrevSystem.Entidades",
+                "Negocio": "{0}\\prevsystem\\Intech.PrevSystem.Negocio"
             },
             "Namespaces": {
                 "Dados": "Intech.PrevSystem.Dados",
@@ -16,9 +16,9 @@
         {
             "Nome": "Advanced",
             "Diretorios": {
-                "Dados": "C:\\git\\advanced-api\\Intech.Advanced.Dados",
-                "Negocio": "C:\\git\\advanced-api\\Intech.Advanced.Negocio",
-                "Entidades": "C:\\git\\advanced-api\\Intech.Advanced.Entidades"
+                "Dados": "{0}\\advanced-api\\Intech.Advanced.Dados",
+                "Negocio": "{0}\\advanced-api\\Intech.Advanced.Negocio",
+                "Entidades": "{0}\\advanced-api\\Intech.Advanced.Entidades"
             },
             "Namespaces": {
                 "Dados": "Intech.Advanced.Dados",
@@ -29,9 +29,9 @@
         {
             "Nome": "EFD-Reinf",
             "Diretorios": {
-                "Dados": "C:\\git\\efd-reinf\\Intech.EfdReinf.Dados",
-                "Negocio": "C:\\git\\efd-reinf\\Intech.EfdReinf.Negocio",
-                "Entidades": "C:\\git\\efd-reinf\\Intech.EfdReinf.Entidades"
+                "Dados": "{0}\\efd-reinf\\Intech.EfdReinf.Dados",
+                "Negocio": "{0}\\efd-reinf\\Intech.EfdReinf.Negocio",
+                "Entidades": "{0}\\efd-reinf\\Intech.EfdReinf.Entidades"
             },
             "Namespaces": {
                 "Dados": "Intech.EfdReinf.Dados",

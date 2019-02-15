@@ -11,12 +11,15 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public static string DiretorioArquivoConexoes =>
             Path.Combine(Directory.GetCurrentDirectory(), "conexoes.json");
 
-        public static List<Conexao> Get()
+        public static List<Conexao> ListaConexoes
         {
-            if(File.Exists(DiretorioArquivoConexoes))
-                return JsonConvert.DeserializeObject<List<Conexao>>(File.ReadAllText(DiretorioArquivoConexoes));
+            get
+            {
+                if (File.Exists(DiretorioArquivoConexoes))
+                    return JsonConvert.DeserializeObject<List<Conexao>>(File.ReadAllText(DiretorioArquivoConexoes));
 
-            return null;
+                return null;
+            }
         }
 
         public void Deletar(Conexao conexao)

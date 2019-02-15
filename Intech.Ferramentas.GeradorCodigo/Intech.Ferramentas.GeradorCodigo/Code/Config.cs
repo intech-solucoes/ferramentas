@@ -1,13 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Intech.Ferramentas.GeradorCodigo.Code
 {
     public class ConfigManager
     {
-        public static Config Get() => 
+        public static Config Config =>
             JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "config.json")));
+
+        public static UserConfig UserConfig =>
+            UserConfigManager.Get();
     }
 
     public class Config
@@ -24,13 +28,25 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
 
     public class Camadas
     {
-        public string Dados { get; set; }
-        public string Entidades { get; set; }
-        public string Negocio { get; set; }
-
-        public string GetDiretorio()
+        private string _dados;
+        public string Dados
         {
-            
+            get => string.Format(_dados, UserConfigManager.Get().GitBase);
+            set => _dados = value;
+        }
+
+        private string _entidades;
+        public string Entidades
+        {
+            get => string.Format(_entidades, UserConfigManager.Get().GitBase);
+            set => _entidades = value;
+        }
+
+        private string _negocio;
+        public string Negocio
+        {
+            get => string.Format(_negocio, UserConfigManager.Get().GitBase);
+            set => _negocio = value;
         }
     }
 }

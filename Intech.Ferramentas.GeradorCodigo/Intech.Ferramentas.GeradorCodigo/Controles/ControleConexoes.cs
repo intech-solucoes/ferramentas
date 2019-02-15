@@ -13,8 +13,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void PreencherConexoes()
         {
-            var conexoes = Conexoes.Get();
-            ListBoxConexoes.DataSource = conexoes;
+            ListBoxConexoes.DataSource = Conexoes.ListaConexoes;
         }
 
         private void ControleConexoes_Load(object sender, EventArgs e)

@@ -68,6 +68,7 @@
             this.ButtonProcurar.TabIndex = 10;
             this.ButtonProcurar.Text = "Procurar";
             this.ButtonProcurar.UseVisualStyleBackColor = true;
+            this.ButtonProcurar.Click += new System.EventHandler(this.ButtonProcurar_Click);
             // 
             // FormConfiguracao
             // 

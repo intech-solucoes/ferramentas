@@ -26,10 +26,9 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
         {
             if (!DesignMode)
             {
-                Config = ConfigManager.Get();
-
-                var conexoes = Conexoes.Get();
-                ComboBoxConexao.DataSource = conexoes;
+                Config = ConfigManager.Config;
+                
+                ComboBoxConexao.DataSource = Conexoes.ListaConexoes;
 
                 BuscarSistemas();
             }
@@ -37,8 +36,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ControleGerador_Enter(object sender, EventArgs e)
         {
-            var conexoes = Conexoes.Get();
-            ComboBoxConexao.DataSource = conexoes;
+            ComboBoxConexao.DataSource = Conexoes.ListaConexoes;
         }
 
         private void BuscarSistemas()
@@ -69,7 +67,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             ListEntidades.DisplayMember = "Name";
         }
 
-        private void ButtonGerar_Click(object sender, System.EventArgs e)
+        private void ButtonGerar_Click(object sender, EventArgs e)
         {
             var listaConfigsEntidades = new List<ConfigEntidade>();
 
@@ -90,12 +88,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             MessageBox.Show("Gerado com sucesso!");
         }
 
-        private void ComboBoxSistemas_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void ComboBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
             BuscarEntidades();
         }
 
-        private void ListEntidades_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void ListEntidades_SelectedIndexChanged(object sender, EventArgs e)
         {
             var podeGerarProxy = true;
             var listaConfigsEntidades = new List<ConfigEntidade>();

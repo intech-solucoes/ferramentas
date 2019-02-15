@@ -213,7 +213,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Templates\DAO.template" />
+    <None Include="Templates\DAO.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\Proxy.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
