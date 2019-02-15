@@ -6,22 +6,29 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
 {
     public class UserConfigManager
     {
-
-
         public static string DiretorioArquivoUserConfig =>
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Intech", "user_config.json");
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Intech");
+
+        public static string CaminhoArquivoUserConfig =>
+            Path.Combine(DiretorioArquivoUserConfig, "user_config.json");
 
         public static UserConfig Get()
         {
-            if (File.Exists(DiretorioArquivoUserConfig))
-                return JsonConvert.DeserializeObject<UserConfig>(File.ReadAllText(DiretorioArquivoUserConfig));
+            if (File.Exists(CaminhoArquivoUserConfig))
+                return JsonConvert.DeserializeObject<UserConfig>(File.ReadAllText(CaminhoArquivoUserConfig));
 
             return null;
         }
 
         public void Salvar(UserConfig userConfig)
         {
-            File.WriteAllText(DiretorioArquivoUserConfig, JsonConvert.SerializeObject(userConfig, Formatting.Indented));
+            if (!Directory.Exists(DiretorioArquivoUserConfig))
+                Directory.CreateDirectory(DiretorioArquivoUserConfig);
+
+            if (!File.Exists(CaminhoArquivoUserConfig))
+                File.Create(CaminhoArquivoUserConfig).Close();
+
+            File.WriteAllText(CaminhoArquivoUserConfig, JsonConvert.SerializeObject(userConfig, Formatting.Indented));
         }
     }
 

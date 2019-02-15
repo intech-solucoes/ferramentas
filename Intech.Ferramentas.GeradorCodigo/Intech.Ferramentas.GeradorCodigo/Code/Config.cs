@@ -7,7 +7,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
     public class ConfigManager
     {
         public static Config Get() => 
-            JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "sistemas.json")));
+            JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "config.json")));
     }
 
     public class Config
@@ -27,5 +27,10 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public string Dados { get; set; }
         public string Entidades { get; set; }
         public string Negocio { get; set; }
+
+        public string GetDiretorio()
+        {
+            
+        }
     }
 }

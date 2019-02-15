@@ -2,6 +2,7 @@
 using Intech.Ferramentas.GeradorCodigo.Code;
 using Intech.Ferramentas.GeradorCodigo.Controles;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
