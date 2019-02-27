@@ -1,6 +1,7 @@
 ﻿#region Usings
 using Intech.Lib.Data.Util.Tradutor;
 using RazorEngine.Templating;
+using Scriban;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -106,18 +107,21 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
 
         protected void SalvarEntidade(ConfigEntidade configEntidade)
         {
-            var model = new
+            try
             {
-                Config,
-                Sistema,
-                ConfigEntidade = configEntidade,
-                ColunasEntidade
-            };
+                var model = new
+                {
+                    Config,
+                    Sistema,
+                    ConfigEntidade = configEntidade,
+                    ColunasEntidade
+                };
 
-            var template = File.ReadAllText("Templates/Entidade.template");
-            var entidade = RazorEngine.Engine.Razor.RunCompile(template, "templateEntidade", null, model);
+                var template = File.ReadAllText("Templates/Entidade.template");
+                var entidade = RazorEngine.Engine.Razor.RunCompile(template, "templateEntidade", null, model);
 
-            File.WriteAllText(Path.Combine(DirEntidades.FullName, $"{configEntidade.Nome}Entidade.cs"), entidade, Encoding.UTF8);
+                File.WriteAllText(Path.Combine(DirEntidades.FullName, $"{configEntidade.Nome}Entidade.cs"), entidade, Encoding.UTF8);
+            } catch(Exception ex) { }
         }
 
         protected void SalvarDAO(ConfigEntidade configEntidade)

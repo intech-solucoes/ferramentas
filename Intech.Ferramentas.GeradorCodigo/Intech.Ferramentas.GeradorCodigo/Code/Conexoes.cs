@@ -9,7 +9,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
     public class Conexoes
     {
         public static string DiretorioArquivoConexoes =>
-            Path.Combine(Directory.GetCurrentDirectory(), "conexoes.json");
+            Path.Combine(Directory.GetCurrentDirectory(), "../conexoes.json");
 
         public static List<Conexao> ListaConexoes
         {

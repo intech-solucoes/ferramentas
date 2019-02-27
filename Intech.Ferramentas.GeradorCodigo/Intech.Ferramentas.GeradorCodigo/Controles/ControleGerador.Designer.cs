@@ -30,11 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ListEntidades = new System.Windows.Forms.ListBox();
-            this.conexaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ComboBoxConexao = new System.Windows.Forms.ComboBox();
+            this.conexaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBoxSistemas = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,13 +41,15 @@
             this.CheckBoxGerarProxy = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarEntidade = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarDAO = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ListEntidades = new System.Windows.Forms.ListBox();
             this.conexaoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -62,49 +62,16 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.ListEntidades);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox4);
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.ListEntidades);
             this.splitContainer1.Size = new System.Drawing.Size(467, 296);
-            this.splitContainer1.SplitterDistance = 177;
+            this.splitContainer1.SplitterDistance = 295;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Nova";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // ListEntidades
-            // 
-            this.ListEntidades.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ListEntidades.DataSource = this.conexaoBindingSource;
-            this.ListEntidades.DisplayMember = "Database";
-            this.ListEntidades.FormattingEnabled = true;
-            this.ListEntidades.Location = new System.Drawing.Point(3, 29);
-            this.ListEntidades.Name = "ListEntidades";
-            this.ListEntidades.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ListEntidades.Size = new System.Drawing.Size(169, 264);
-            this.ListEntidades.TabIndex = 6;
-            this.ListEntidades.SelectedIndexChanged += new System.EventHandler(this.ListEntidades_SelectedIndexChanged);
-            // 
-            // conexaoBindingSource
-            // 
-            this.conexaoBindingSource.DataSource = typeof(Intech.Ferramentas.GeradorCodigo.Code.Conexao);
             // 
             // groupBox1
             // 
@@ -115,10 +82,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.ComboBoxSistemas);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 111);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.Size = new System.Drawing.Size(289, 111);
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros";
             // 
@@ -132,8 +99,12 @@
             this.ComboBoxConexao.FormattingEnabled = true;
             this.ComboBoxConexao.Location = new System.Drawing.Point(6, 80);
             this.ComboBoxConexao.Name = "ComboBoxConexao";
-            this.ComboBoxConexao.Size = new System.Drawing.Size(266, 21);
+            this.ComboBoxConexao.Size = new System.Drawing.Size(275, 21);
             this.ComboBoxConexao.TabIndex = 3;
+            // 
+            // conexaoBindingSource
+            // 
+            this.conexaoBindingSource.DataSource = typeof(Intech.Ferramentas.GeradorCodigo.Code.Conexao);
             // 
             // label2
             // 
@@ -151,7 +122,7 @@
             this.ComboBoxSistemas.FormattingEnabled = true;
             this.ComboBoxSistemas.Location = new System.Drawing.Point(6, 37);
             this.ComboBoxSistemas.Name = "ComboBoxSistemas";
-            this.ComboBoxSistemas.Size = new System.Drawing.Size(266, 21);
+            this.ComboBoxSistemas.Size = new System.Drawing.Size(275, 21);
             this.ComboBoxSistemas.TabIndex = 1;
             this.ComboBoxSistemas.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSistemas_SelectedIndexChanged);
             // 
@@ -172,10 +143,10 @@
             this.groupBox4.Controls.Add(this.CheckBoxGerarProxy);
             this.groupBox4.Controls.Add(this.CheckBoxGerarEntidade);
             this.groupBox4.Controls.Add(this.CheckBoxGerarDAO);
-            this.groupBox4.Location = new System.Drawing.Point(3, 121);
+            this.groupBox4.Location = new System.Drawing.Point(3, 120);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(278, 49);
-            this.groupBox4.TabIndex = 7;
+            this.groupBox4.Size = new System.Drawing.Size(287, 49);
+            this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Gerar";
             // 
@@ -186,7 +157,7 @@
             this.ButtonGerar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonGerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonGerar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonGerar.Location = new System.Drawing.Point(197, 18);
+            this.ButtonGerar.Location = new System.Drawing.Point(206, 18);
             this.ButtonGerar.Name = "ButtonGerar";
             this.ButtonGerar.Size = new System.Drawing.Size(75, 23);
             this.ButtonGerar.TabIndex = 5;
@@ -228,6 +199,35 @@
             this.CheckBoxGerarDAO.Text = "DAO";
             this.CheckBoxGerarDAO.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(66, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Nova";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ListEntidades
+            // 
+            this.ListEntidades.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListEntidades.DataSource = this.conexaoBindingSource;
+            this.ListEntidades.DisplayMember = "Database";
+            this.ListEntidades.FormattingEnabled = true;
+            this.ListEntidades.Location = new System.Drawing.Point(3, 29);
+            this.ListEntidades.Name = "ListEntidades";
+            this.ListEntidades.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.ListEntidades.Size = new System.Drawing.Size(162, 264);
+            this.ListEntidades.TabIndex = 6;
+            this.ListEntidades.SelectedIndexChanged += new System.EventHandler(this.ListEntidades_SelectedIndexChanged);
+            // 
             // conexaoBindingSource1
             // 
             this.conexaoBindingSource1.DataSource = typeof(Intech.Ferramentas.GeradorCodigo.Code.Conexao);
@@ -245,9 +245,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource1)).EndInit();
@@ -259,18 +259,18 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListBox ListEntidades;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource conexaoBindingSource;
+        private System.Windows.Forms.BindingSource conexaoBindingSource1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox ComboBoxConexao;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ComboBoxSistemas;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button ButtonGerar;
         private System.Windows.Forms.CheckBox CheckBoxGerarProxy;
         private System.Windows.Forms.CheckBox CheckBoxGerarEntidade;
         private System.Windows.Forms.CheckBox CheckBoxGerarDAO;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox ComboBoxSistemas;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox ComboBoxConexao;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.BindingSource conexaoBindingSource;
-        private System.Windows.Forms.BindingSource conexaoBindingSource1;
     }
 }

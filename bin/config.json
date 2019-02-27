@@ -1,0 +1,56 @@
+﻿{
+    "Sistema": [
+        {
+            "Nome": "PrevSystem",
+            "Diretorios": {
+                "Dados": "{0}\\prevsystem\\Intech.PrevSystem.Dados",
+                "Entidades": "{0}\\prevsystem\\Intech.PrevSystem.Entidades",
+                "Negocio": "{0}\\prevsystem\\Intech.PrevSystem.Negocio"
+            },
+            "Namespaces": {
+                "Dados": "Intech.PrevSystem.Dados",
+                "Entidades": "Intech.PrevSystem.Entidades",
+                "Negocio": "Intech.PrevSystem.Negocio"
+            }
+        },
+        {
+            "Nome": "PrevSystemWeb",
+            "Diretorios": {
+                "Dados": "{0}\\ps-web\\Intech.PrevSystemWeb.Dados",
+                "Negocio": "{0}\\ps-web\\Intech.PrevSystemWeb.Negocio",
+                "Entidades": "{0}\\ps-web\\Intech.PrevSystemWeb.Entidades"
+            },
+            "Namespaces": {
+                "Dados": "Intech.PrevSystemWeb.Dados",
+                "Negocio": "Intech.PrevSystemWeb.Negocio",
+                "Entidades": "Intech.PrevSystemWeb.Entidades"
+            }
+        },
+        {
+            "Nome": "Advanced",
+            "Diretorios": {
+                "Dados": "{0}\\advanced-api\\Intech.Advanced.Dados",
+                "Negocio": "{0}\\advanced-api\\Intech.Advanced.Negocio",
+                "Entidades": "{0}\\advanced-api\\Intech.Advanced.Entidades"
+            },
+            "Namespaces": {
+                "Dados": "Intech.Advanced.Dados",
+                "Negocio": "Intech.Advanced.Negocio",
+                "Entidades": "Intech.Advanced.Entidades"
+            }
+        },
+        {
+            "Nome": "EFD-Reinf",
+            "Diretorios": {
+                "Dados": "{0}\\efd-reinf\\Intech.EfdReinf.Dados",
+                "Negocio": "{0}\\efd-reinf\\Intech.EfdReinf.Negocio",
+                "Entidades": "{0}\\efd-reinf\\Intech.EfdReinf.Entidades"
+            },
+            "Namespaces": {
+                "Dados": "Intech.EfdReinf.Dados",
+                "Negocio": "Intech.EfdReinf.Negocio",
+                "Entidades": "Intech.EfdReinf.Entidades"
+            }
+        }
+    ]
+}

@@ -8,7 +8,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
     public class ConfigManager
     {
         public static Config Config =>
-            JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "config.json")));
+            JsonConvert.DeserializeObject<Config>(File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "../config.json")));
 
         public static UserConfig UserConfig =>
             UserConfigManager.Get();
