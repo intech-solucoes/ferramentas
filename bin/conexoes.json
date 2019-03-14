@@ -14,5 +14,13 @@
     "Username": "sysdba",
     "Password": "masterkey",
     "Database": "REGIUS_100119"
+  },
+  {
+    "ID": "245f2b15-453f-4b48-91d5-f910a821ca17",
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PREVSYSTEM_WEB_CAGEPREV"
   }
 ]
