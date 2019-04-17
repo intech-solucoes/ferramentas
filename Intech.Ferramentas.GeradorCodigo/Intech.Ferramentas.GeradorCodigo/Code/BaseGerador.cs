@@ -185,6 +185,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
                 case "NVARCHAR":
                 case "ANSISTRING":
                 case "VARBINARY":
+                case "NCHAR":
                     return "string";
                 case "DATE":
                 case "DATETIME":
