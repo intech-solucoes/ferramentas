@@ -22,5 +22,13 @@
     "Username": "sysdba",
     "Password": "masterkey",
     "Database": "PREVSYSTEM_WEB_CAGEPREV"
+  },
+  {
+    "ID": "6d4adbe6-6eb3-4670-aff1-ec9e523b96d4",
+    "Provider": "sqlserver",
+    "DataSource": "localhost",
+    "Username": "sa",
+    "Password": "masterkey",
+    "Database": "FSF_021018"
   }
 ]

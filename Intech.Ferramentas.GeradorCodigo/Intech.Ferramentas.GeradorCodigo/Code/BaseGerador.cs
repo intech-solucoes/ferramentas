@@ -69,7 +69,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
                 if (configConsulta?.Retorno == null)
                     throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
 
-                var querySqlServer = new Regex("\r\n").Replace(sql, " ");
+                var querySqlServer = new Regex("\n").Replace(sql, " ");
+                querySqlServer = new Regex("\r").Replace(querySqlServer, " ");
                 querySqlServer = querySqlServer.Substring(querySqlServer.IndexOf("*/") + 2).Trim();
 
                 var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria);
