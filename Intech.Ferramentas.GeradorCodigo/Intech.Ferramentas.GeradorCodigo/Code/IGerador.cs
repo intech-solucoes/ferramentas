@@ -3,6 +3,6 @@
     public interface IGerador
     {
         void CriarConexao();
-        void BuscarColunas(ConfigEntidade configEntidade);
+        void BuscarColunas(Entidade configEntidade);
     }
 }

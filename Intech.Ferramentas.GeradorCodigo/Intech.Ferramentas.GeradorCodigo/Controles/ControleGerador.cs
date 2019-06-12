@@ -69,12 +69,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ButtonGerar_Click(object sender, EventArgs e)
         {
-            var listaConfigsEntidades = new List<ConfigEntidade>();
+            var listaConfigsEntidades = new List<Entidade>();
 
             foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
             {
                 var caminhoEntidadeConfig = Path.Combine(entidade.FullName, "entidade.json");
-                var configEntidade = JsonConvert.DeserializeObject<ConfigEntidade>(File.ReadAllText(caminhoEntidadeConfig));
+                var configEntidade = JsonConvert.DeserializeObject<Entidade>(File.ReadAllText(caminhoEntidadeConfig));
                 configEntidade.Nome = entidade.Name;
 
                 listaConfigsEntidades.Add(configEntidade);
@@ -96,7 +96,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
         private void ListEntidades_SelectedIndexChanged(object sender, EventArgs e)
         {
             var podeGerarProxy = true;
-            var listaConfigsEntidades = new List<ConfigEntidade>();
+            var listaConfigsEntidades = new List<Entidade>();
 
             foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
             {
@@ -138,6 +138,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                 }
             }
             return methodNames.Distinct().ToList();
+        }
+
+        private void ButtonNovaEntidade_Click(object sender, EventArgs e)
+        {
+            var formNovaEntidade = new FormNovaEntidade(SistemaSelecionado);
+            formNovaEntidade.ShowDialog();
         }
     }
 }

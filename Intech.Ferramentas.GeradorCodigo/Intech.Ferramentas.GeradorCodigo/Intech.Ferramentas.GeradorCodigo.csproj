@@ -151,7 +151,7 @@
     <Compile Include="Code\BaseGerador.cs" />
     <Compile Include="Code\Conexoes.cs" />
     <Compile Include="Code\Config.cs" />
-    <Compile Include="Code\ConfigEntidade.cs" />
+    <Compile Include="Code\Entidade.cs" />
     <Compile Include="Code\GeradorSqlServer.cs" />
     <Compile Include="Code\IGerador.cs" />
     <Compile Include="Code\UserConfig.cs" />
@@ -179,6 +179,12 @@
     <Compile Include="FormGerador.Designer.cs">
       <DependentUpon>FormGerador.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNovaEntidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNovaEntidade.Designer.cs">
+      <DependentUpon>FormNovaEntidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controles\ControleConexoes.resx">
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGerador.resx">
       <DependentUpon>FormGerador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNovaEntidade.resx">
+      <DependentUpon>FormNovaEntidade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -226,7 +226,7 @@
             this.ButtonNovo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonNovo.Location = new System.Drawing.Point(3, 4);
             this.ButtonNovo.Name = "ButtonNovo";
-            this.ButtonNovo.Size = new System.Drawing.Size(66, 23);
+            this.ButtonNovo.Size = new System.Drawing.Size(173, 23);
             this.ButtonNovo.TabIndex = 8;
             this.ButtonNovo.Text = "Nova";
             this.ButtonNovo.UseVisualStyleBackColor = false;

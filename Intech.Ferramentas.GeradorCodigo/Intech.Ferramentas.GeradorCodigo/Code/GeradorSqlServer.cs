@@ -9,7 +9,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
 {
     public class GeradorSqlServer : BaseGerador, IGerador
     {
-        public GeradorSqlServer(Config config, Conexao conexao, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades) 
+        public GeradorSqlServer(Config config, Conexao conexao, Sistema sistemaSelecionado, List<Entidade> configsEntidades) 
             : base(config, conexao, sistemaSelecionado, configsEntidades) { }
 
         private SqlConnection Conexao;
@@ -24,13 +24,13 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         /// Faz select na tabela sys.columns para buscar as colunas da tabela
         /// </summary>
         /// <returns></returns>
-        public override void BuscarColunas(ConfigEntidade configEntidade)
+        public override void BuscarColunas(Entidade configEntidade)
         {
             var listaColunas = new List<Coluna>();
 
             string sql;
 
-            if (configEntidade.Sinonimo)
+            if (configEntidade.Sinonimo.HasValue && configEntidade.Sinonimo.Value)
             {
                 sql = $"SELECT TOP(0) * INTO #tmpColumns FROM {configEntidade.NomeTabela};" +
                       "SELECT tempdb.sys.columns.name, tempdb.sys.columns.max_length, tempdb.sys.columns.precision, tempdb.sys.columns.scale, tempdb.sys.columns.is_nullable, tempdb.sys.columns.is_identity, sys.types.name as type " +
@@ -57,6 +57,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
                         Nome = column.name,
                         Tipo = MapeiaTipo(column.type),
                         AceitaNulo = column.is_nullable,
+                        IsColunaExtra = false,
                         ChavePrimaria = column.is_identity || column.name == configEntidade.ChavePrimaria
                     });
             }

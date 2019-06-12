@@ -2,11 +2,11 @@
 
 namespace Intech.Ferramentas.GeradorCodigo.Code
 {
-    public class ConfigEntidade
+    public class Entidade
     {
         public string Nome { get; set; }
         public string NomeTabela { get; set; }
-        public bool Sinonimo { get; set; }
+        public bool? Sinonimo { get; set; }
         public string ChavePrimaria { get; set; }
         public List<Coluna> ColunasExtras { get; set; } = new List<Coluna>();
     }
@@ -16,8 +16,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public string Nome { get; set; }
         public string Tipo { get; set; }
         public bool AceitaNulo { get; set; }
-        public bool ChavePrimaria { get; set; }
-        public bool IsColunaExtra { get; set; }
+        public bool? ChavePrimaria { get; set; }
+        public bool? IsColunaExtra { get; set; }
     }
 
     public class Consulta

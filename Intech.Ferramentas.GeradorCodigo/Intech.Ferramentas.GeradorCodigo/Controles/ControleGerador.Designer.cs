@@ -41,7 +41,7 @@
             this.CheckBoxGerarProxy = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarEntidade = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarDAO = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonNovaEntidade = new System.Windows.Forms.Button();
             this.ListEntidades = new System.Windows.Forms.ListBox();
             this.conexaoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -67,7 +67,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.ButtonNovaEntidade);
             this.splitContainer1.Panel2.Controls.Add(this.ListEntidades);
             this.splitContainer1.Size = new System.Drawing.Size(467, 296);
             this.splitContainer1.SplitterDistance = 295;
@@ -199,19 +199,22 @@
             this.CheckBoxGerarDAO.Text = "DAO";
             this.CheckBoxGerarDAO.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // ButtonNovaEntidade
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Nova";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ButtonNovaEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonNovaEntidade.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ButtonNovaEntidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonNovaEntidade.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonNovaEntidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonNovaEntidade.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonNovaEntidade.Location = new System.Drawing.Point(3, 3);
+            this.ButtonNovaEntidade.Name = "ButtonNovaEntidade";
+            this.ButtonNovaEntidade.Size = new System.Drawing.Size(162, 23);
+            this.ButtonNovaEntidade.TabIndex = 7;
+            this.ButtonNovaEntidade.Text = "Nova";
+            this.ButtonNovaEntidade.UseVisualStyleBackColor = false;
+            this.ButtonNovaEntidade.Click += new System.EventHandler(this.ButtonNovaEntidade_Click);
             // 
             // ListEntidades
             // 
@@ -259,7 +262,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListBox ListEntidades;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonNovaEntidade;
         private System.Windows.Forms.BindingSource conexaoBindingSource;
         private System.Windows.Forms.BindingSource conexaoBindingSource1;
         private System.Windows.Forms.GroupBox groupBox1;

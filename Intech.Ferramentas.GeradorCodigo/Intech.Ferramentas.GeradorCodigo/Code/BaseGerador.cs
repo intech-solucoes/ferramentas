@@ -17,7 +17,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         protected Config Config;
         protected Conexao ConfigConexao;
         protected Sistema Sistema;
-        protected List<ConfigEntidade> ConfigsEntidades;
+        protected List<Entidade> ConfigsEntidades;
         protected List<Consulta> Consultas = new List<Consulta>();
         protected List<Coluna> ColunasEntidade = new List<Coluna>();
 
@@ -26,7 +26,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         DirectoryInfo DirProxy => new DirectoryInfo(Path.Combine(Sistema.Diretorios.Negocio, "Proxy"));
         DirectoryInfo DirEntidades => new DirectoryInfo(Sistema.Diretorios.Entidades);
 
-        public BaseGerador(Config config, Conexao conexao, Sistema sistemaSelecionado, List<ConfigEntidade> configsEntidades)
+        public BaseGerador(Config config, Conexao conexao, Sistema sistemaSelecionado, List<Entidade> configsEntidades)
         {
             Config = config;
             ConfigConexao = conexao;
@@ -40,8 +40,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
 
             foreach (var configEntidade in ConfigsEntidades)
             {
-                BuscarConsultas(configEntidade);
                 BuscarColunas(configEntidade);
+                BuscarConsultas(configEntidade);
 
                 if(gerarEntidade) SalvarEntidade(configEntidade);
                 if(gerarDAO) SalvarDAO(configEntidade);
@@ -53,9 +53,9 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         }
 
         public virtual void CriarConexao() => throw new NotImplementedException();
-        public virtual void BuscarColunas(ConfigEntidade configEntidade) => throw new NotImplementedException();
+        public virtual void BuscarColunas(Entidade configEntidade) => throw new NotImplementedException();
 
-        private void BuscarConsultas(ConfigEntidade configEntidade)
+        private void BuscarConsultas(Entidade configEntidade)
         {
             var arquivosSQL = DirScripts.GetDirectories(configEntidade.Nome).Single().EnumerateFiles().Where(x => x.Name.Contains(".sql"));
 
@@ -73,7 +73,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
                 querySqlServer = new Regex("\r").Replace(querySqlServer, " ");
                 querySqlServer = querySqlServer.Substring(querySqlServer.IndexOf("*/") + 2).Trim();
 
-                var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria);
+                var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria.HasValue && x.ChavePrimaria.Value);
 
                 var queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
 
@@ -91,7 +91,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             }
         }
 
-        public void AdicionarColunas(ConfigEntidade configEntidade, List<Coluna> colunas)
+        public void AdicionarColunas(Entidade configEntidade, List<Coluna> colunas)
         {
             colunas.ForEach(coluna =>
             {
@@ -106,7 +106,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             }
         }
 
-        protected void SalvarEntidade(ConfigEntidade configEntidade)
+        protected void SalvarEntidade(Entidade configEntidade)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             } catch(Exception ex) { }
         }
 
-        protected void SalvarDAO(ConfigEntidade configEntidade)
+        protected void SalvarDAO(Entidade configEntidade)
         {
             var model = new
             {
@@ -142,7 +142,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
             File.WriteAllText(Path.Combine(DirDAO.FullName, $"{configEntidade.Nome}DAO.cs"), dao, Encoding.UTF8);
         }
 
-        protected void SalvarProxy(ConfigEntidade configEntidade)
+        protected void SalvarProxy(Entidade configEntidade)
         {
             var model = new
             {

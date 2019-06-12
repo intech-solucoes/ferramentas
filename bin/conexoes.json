@@ -8,27 +8,27 @@
     "Database": "FACEB_FORMULA"
   },
   {
-    "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5",
-    "Provider": "sqlserver",
-    "DataSource": "10.10.170.13",
-    "Username": "sysdba",
-    "Password": "masterkey",
-    "Database": "REGIUS_100119"
-  },
-  {
     "ID": "245f2b15-453f-4b48-91d5-f910a821ca17",
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "PREVSYSTEM_WEB_CAGEPREV"
+    "Database": "PW_CAGEPREV"
   },
   {
-    "ID": "6d4adbe6-6eb3-4670-aff1-ec9e523b96d4",
+    "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5",
     "Provider": "sqlserver",
-    "DataSource": "localhost",
-    "Username": "sa",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "FSF_021018"
+    "Database": "REGIUS_01032016"
+  },
+  {
+    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a",
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "FSF_160519"
   }
 ]
