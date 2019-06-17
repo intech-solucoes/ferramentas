@@ -167,6 +167,12 @@
     <Compile Include="Controles\ControleGerador.Designer.cs">
       <DependentUpon>ControleGerador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\ControleProjetos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ControleProjetos.Designer.cs">
+      <DependentUpon>ControleProjetos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConfiguracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ControleGerador.resx">
       <DependentUpon>ControleGerador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ControleProjetos.resx">
+      <DependentUpon>ControleProjetos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>
