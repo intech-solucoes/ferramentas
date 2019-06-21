@@ -34,7 +34,7 @@
             this.controleGerador1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleGerador();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.controleConexoes1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleConexoes();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.ButtonConfiguracao = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -92,18 +92,19 @@
             this.controleConexoes1.Size = new System.Drawing.Size(570, 304);
             this.controleConexoes1.TabIndex = 0;
             // 
-            // toolStripButton2
+            // ButtonConfiguracao
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(99, 22);
-            this.toolStripButton2.Text = "Configuração";
+            this.ButtonConfiguracao.Image = ((System.Drawing.Image)(resources.GetObject("ButtonConfiguracao.Image")));
+            this.ButtonConfiguracao.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonConfiguracao.Name = "ButtonConfiguracao";
+            this.ButtonConfiguracao.Size = new System.Drawing.Size(99, 22);
+            this.ButtonConfiguracao.Text = "Configuração";
+            this.ButtonConfiguracao.Click += new System.EventHandler(this.ButtonConfiguracao_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2});
+            this.ButtonConfiguracao});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(584, 25);
@@ -139,7 +140,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private Controles.ControleConexoes controleConexoes1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton ButtonConfiguracao;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TabPage tabPage1;
         private Controles.ControleGerador controleGerador1;

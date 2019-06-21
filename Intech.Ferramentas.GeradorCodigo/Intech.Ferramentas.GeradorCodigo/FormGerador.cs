@@ -27,5 +27,11 @@ namespace Intech.Ferramentas.GeradorCodigo
                 formConfig.ShowDialog();
             }
         }
+
+        private void ButtonConfiguracao_Click(object sender, EventArgs e)
+        {
+            var formConfig = new FormConfiguracao();
+            formConfig.ShowDialog();
+        }
     }
 }
