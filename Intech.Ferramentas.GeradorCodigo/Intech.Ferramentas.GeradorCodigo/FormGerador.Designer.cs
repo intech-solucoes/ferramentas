@@ -36,16 +36,20 @@
             this.controleConexoes1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleConexoes();
             this.ButtonConfiguracao = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.controleProjetos1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleProjetos();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
@@ -111,6 +115,25 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.controleProjetos1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(576, 310);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Projetos";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // controleProjetos1
+            // 
+            this.controleProjetos1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controleProjetos1.Location = new System.Drawing.Point(3, 3);
+            this.controleProjetos1.Name = "controleProjetos1";
+            this.controleProjetos1.Size = new System.Drawing.Size(570, 304);
+            this.controleProjetos1.TabIndex = 0;
+            // 
             // FormGerador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +154,7 @@
             this.tabPage2.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +168,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TabPage tabPage1;
         private Controles.ControleGerador controleGerador1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private Controles.ControleProjetos controleProjetos1;
     }
 }
 

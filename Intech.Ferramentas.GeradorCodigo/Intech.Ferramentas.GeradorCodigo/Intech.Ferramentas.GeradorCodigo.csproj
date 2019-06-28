@@ -148,12 +148,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\BaseGerador.cs" />
+    <Compile Include="Code\Gerador\BaseGerador.cs" />
     <Compile Include="Code\Conexoes.cs" />
     <Compile Include="Code\Config.cs" />
     <Compile Include="Code\Entidade.cs" />
-    <Compile Include="Code\GeradorSqlServer.cs" />
-    <Compile Include="Code\IGerador.cs" />
+    <Compile Include="Code\Gerador\GeradorSqlServer.cs" />
+    <Compile Include="Code\Gerador\IGerador.cs" />
+    <Compile Include="Code\JsonListHelper.cs" />
+    <Compile Include="Code\JsonListItem.cs" />
+    <Compile Include="Code\Projetos.cs" />
     <Compile Include="Code\UserConfig.cs" />
     <Compile Include="Controles\ControleConexoes.cs">
       <SubType>UserControl</SubType>
@@ -173,6 +176,25 @@
     <Compile Include="Controles\ControleProjetos.Designer.cs">
       <DependentUpon>ControleProjetos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso1.Designer.cs">
+      <DependentUpon>ControlPasso1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso2.Designer.cs">
+      <DependentUpon>ControlPasso2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormNovoProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormNovoProjeto.Designer.cs">
+      <DependentUpon>FormNovoProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ParametrosProjeto.cs" />
     <Compile Include="FormConfiguracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +223,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ControleProjetos.resx">
       <DependentUpon>ControleProjetos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\ControlPasso1.resx">
+      <DependentUpon>ControlPasso1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\ControlPasso2.resx">
+      <DependentUpon>ControlPasso2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\FormNovoProjeto.resx">
+      <DependentUpon>FormNovoProjeto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>

@@ -31,10 +31,15 @@
             this.ListBoxProjetos = new System.Windows.Forms.ListBox();
             this.ButtonNovo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonSalvar = new System.Windows.Forms.Button();
+            this.ButtonVS = new System.Windows.Forms.Button();
+            this.ButtonVSCode = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.TextBoxDiretorio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TextBoxRepositorio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TextBoxTipoProjeto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,12 +64,21 @@
             this.ButtonNovo.Name = "ButtonNovo";
             this.ButtonNovo.Size = new System.Drawing.Size(173, 23);
             this.ButtonNovo.TabIndex = 9;
-            this.ButtonNovo.Text = "Nova";
+            this.ButtonNovo.Text = "Novo";
             this.ButtonNovo.UseVisualStyleBackColor = false;
+            this.ButtonNovo.Click += new System.EventHandler(this.ButtonNovo_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TextBoxTipoProjeto);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.ButtonSalvar);
+            this.groupBox1.Controls.Add(this.ButtonVS);
+            this.groupBox1.Controls.Add(this.ButtonVSCode);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.TextBoxDiretorio);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TextBoxRepositorio);
             this.groupBox1.Controls.Add(this.label3);
@@ -74,6 +88,85 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configurações";
+            // 
+            // ButtonSalvar
+            // 
+            this.ButtonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonSalvar.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.ButtonSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSalvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonSalvar.Location = new System.Drawing.Point(6, 354);
+            this.ButtonSalvar.Name = "ButtonSalvar";
+            this.ButtonSalvar.Size = new System.Drawing.Size(64, 23);
+            this.ButtonSalvar.TabIndex = 16;
+            this.ButtonSalvar.Text = "Salvar";
+            this.ButtonSalvar.UseVisualStyleBackColor = false;
+            this.ButtonSalvar.Click += new System.EventHandler(this.ButtonSalvar_Click);
+            // 
+            // ButtonVS
+            // 
+            this.ButtonVS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonVS.BackColor = System.Drawing.Color.DarkViolet;
+            this.ButtonVS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonVS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonVS.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonVS.Location = new System.Drawing.Point(188, 325);
+            this.ButtonVS.Name = "ButtonVS";
+            this.ButtonVS.Size = new System.Drawing.Size(125, 23);
+            this.ButtonVS.TabIndex = 15;
+            this.ButtonVS.Text = "Abrir no Visual Studio";
+            this.ButtonVS.UseVisualStyleBackColor = false;
+            this.ButtonVS.Click += new System.EventHandler(this.ButtonVS_Click);
+            // 
+            // ButtonVSCode
+            // 
+            this.ButtonVSCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonVSCode.BackColor = System.Drawing.Color.DodgerBlue;
+            this.ButtonVSCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonVSCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonVSCode.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonVSCode.Location = new System.Drawing.Point(188, 354);
+            this.ButtonVSCode.Name = "ButtonVSCode";
+            this.ButtonVSCode.Size = new System.Drawing.Size(125, 23);
+            this.ButtonVSCode.TabIndex = 14;
+            this.ButtonVSCode.Text = "Abrir no VS Code";
+            this.ButtonVSCode.UseVisualStyleBackColor = false;
+            this.ButtonVSCode.Click += new System.EventHandler(this.ButtonVSCode_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "API",
+            "Web",
+            "Mobile"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(307, 21);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // TextBoxDiretorio
+            // 
+            this.TextBoxDiretorio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxDiretorio.Enabled = false;
+            this.TextBoxDiretorio.Location = new System.Drawing.Point(6, 139);
+            this.TextBoxDiretorio.Name = "TextBoxDiretorio";
+            this.TextBoxDiretorio.Size = new System.Drawing.Size(307, 20);
+            this.TextBoxDiretorio.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Diretório";
             // 
             // label1
             // 
@@ -88,6 +181,7 @@
             // 
             this.TextBoxRepositorio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxRepositorio.Enabled = false;
             this.TextBoxRepositorio.Location = new System.Drawing.Point(6, 45);
             this.TextBoxRepositorio.Name = "TextBoxRepositorio";
             this.TextBoxRepositorio.Size = new System.Drawing.Size(307, 20);
@@ -101,15 +195,6 @@
             this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nome Repositório";
-            // 
-            // TextBoxTipoProjeto
-            // 
-            this.TextBoxTipoProjeto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxTipoProjeto.Location = new System.Drawing.Point(6, 90);
-            this.TextBoxTipoProjeto.Name = "TextBoxTipoProjeto";
-            this.TextBoxTipoProjeto.Size = new System.Drawing.Size(307, 20);
-            this.TextBoxTipoProjeto.TabIndex = 9;
             // 
             // ControleProjetos
             // 
@@ -134,6 +219,11 @@
         private System.Windows.Forms.TextBox TextBoxRepositorio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TextBoxTipoProjeto;
+        private System.Windows.Forms.TextBox TextBoxDiretorio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button ButtonVSCode;
+        private System.Windows.Forms.Button ButtonVS;
+        private System.Windows.Forms.Button ButtonSalvar;
     }
 }

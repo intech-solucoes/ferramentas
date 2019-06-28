@@ -1,12 +1,13 @@
 ﻿#region Usings
 using Intech.Ferramentas.GeradorCodigo.Code;
+using Intech.Ferramentas.GeradorCodigo.Code.Gerador;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms; 
+using System.Windows.Forms;
 #endregion
 
 namespace Intech.Ferramentas.GeradorCodigo.Controles
@@ -28,7 +29,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             {
                 Config = ConfigManager.Config;
                 
-                ComboBoxConexao.DataSource = Conexoes.ListaConexoes;
+                ComboBoxConexao.DataSource = new Conexoes().Lista;
 
                 BuscarSistemas();
             }
@@ -36,7 +37,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ControleGerador_Enter(object sender, EventArgs e)
         {
-            ComboBoxConexao.DataSource = Conexoes.ListaConexoes;
+            ComboBoxConexao.DataSource = new Conexoes().Lista;
         }
 
         private void BuscarSistemas()

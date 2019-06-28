@@ -11,11 +11,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             InitializeComponent();
         }
 
-        private void PreencherConexoes()
-        {
-            ListBoxConexoes.DataSource = Conexoes.ListaConexoes;
-        }
-
         private void ControleConexoes_Load(object sender, EventArgs e)
         {
             PreencherConexoes();
@@ -38,6 +33,11 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
         private void ButtonNovo_Click(object sender, EventArgs e)
         {
             Limpar();
+        }
+
+        private void PreencherConexoes()
+        {
+            ListBoxConexoes.DataSource = new Conexoes().Lista;
         }
 
         private void Limpar()

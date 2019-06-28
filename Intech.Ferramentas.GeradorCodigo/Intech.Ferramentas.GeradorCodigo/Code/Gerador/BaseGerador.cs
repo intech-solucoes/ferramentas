@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions; 
 #endregion
 
-namespace Intech.Ferramentas.GeradorCodigo.Code
+namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 {
     public abstract class BaseGerador
     {
