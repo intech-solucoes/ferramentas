@@ -1,34 +1,56 @@
 [
   {
-    "ID": "ab251e6c-fa6c-498b-8d85-5a4716782739",
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "FACEB_FORMULA"
+    "Database": "FACEB_FORMULA",
+    "Sistema": "Advanced",
+    "ID": "ab251e6c-fa6c-498b-8d85-5a4716782739"
   },
   {
-    "ID": "245f2b15-453f-4b48-91d5-f910a821ca17",
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "PW_CAGEPREV"
+    "Database": "PW_CAGEPREV",
+    "Sistema": "PrevSystemWeb",
+    "ID": "245f2b15-453f-4b48-91d5-f910a821ca17"
   },
   {
-    "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5",
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "REGIUS_01032016"
+    "Database": "REGIUS_01032016",
+    "Sistema": "PrevSystem",
+    "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5"
   },
   {
-    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a",
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "FSF_160519"
+    "Database": "EFD_REINF",
+    "Sistema": "EFD-Reinf",
+    "ID": "9e97ce3d-b360-41eb-8999-7ebe1995cb7b"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PW_EQTPREV",
+    "Sistema": null,
+    "ID": "3ab04252-1172-4e98-b544-4aba1fde29e2"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "FSF_160519_NAOAPAGAR",
+    "Sistema": "PrevSystem",
+    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
   }
 ]

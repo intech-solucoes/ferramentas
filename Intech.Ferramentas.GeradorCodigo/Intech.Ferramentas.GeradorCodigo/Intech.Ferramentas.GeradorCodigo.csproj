@@ -148,6 +148,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\ConexaoHelper.cs" />
     <Compile Include="Code\Gerador\BaseGerador.cs" />
     <Compile Include="Code\Conexoes.cs" />
     <Compile Include="Code\Config.cs" />
@@ -176,6 +177,12 @@
     <Compile Include="Controles\ControleProjetos.Designer.cs">
       <DependentUpon>ControleProjetos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\ControleUtilitarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ControleUtilitarios.Designer.cs">
+      <DependentUpon>ControleUtilitarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\NovoProjeto\ControlPasso1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +200,12 @@
     </Compile>
     <Compile Include="Controles\NovoProjeto\FormNovoProjeto.Designer.cs">
       <DependentUpon>FormNovoProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormProjetosDependentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormProjetosDependentes.Designer.cs">
+      <DependentUpon>FormProjetosDependentes.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\NovoProjeto\ParametrosProjeto.cs" />
     <Compile Include="FormConfiguracao.cs">
@@ -224,6 +237,9 @@
     <EmbeddedResource Include="Controles\ControleProjetos.resx">
       <DependentUpon>ControleProjetos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ControleUtilitarios.resx">
+      <DependentUpon>ControleUtilitarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles\NovoProjeto\ControlPasso1.resx">
       <DependentUpon>ControlPasso1.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\NovoProjeto\FormNovoProjeto.resx">
       <DependentUpon>FormNovoProjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\FormProjetosDependentes.resx">
+      <DependentUpon>FormProjetosDependentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>
@@ -267,6 +286,7 @@
     <None Include="Templates\DAO.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\EntidadeTS.template" />
     <None Include="Templates\Proxy.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

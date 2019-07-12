@@ -28,16 +28,79 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             if (!DesignMode)
             {
                 Config = ConfigManager.Config;
-                
-                ComboBoxConexao.DataSource = new Conexoes().Lista;
-
                 BuscarSistemas();
             }
         }
 
         private void ControleGerador_Enter(object sender, EventArgs e)
         {
-            ComboBoxConexao.DataSource = new Conexoes().Lista;
+            CarregarConexoes();
+        }
+
+        private void ButtonGerar_Click(object sender, EventArgs e)
+        {
+            var listaConfigsEntidades = new List<Entidade>();
+
+            foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
+            {
+                var caminhoEntidadeConfig = Path.Combine(entidade.FullName, "entidade.json");
+                var configEntidade = JsonConvert.DeserializeObject<Entidade>(File.ReadAllText(caminhoEntidadeConfig));
+                configEntidade.Nome = entidade.Name;
+
+                listaConfigsEntidades.Add(configEntidade);
+            }
+
+            var conexao = (Conexao)ComboBoxConexao.SelectedItem;
+
+            var gerador = new GeradorSqlServer(Config, conexao, SistemaSelecionado, listaConfigsEntidades);
+            gerador.Gerar(CheckBoxGerarEntidade.Checked, CheckBoxGerarDAO.Checked, CheckBoxGerarProxy.Checked);
+
+            MessageBox.Show("Gerado com sucesso!");
+        }
+
+        private void ComboBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BuscarEntidades();
+            CarregarConexoes();
+        }
+
+        private void ListEntidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var podeGerarProxy = true;
+            var listaConfigsEntidades = new List<Entidade>();
+
+            foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
+            {
+                var caminho = entidade.FullName;
+                var nomeEntidade = entidade.Name;
+                var nomeArquivo = Path.Combine(SistemaSelecionado.Diretorios.Negocio, "Proxy", nomeEntidade + "Proxy.cs");
+
+                if (!File.Exists(nomeArquivo))
+                {
+                    podeGerarProxy = true;
+                }
+                else
+                {
+                    var metodos = GetAllMethodNames(nomeArquivo);
+                    if (metodos.Count > 0)
+                        podeGerarProxy = false;
+                }
+            }
+
+            CheckBoxGerarProxy.Enabled = podeGerarProxy;
+            CheckBoxGerarProxy.Checked = podeGerarProxy;
+        }
+
+        private void ButtonNovaEntidade_Click(object sender, EventArgs e)
+        {
+            var formNovaEntidade = new FormNovaEntidade(SistemaSelecionado);
+            formNovaEntidade.ShowDialog();
+        }
+
+        private void CarregarConexoes()
+        {
+            ComboBoxConexao.DataSource = new Conexoes().Lista.Where(x => x.Sistema == SistemaSelecionado.Nome).ToList();
+            ComboBoxConexao.SelectedIndex = 0;
         }
 
         private void BuscarSistemas()
@@ -68,59 +131,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             ListEntidades.DisplayMember = "Name";
         }
 
-        private void ButtonGerar_Click(object sender, EventArgs e)
-        {
-            var listaConfigsEntidades = new List<Entidade>();
-
-            foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
-            {
-                var caminhoEntidadeConfig = Path.Combine(entidade.FullName, "entidade.json");
-                var configEntidade = JsonConvert.DeserializeObject<Entidade>(File.ReadAllText(caminhoEntidadeConfig));
-                configEntidade.Nome = entidade.Name;
-
-                listaConfigsEntidades.Add(configEntidade);
-            }
-
-            var conexao = (Conexao)ComboBoxConexao.SelectedItem;
-
-            var gerador = new GeradorSqlServer(Config, conexao, SistemaSelecionado, listaConfigsEntidades);
-            gerador.Gerar(CheckBoxGerarEntidade.Checked, CheckBoxGerarDAO.Checked, CheckBoxGerarProxy.Checked);
-
-            MessageBox.Show("Gerado com sucesso!");
-        }
-
-        private void ComboBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BuscarEntidades();
-        }
-
-        private void ListEntidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var podeGerarProxy = true;
-            var listaConfigsEntidades = new List<Entidade>();
-
-            foreach (DirectoryInfo entidade in ListEntidades.SelectedItems)
-            {
-                var caminho = entidade.FullName;
-                var nomeEntidade = entidade.Name;
-                var nomeArquivo = Path.Combine(SistemaSelecionado.Diretorios.Negocio, "Proxy", nomeEntidade + "Proxy.cs");
-
-                if (!File.Exists(nomeArquivo))
-                {
-                    podeGerarProxy = true;
-                }
-                else
-                {
-                    var metodos = GetAllMethodNames(nomeArquivo);
-                    if (metodos.Count > 0)
-                        podeGerarProxy = false;
-                }
-            }
-
-            CheckBoxGerarProxy.Enabled = podeGerarProxy;
-            CheckBoxGerarProxy.Checked = podeGerarProxy;
-        }
-
         public List<string> GetAllMethodNames(string strFileName)
         {
             List<string> methodNames = new List<string>();
@@ -139,12 +149,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                 }
             }
             return methodNames.Distinct().ToList();
-        }
-
-        private void ButtonNovaEntidade_Click(object sender, EventArgs e)
-        {
-            var formNovaEntidade = new FormNovaEntidade(SistemaSelecionado);
-            formNovaEntidade.ShowDialog();
         }
     }
 }

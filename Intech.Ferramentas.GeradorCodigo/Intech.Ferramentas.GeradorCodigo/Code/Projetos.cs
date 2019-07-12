@@ -1,4 +1,6 @@
 ﻿using Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Intech.Ferramentas.GeradorCodigo.Code
@@ -17,5 +19,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public string Nome { get; set; }
         public TipoProjeto Tipo { get; set; }
         public string Diretorio { get; set; }
+        public List<Projeto> Dependentes { get; set; }
+        public string Sistema { get; set; }
+        public string Namespace { get; set; }
     }
 }

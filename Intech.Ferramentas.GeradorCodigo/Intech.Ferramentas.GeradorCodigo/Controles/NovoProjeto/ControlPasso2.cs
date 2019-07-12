@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Intech.Ferramentas.GeradorCodigo.Code;
+using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -23,7 +24,10 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
                 RadioButtonAPI.Enabled = false;
                 RadioButtonMobile.Enabled = false;
                 RadioButtonWeb.Enabled = false;
+                ButtonContinuar.Text = "Salvar";
             }
+
+            BuscarSistemas();
         }
 
         private void ButtonProcurar_Click(object sender, EventArgs e)
@@ -40,6 +44,16 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
                         BuscarProjetoExistente();
                 }
             }
+        }
+
+        private void BuscarSistemas()
+        {
+            ComboBoxSistemas.Items.Clear();
+
+            foreach (var cliente in ConfigManager.Config.Sistema)
+                ComboBoxSistemas.Items.Add(cliente.Nome);
+
+            ComboBoxSistemas.SelectedIndex = 0;
         }
 
         private void BuscarProjetoExistente()
@@ -78,6 +92,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
 
             SelecionarTipoProjeto();
             TextBoxNomeProjeto.Text = ParametrosProjeto.NomeProjeto;
+
+            if(ParametrosProjeto.TipoProjeto != TipoProjeto.API)
+            {
+                TextBoxNamespace.Enabled = false;
+                TextBoxNamespace.Text = null;
+            }
         }
 
         private void SelecionarTipoProjeto()
@@ -89,7 +109,18 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
 
         private void ButtonContinuar_Click(object sender, EventArgs e)
         {
+            new Projetos().Salvar(new Projeto
+            {
+                ID = Guid.NewGuid(),
+                Diretorio = TextBoxDiretorio.Text,
+                Nome = TextBoxNomeProjeto.Text,
+                Tipo = ParametrosProjeto.TipoProjeto.Value,
+                Sistema = ComboBoxSistemas.Text,
+                Namespace = TextBoxNamespace.Text
+            });
 
+            MessageBox.Show("Projeto salvo com sucesso!");
+            FormControlador.Fechar();
         }
     }
 }

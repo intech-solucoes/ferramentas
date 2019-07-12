@@ -19,6 +19,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public string Username { get; set; }
         public string Password { get; set; }
         public string Database { get; set; }
+        public string Sistema { get; set; }
 
         [JsonIgnore]
         public string ConnectionString =>

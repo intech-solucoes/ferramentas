@@ -22,5 +22,11 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
         {
             Navegar(new ControlPasso1(this));
         }
+
+        public void Fechar()
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
     }
 }

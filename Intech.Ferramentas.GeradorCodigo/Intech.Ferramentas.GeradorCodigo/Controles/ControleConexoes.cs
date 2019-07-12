@@ -1,5 +1,6 @@
 ﻿using Intech.Ferramentas.GeradorCodigo.Code;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Intech.Ferramentas.GeradorCodigo.Controles
@@ -13,7 +14,11 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ControleConexoes_Load(object sender, EventArgs e)
         {
-            PreencherConexoes();
+            if (!DesignMode)
+            {
+                PreencherConexoes();
+                PreencherSistemas();
+            }
         }
 
         private void ListBoxConexoes_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,6 +27,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
             if (conexao != null)
             {
+                ComboBoxSistema.Text = conexao.Sistema;
                 ComboBoxProvider.Text = conexao.Provider;
                 ComboBoxServidor.Text = conexao.DataSource;
                 TextBoxUsuario.Text = conexao.Username;
@@ -37,11 +43,22 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void PreencherConexoes()
         {
-            ListBoxConexoes.DataSource = new Conexoes().Lista;
+            ListBoxConexoes.DataSource = new Conexoes().Lista.OrderBy(x => x.Database).ToList();
+        }
+
+        private void PreencherSistemas()
+        {
+            ComboBoxSistema.Items.Clear();
+
+            foreach (var cliente in ConfigManager.Config.Sistema)
+                ComboBoxSistema.Items.Add(cliente.Nome);
+
+            ComboBoxSistema.SelectedIndex = 0;
         }
 
         private void Limpar()
         {
+            ComboBoxSistema.Text = "";
             ComboBoxServidor.Text = "";
             TextBoxUsuario.Text = "";
             TextBoxSenha.Text = "";
@@ -60,7 +77,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                     DataSource = ComboBoxServidor.Text,
                     Username = TextBoxUsuario.Text,
                     Password = TextBoxSenha.Text,
-                    Database = TextBoxBanco.Text
+                    Database = TextBoxBanco.Text,
+                    Sistema = ComboBoxSistema.Text
                 });
 
                 MessageBox.Show("Conexão salva com sucesso!");

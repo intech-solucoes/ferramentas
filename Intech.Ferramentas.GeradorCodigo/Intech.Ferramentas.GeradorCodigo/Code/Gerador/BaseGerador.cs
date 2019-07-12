@@ -57,7 +57,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 
         private void BuscarConsultas(Entidade configEntidade)
         {
-            var arquivosSQL = DirScripts.GetDirectories(configEntidade.Nome).Single().EnumerateFiles().Where(x => x.Name.Contains(".sql"));
+            var arquivosSQL = DirScripts.GetDirectories(configEntidade.Nome).Single().EnumerateFiles().Where(x => x.Name.EndsWith(".sql"));
 
             // Executa a busca de consultas e parâmetros em todos os arquivos do diretório base
             foreach (var sqlFile in arquivosSQL)
@@ -75,11 +75,22 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 
                 var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria.HasValue && x.ChavePrimaria.Value);
 
-                var queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
+                var queryOracle = "";
+
+                // Se não tiver .sqlserver nem .oracle no nome, traduz pra oracle normalmente
+                if (!sqlFile.Name.Contains(".sqlserver.") && !sqlFile.Name.Contains(".oracle."))
+                {
+                    queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
+                }
+                // se tiver .oracle, a query do arquivo será a query do oracle sem tradução
+                else if (sqlFile.Name.Contains(".oracle."))
+                {
+                    queryOracle = querySqlServer;
+                }
 
                 var consulta = new Consulta
                 {
-                    Nome = sqlFile.Name.Replace(".sql", string.Empty),
+                    Nome = sqlFile.Name.Replace(".oracle", string.Empty).Replace(".sqlserver", string.Empty).Replace(".sql", string.Empty),
                     QuerySqlServer = querySqlServer,
                     QueryOracle = queryOracle,
                     Parametros = configConsulta.ParametrosConsulta,

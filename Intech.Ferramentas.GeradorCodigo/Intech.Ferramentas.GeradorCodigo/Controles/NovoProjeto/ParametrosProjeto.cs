@@ -6,6 +6,7 @@
         public static TipoOperacao TipoOperacao { get; set; }
         public static string Diretorio { get; set; }
         public static string NomeProjeto { get; set; }
+        public static string Namespace { get; set; }
     }
 
     public enum TipoProjeto
