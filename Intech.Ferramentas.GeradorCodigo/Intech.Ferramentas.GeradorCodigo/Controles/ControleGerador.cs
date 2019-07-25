@@ -17,6 +17,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
         public Config Config { get; set; }
 
         public Sistema SistemaSelecionado => Config.Sistema[ComboBoxSistemas.SelectedIndex];
+        public Entidade EntidadeSelecionada => Entidade.Buscar((DirectoryInfo)ListEntidades.SelectedItem);
 
         public ControleGerador()
         {
@@ -149,6 +150,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                 }
             }
             return methodNames.Distinct().ToList();
+        }
+
+        private void ButtonEditarEntidade_Click(object sender, EventArgs e)
+        {
+            var form = new FormNovaEntidade(SistemaSelecionado, EntidadeSelecionada);
+            form.ShowDialog();
         }
     }
 }

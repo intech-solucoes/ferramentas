@@ -11,6 +11,8 @@ namespace Intech.Ferramentas.GeradorCodigo
     public partial class FormNovaEntidade : Form
     {
         public Sistema Sistema { get; }
+        public Entidade Entidade { get; set; }
+        public bool Edicao { get; }
 
         public FormNovaEntidade()
         {
@@ -25,6 +27,35 @@ namespace Intech.Ferramentas.GeradorCodigo
             LabelNomeSistema.Text = Sistema.Nome;
 
             ListBoxColunasExtras.DisplayMember = "Nome";
+        }
+
+        public FormNovaEntidade(Sistema sistema, Entidade entidade)
+        {
+            InitializeComponent();
+
+            Sistema = sistema;
+            Entidade = entidade;
+
+            LabelNomeSistema.Text = Sistema.Nome;
+
+            TextBoxNomeEntidade.Text = entidade.Nome;
+            TextBoxNomeEntidade.Enabled = false;
+
+            TextBoxNomeTabela.Text = entidade.NomeTabela;
+
+            if(entidade.Sinonimo.HasValue)
+                CheckBoxSinonimo.Checked = entidade.Sinonimo.Value;
+
+            if (!string.IsNullOrEmpty(entidade.ChavePrimaria))
+            {
+                CheckBoxChavePrimaria.Checked = true;
+                TextBoxChavePrimaria.Text = entidade.ChavePrimaria;
+            }
+            
+            ListBoxColunasExtras.DataSource = entidade.ColunasExtras;
+            ListBoxColunasExtras.DisplayMember = "Nome";
+
+            Edicao = true;
         }
 
         private void ButtonSalvar_Click(object sender, EventArgs e)
@@ -53,18 +84,27 @@ namespace Intech.Ferramentas.GeradorCodigo
 
             var diretorioEntidade = Path.Combine(Sistema.Diretorios.Dados, "Scripts", TextBoxNomeEntidade.Text);
 
-            if (Directory.Exists(diretorioEntidade))
+            var diretorioEntidadeJson = Path.Combine(diretorioEntidade, "entidade.json");
+
+            if (!Edicao)
             {
-                MessageBox.Show("Já existe uma entidade com o mesmo nome!");
-                return;
+                if (Directory.Exists(diretorioEntidade))
+                {
+                    MessageBox.Show("Já existe uma entidade com o mesmo nome!");
+                    return;
+                }
+
+                Directory.CreateDirectory(diretorioEntidade);
+            }
+            else
+            {
+                File.Delete(diretorioEntidadeJson);
             }
 
-            Directory.CreateDirectory(diretorioEntidade);
-
-            var diretorioEntidadeJson = Path.Combine(diretorioEntidade, "entidade.json");
             File.WriteAllText(diretorioEntidadeJson, JsonConvert.SerializeObject(entidade, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore } ));
 
             MessageBox.Show("Entidade criada com sucesso!");
+            Close();
         }
 
         private void ButtonAdicionar_Click(object sender, EventArgs e)

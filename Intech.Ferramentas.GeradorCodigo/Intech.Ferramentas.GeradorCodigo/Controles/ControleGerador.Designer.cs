@@ -41,6 +41,7 @@
             this.CheckBoxGerarProxy = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarEntidade = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarDAO = new System.Windows.Forms.CheckBox();
+            this.ButtonEditarEntidade = new System.Windows.Forms.Button();
             this.ButtonNovaEntidade = new System.Windows.Forms.Button();
             this.ListEntidades = new System.Windows.Forms.ListBox();
             this.conexaoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -67,6 +68,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.ButtonEditarEntidade);
             this.splitContainer1.Panel2.Controls.Add(this.ButtonNovaEntidade);
             this.splitContainer1.Panel2.Controls.Add(this.ListEntidades);
             this.splitContainer1.Size = new System.Drawing.Size(685, 519);
@@ -201,6 +203,23 @@
             this.CheckBoxGerarDAO.Text = "DAO";
             this.CheckBoxGerarDAO.UseVisualStyleBackColor = true;
             // 
+            // ButtonEditarEntidade
+            // 
+            this.ButtonEditarEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonEditarEntidade.BackColor = System.Drawing.SystemColors.GrayText;
+            this.ButtonEditarEntidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonEditarEntidade.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonEditarEntidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonEditarEntidade.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonEditarEntidade.Location = new System.Drawing.Point(140, 3);
+            this.ButtonEditarEntidade.Name = "ButtonEditarEntidade";
+            this.ButtonEditarEntidade.Size = new System.Drawing.Size(106, 23);
+            this.ButtonEditarEntidade.TabIndex = 8;
+            this.ButtonEditarEntidade.Text = "Editar";
+            this.ButtonEditarEntidade.UseVisualStyleBackColor = false;
+            this.ButtonEditarEntidade.Click += new System.EventHandler(this.ButtonEditarEntidade_Click);
+            // 
             // ButtonNovaEntidade
             // 
             this.ButtonNovaEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -212,7 +231,7 @@
             this.ButtonNovaEntidade.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonNovaEntidade.Location = new System.Drawing.Point(3, 3);
             this.ButtonNovaEntidade.Name = "ButtonNovaEntidade";
-            this.ButtonNovaEntidade.Size = new System.Drawing.Size(243, 23);
+            this.ButtonNovaEntidade.Size = new System.Drawing.Size(109, 23);
             this.ButtonNovaEntidade.TabIndex = 7;
             this.ButtonNovaEntidade.Text = "Nova";
             this.ButtonNovaEntidade.UseVisualStyleBackColor = false;
@@ -277,5 +296,6 @@
         private System.Windows.Forms.CheckBox CheckBoxGerarProxy;
         private System.Windows.Forms.CheckBox CheckBoxGerarEntidade;
         private System.Windows.Forms.CheckBox CheckBoxGerarDAO;
+        private System.Windows.Forms.Button ButtonEditarEntidade;
     }
 }
