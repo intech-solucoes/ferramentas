@@ -41,6 +41,7 @@
             this.CheckBoxGerarProxy = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarEntidade = new System.Windows.Forms.CheckBox();
             this.CheckBoxGerarDAO = new System.Windows.Forms.CheckBox();
+            this.ButtonEditarEntidade = new System.Windows.Forms.Button();
             this.ButtonNovaEntidade = new System.Windows.Forms.Button();
             this.ListEntidades = new System.Windows.Forms.ListBox();
             this.conexaoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -67,16 +68,16 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.ButtonEditarEntidade);
             this.splitContainer1.Panel2.Controls.Add(this.ButtonNovaEntidade);
             this.splitContainer1.Panel2.Controls.Add(this.ListEntidades);
-            this.splitContainer1.Size = new System.Drawing.Size(467, 296);
-            this.splitContainer1.SplitterDistance = 295;
+            this.splitContainer1.Size = new System.Drawing.Size(685, 519);
+            this.splitContainer1.SplitterDistance = 432;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.ComboBoxConexao);
             this.groupBox1.Controls.Add(this.label2);
@@ -84,7 +85,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(289, 111);
+            this.groupBox1.Size = new System.Drawing.Size(418, 111);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros";
@@ -96,10 +97,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboBoxConexao.DataSource = this.conexaoBindingSource;
             this.ComboBoxConexao.DisplayMember = "Database";
+            this.ComboBoxConexao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxConexao.FormattingEnabled = true;
             this.ComboBoxConexao.Location = new System.Drawing.Point(6, 80);
             this.ComboBoxConexao.Name = "ComboBoxConexao";
-            this.ComboBoxConexao.Size = new System.Drawing.Size(275, 21);
+            this.ComboBoxConexao.Size = new System.Drawing.Size(404, 21);
             this.ComboBoxConexao.TabIndex = 3;
             // 
             // conexaoBindingSource
@@ -119,10 +121,12 @@
             // 
             this.ComboBoxSistemas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxSistemas.BackColor = System.Drawing.SystemColors.Window;
+            this.ComboBoxSistemas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxSistemas.FormattingEnabled = true;
             this.ComboBoxSistemas.Location = new System.Drawing.Point(6, 37);
             this.ComboBoxSistemas.Name = "ComboBoxSistemas";
-            this.ComboBoxSistemas.Size = new System.Drawing.Size(275, 21);
+            this.ComboBoxSistemas.Size = new System.Drawing.Size(404, 21);
             this.ComboBoxSistemas.TabIndex = 1;
             this.ComboBoxSistemas.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSistemas_SelectedIndexChanged);
             // 
@@ -145,7 +149,7 @@
             this.groupBox4.Controls.Add(this.CheckBoxGerarDAO);
             this.groupBox4.Location = new System.Drawing.Point(3, 120);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(287, 49);
+            this.groupBox4.Size = new System.Drawing.Size(418, 49);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Gerar";
@@ -157,7 +161,7 @@
             this.ButtonGerar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonGerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonGerar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonGerar.Location = new System.Drawing.Point(206, 18);
+            this.ButtonGerar.Location = new System.Drawing.Point(337, 18);
             this.ButtonGerar.Name = "ButtonGerar";
             this.ButtonGerar.Size = new System.Drawing.Size(75, 23);
             this.ButtonGerar.TabIndex = 5;
@@ -199,6 +203,23 @@
             this.CheckBoxGerarDAO.Text = "DAO";
             this.CheckBoxGerarDAO.UseVisualStyleBackColor = true;
             // 
+            // ButtonEditarEntidade
+            // 
+            this.ButtonEditarEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonEditarEntidade.BackColor = System.Drawing.SystemColors.GrayText;
+            this.ButtonEditarEntidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonEditarEntidade.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonEditarEntidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonEditarEntidade.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonEditarEntidade.Location = new System.Drawing.Point(140, 3);
+            this.ButtonEditarEntidade.Name = "ButtonEditarEntidade";
+            this.ButtonEditarEntidade.Size = new System.Drawing.Size(106, 23);
+            this.ButtonEditarEntidade.TabIndex = 8;
+            this.ButtonEditarEntidade.Text = "Editar";
+            this.ButtonEditarEntidade.UseVisualStyleBackColor = false;
+            this.ButtonEditarEntidade.Click += new System.EventHandler(this.ButtonEditarEntidade_Click);
+            // 
             // ButtonNovaEntidade
             // 
             this.ButtonNovaEntidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -210,7 +231,7 @@
             this.ButtonNovaEntidade.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonNovaEntidade.Location = new System.Drawing.Point(3, 3);
             this.ButtonNovaEntidade.Name = "ButtonNovaEntidade";
-            this.ButtonNovaEntidade.Size = new System.Drawing.Size(162, 23);
+            this.ButtonNovaEntidade.Size = new System.Drawing.Size(109, 23);
             this.ButtonNovaEntidade.TabIndex = 7;
             this.ButtonNovaEntidade.Text = "Nova";
             this.ButtonNovaEntidade.UseVisualStyleBackColor = false;
@@ -227,7 +248,7 @@
             this.ListEntidades.Location = new System.Drawing.Point(3, 29);
             this.ListEntidades.Name = "ListEntidades";
             this.ListEntidades.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ListEntidades.Size = new System.Drawing.Size(162, 264);
+            this.ListEntidades.Size = new System.Drawing.Size(243, 485);
             this.ListEntidades.TabIndex = 6;
             this.ListEntidades.SelectedIndexChanged += new System.EventHandler(this.ListEntidades_SelectedIndexChanged);
             // 
@@ -241,7 +262,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Name = "ControleGerador";
-            this.Size = new System.Drawing.Size(467, 296);
+            this.Size = new System.Drawing.Size(685, 519);
             this.Load += new System.EventHandler(this.ControleGerador_Load);
             this.Enter += new System.EventHandler(this.ControleGerador_Enter);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -275,5 +296,6 @@
         private System.Windows.Forms.CheckBox CheckBoxGerarProxy;
         private System.Windows.Forms.CheckBox CheckBoxGerarEntidade;
         private System.Windows.Forms.CheckBox CheckBoxGerarDAO;
+        private System.Windows.Forms.Button ButtonEditarEntidade;
     }
 }

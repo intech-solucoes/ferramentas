@@ -148,12 +148,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\BaseGerador.cs" />
+    <Compile Include="Code\ConexaoHelper.cs" />
+    <Compile Include="Code\Gerador\BaseGerador.cs" />
     <Compile Include="Code\Conexoes.cs" />
     <Compile Include="Code\Config.cs" />
     <Compile Include="Code\Entidade.cs" />
-    <Compile Include="Code\GeradorSqlServer.cs" />
-    <Compile Include="Code\IGerador.cs" />
+    <Compile Include="Code\Gerador\GeradorSqlServer.cs" />
+    <Compile Include="Code\Gerador\IGerador.cs" />
+    <Compile Include="Code\JsonListHelper.cs" />
+    <Compile Include="Code\JsonListItem.cs" />
+    <Compile Include="Code\Projetos.cs" />
     <Compile Include="Code\UserConfig.cs" />
     <Compile Include="Controles\ControleConexoes.cs">
       <SubType>UserControl</SubType>
@@ -167,6 +171,43 @@
     <Compile Include="Controles\ControleGerador.Designer.cs">
       <DependentUpon>ControleGerador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\ControleProjetos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ControleProjetos.Designer.cs">
+      <DependentUpon>ControleProjetos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ControleUtilitarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ControleUtilitarios.Designer.cs">
+      <DependentUpon>ControleUtilitarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso1.Designer.cs">
+      <DependentUpon>ControlPasso1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ControlPasso2.Designer.cs">
+      <DependentUpon>ControlPasso2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormNovoProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormNovoProjeto.Designer.cs">
+      <DependentUpon>FormNovoProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormProjetosDependentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormProjetosDependentes.Designer.cs">
+      <DependentUpon>FormProjetosDependentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\ParametrosProjeto.cs" />
     <Compile Include="FormConfiguracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +233,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ControleGerador.resx">
       <DependentUpon>ControleGerador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ControleProjetos.resx">
+      <DependentUpon>ControleProjetos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ControleUtilitarios.resx">
+      <DependentUpon>ControleUtilitarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\ControlPasso1.resx">
+      <DependentUpon>ControlPasso1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\ControlPasso2.resx">
+      <DependentUpon>ControlPasso2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\FormNovoProjeto.resx">
+      <DependentUpon>FormNovoProjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\FormProjetosDependentes.resx">
+      <DependentUpon>FormProjetosDependentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>
@@ -227,6 +286,7 @@
     <None Include="Templates\DAO.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\EntidadeTS.template" />
     <None Include="Templates\Proxy.template">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

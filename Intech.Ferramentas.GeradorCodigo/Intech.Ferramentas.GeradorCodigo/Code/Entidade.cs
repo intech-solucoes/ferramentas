@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Intech.Ferramentas.GeradorCodigo.Code
 {
@@ -9,6 +11,13 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public bool? Sinonimo { get; set; }
         public string ChavePrimaria { get; set; }
         public List<Coluna> ColunasExtras { get; set; } = new List<Coluna>();
+
+        public static Entidade Buscar(DirectoryInfo diretorio)
+        {
+            var entidade = JsonConvert.DeserializeObject<Entidade>(File.ReadAllText(Path.Combine(diretorio.FullName, "entidade.json")));
+            entidade.Nome = diretorio.Name;
+            return entidade;
+        }
     }
 
     public class Coluna

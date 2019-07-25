@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq; 
 #endregion
 
-namespace Intech.Ferramentas.GeradorCodigo.Code
+namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 {
     public class GeradorSqlServer : BaseGerador, IGerador
     {

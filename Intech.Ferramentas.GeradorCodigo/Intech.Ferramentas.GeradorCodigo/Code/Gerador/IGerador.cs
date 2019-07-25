@@ -1,4 +1,4 @@
-﻿namespace Intech.Ferramentas.GeradorCodigo.Code
+﻿namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 {
     public interface IGerador
     {

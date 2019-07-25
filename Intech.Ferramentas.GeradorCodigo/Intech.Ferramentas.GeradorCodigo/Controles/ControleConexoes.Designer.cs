@@ -32,6 +32,8 @@
             this.ListBoxConexoes = new System.Windows.Forms.ListBox();
             this.conexaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ComboBoxSistema = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.ButtonDeletar = new System.Windows.Forms.Button();
             this.ButtonSalvar = new System.Windows.Forms.Button();
             this.TextBoxBanco = new System.Windows.Forms.TextBox();
@@ -58,7 +60,7 @@
             this.ListBoxConexoes.FormattingEnabled = true;
             this.ListBoxConexoes.Location = new System.Drawing.Point(3, 29);
             this.ListBoxConexoes.Name = "ListBoxConexoes";
-            this.ListBoxConexoes.Size = new System.Drawing.Size(173, 368);
+            this.ListBoxConexoes.Size = new System.Drawing.Size(173, 485);
             this.ListBoxConexoes.TabIndex = 0;
             this.ListBoxConexoes.SelectedIndexChanged += new System.EventHandler(this.ListBoxConexoes_SelectedIndexChanged);
             // 
@@ -71,6 +73,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.ComboBoxSistema);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.ButtonDeletar);
             this.groupBox1.Controls.Add(this.ButtonSalvar);
             this.groupBox1.Controls.Add(this.TextBoxBanco);
@@ -85,10 +89,30 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(183, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 393);
+            this.groupBox1.Size = new System.Drawing.Size(440, 520);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros";
+            // 
+            // ComboBoxSistema
+            // 
+            this.ComboBoxSistema.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxSistema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxSistema.FormattingEnabled = true;
+            this.ComboBoxSistema.Location = new System.Drawing.Point(6, 258);
+            this.ComboBoxSistema.Name = "ComboBoxSistema";
+            this.ComboBoxSistema.Size = new System.Drawing.Size(428, 21);
+            this.ComboBoxSistema.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 242);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Sistema";
             // 
             // ButtonDeletar
             // 
@@ -96,7 +120,7 @@
             this.ButtonDeletar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDeletar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonDeletar.Location = new System.Drawing.Point(87, 243);
+            this.ButtonDeletar.Location = new System.Drawing.Point(87, 285);
             this.ButtonDeletar.Name = "ButtonDeletar";
             this.ButtonDeletar.Size = new System.Drawing.Size(75, 23);
             this.ButtonDeletar.TabIndex = 11;
@@ -110,7 +134,7 @@
             this.ButtonSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSalvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonSalvar.Location = new System.Drawing.Point(6, 243);
+            this.ButtonSalvar.Location = new System.Drawing.Point(6, 285);
             this.ButtonSalvar.Name = "ButtonSalvar";
             this.ButtonSalvar.Size = new System.Drawing.Size(75, 23);
             this.ButtonSalvar.TabIndex = 10;
@@ -124,7 +148,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxBanco.Location = new System.Drawing.Point(6, 217);
             this.TextBoxBanco.Name = "TextBoxBanco";
-            this.TextBoxBanco.Size = new System.Drawing.Size(299, 20);
+            this.TextBoxBanco.Size = new System.Drawing.Size(427, 20);
             this.TextBoxBanco.TabIndex = 9;
             // 
             // label5
@@ -142,7 +166,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxSenha.Location = new System.Drawing.Point(7, 174);
             this.TextBoxSenha.Name = "TextBoxSenha";
-            this.TextBoxSenha.Size = new System.Drawing.Size(299, 20);
+            this.TextBoxSenha.Size = new System.Drawing.Size(427, 20);
             this.TextBoxSenha.TabIndex = 7;
             // 
             // label4
@@ -160,7 +184,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxUsuario.Location = new System.Drawing.Point(7, 131);
             this.TextBoxUsuario.Name = "TextBoxUsuario";
-            this.TextBoxUsuario.Size = new System.Drawing.Size(299, 20);
+            this.TextBoxUsuario.Size = new System.Drawing.Size(427, 20);
             this.TextBoxUsuario.TabIndex = 5;
             // 
             // label3
@@ -176,19 +200,20 @@
             // 
             this.ComboBoxServidor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxServidor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxServidor.FormattingEnabled = true;
             this.ComboBoxServidor.Items.AddRange(new object[] {
             "10.10.170.13",
             "10.10.170.39"});
             this.ComboBoxServidor.Location = new System.Drawing.Point(7, 88);
             this.ComboBoxServidor.Name = "ComboBoxServidor";
-            this.ComboBoxServidor.Size = new System.Drawing.Size(300, 21);
+            this.ComboBoxServidor.Size = new System.Drawing.Size(428, 21);
             this.ComboBoxServidor.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 72);
+            this.label2.Location = new System.Drawing.Point(9, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 2;
@@ -198,20 +223,20 @@
             // 
             this.ComboBoxProvider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxProvider.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxProvider.Enabled = false;
             this.ComboBoxProvider.FormattingEnabled = true;
             this.ComboBoxProvider.Items.AddRange(new object[] {
             "sqlserver"});
             this.ComboBoxProvider.Location = new System.Drawing.Point(7, 42);
             this.ComboBoxProvider.Name = "ComboBoxProvider";
-            this.ComboBoxProvider.Size = new System.Drawing.Size(299, 21);
+            this.ComboBoxProvider.Size = new System.Drawing.Size(427, 21);
             this.ComboBoxProvider.TabIndex = 1;
-            this.ComboBoxProvider.Text = "sqlserver";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(9, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
@@ -224,7 +249,7 @@
             this.ButtonNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonNovo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonNovo.Location = new System.Drawing.Point(3, 4);
+            this.ButtonNovo.Location = new System.Drawing.Point(3, 3);
             this.ButtonNovo.Name = "ButtonNovo";
             this.ButtonNovo.Size = new System.Drawing.Size(173, 23);
             this.ButtonNovo.TabIndex = 8;
@@ -240,7 +265,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ListBoxConexoes);
             this.Name = "ControleConexoes";
-            this.Size = new System.Drawing.Size(498, 402);
+            this.Size = new System.Drawing.Size(626, 529);
             this.Load += new System.EventHandler(this.ControleConexoes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.conexaoBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -267,5 +292,7 @@
         private System.Windows.Forms.Button ButtonSalvar;
         private System.Windows.Forms.Button ButtonNovo;
         private System.Windows.Forms.BindingSource conexaoBindingSource;
+        private System.Windows.Forms.ComboBox ComboBoxSistema;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -82,7 +82,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FormConfiguracao";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuração";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConfiguracao_FormClosing);
             this.Load += new System.EventHandler(this.FormConfiguracao_Load);
