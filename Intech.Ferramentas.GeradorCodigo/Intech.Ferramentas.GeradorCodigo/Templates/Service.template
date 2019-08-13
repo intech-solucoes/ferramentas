@@ -1,0 +1,39 @@
+﻿@Raw("import { BaseService, TipoRequisicao, TipoResposta } from \"@intechprev/service\";")
+
+@for(int i = 0; i < @Model.Imports.Count; i++) {
+    @Raw("import " + @Model.Imports[i] + " from \"../entidades/" + @Model.Imports[i] + "\";\n")
+}
+
+class @(Model.Nome)Service extends BaseService {
+
+    constructor() {
+        @Raw("super(\"" + @Model.Nome + "\");")
+    }
+    @for(int i = 0; i < @Model.Metodos.Count; i++) {
+        @Raw("\n\t" + @Model.Metodos[i].Nome + " = (")
+        
+        for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
+            @Raw(@Model.Metodos[i].Parametros[i2].Nome + ": " + @Model.Metodos[i].Parametros[i2].Tipo)
+
+            if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
+                @Raw(", ")
+            }
+        }
+
+        @Raw(") => \n")
+        @Raw("\t\tthis.CriarRequisicao(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null, \"" + @Model.Metodos[i].Rota + "\", {") 
+        
+        for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
+            @Raw(@Model.Metodos[i].Parametros[i2].Nome )
+
+            if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
+                @Raw(", ")
+            }
+        }
+
+        @Raw("});\n")
+    }
+
+}
+
+export default new @(Model.Nome)Service();

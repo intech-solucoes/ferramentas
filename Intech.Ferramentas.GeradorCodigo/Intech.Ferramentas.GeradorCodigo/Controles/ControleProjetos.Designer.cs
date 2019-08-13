@@ -31,6 +31,8 @@
             this.ListBoxProjetos = new System.Windows.Forms.ListBox();
             this.ButtonNovo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TextBoxNamespace = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.ComboBoxSistema = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ButtonGerarService = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TextBoxRepositorio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TextBoxNamespace = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.ListBoxProjetos.FormattingEnabled = true;
             this.ListBoxProjetos.Location = new System.Drawing.Point(3, 32);
             this.ListBoxProjetos.Name = "ListBoxProjetos";
-            this.ListBoxProjetos.Size = new System.Drawing.Size(173, 459);
+            this.ListBoxProjetos.Size = new System.Drawing.Size(173, 563);
             this.ListBoxProjetos.TabIndex = 0;
             this.ListBoxProjetos.SelectedIndexChanged += new System.EventHandler(this.ListBoxProjetos_SelectedIndexChanged);
             // 
@@ -95,10 +95,29 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(183, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 488);
+            this.groupBox1.Size = new System.Drawing.Size(699, 592);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configurações";
+            // 
+            // TextBoxNamespace
+            // 
+            this.TextBoxNamespace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxNamespace.Enabled = false;
+            this.TextBoxNamespace.Location = new System.Drawing.Point(6, 233);
+            this.TextBoxNamespace.Name = "TextBoxNamespace";
+            this.TextBoxNamespace.Size = new System.Drawing.Size(687, 20);
+            this.TextBoxNamespace.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 217);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Namespace";
             // 
             // ComboBoxSistema
             // 
@@ -113,7 +132,7 @@
             "Mobile"});
             this.ComboBoxSistema.Location = new System.Drawing.Point(6, 186);
             this.ComboBoxSistema.Name = "ComboBoxSistema";
-            this.ComboBoxSistema.Size = new System.Drawing.Size(425, 21);
+            this.ComboBoxSistema.Size = new System.Drawing.Size(687, 21);
             this.ComboBoxSistema.TabIndex = 20;
             // 
             // label4
@@ -152,7 +171,7 @@
             this.ButtonVS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonVS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonVS.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonVS.Location = new System.Drawing.Point(306, 428);
+            this.ButtonVS.Location = new System.Drawing.Point(568, 532);
             this.ButtonVS.Name = "ButtonVS";
             this.ButtonVS.Size = new System.Drawing.Size(125, 23);
             this.ButtonVS.TabIndex = 15;
@@ -167,7 +186,7 @@
             this.ButtonVSCode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonVSCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonVSCode.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ButtonVSCode.Location = new System.Drawing.Point(306, 457);
+            this.ButtonVSCode.Location = new System.Drawing.Point(568, 561);
             this.ButtonVSCode.Name = "ButtonVSCode";
             this.ButtonVSCode.Size = new System.Drawing.Size(125, 23);
             this.ButtonVSCode.TabIndex = 14;
@@ -188,7 +207,7 @@
             "Mobile"});
             this.ComboBoxTipo.Location = new System.Drawing.Point(6, 91);
             this.ComboBoxTipo.Name = "ComboBoxTipo";
-            this.ComboBoxTipo.Size = new System.Drawing.Size(425, 21);
+            this.ComboBoxTipo.Size = new System.Drawing.Size(687, 21);
             this.ComboBoxTipo.TabIndex = 13;
             // 
             // TextBoxDiretorio
@@ -198,7 +217,7 @@
             this.TextBoxDiretorio.Enabled = false;
             this.TextBoxDiretorio.Location = new System.Drawing.Point(6, 139);
             this.TextBoxDiretorio.Name = "TextBoxDiretorio";
-            this.TextBoxDiretorio.Size = new System.Drawing.Size(425, 20);
+            this.TextBoxDiretorio.Size = new System.Drawing.Size(687, 20);
             this.TextBoxDiretorio.TabIndex = 11;
             // 
             // label2
@@ -226,7 +245,7 @@
             this.TextBoxRepositorio.Enabled = false;
             this.TextBoxRepositorio.Location = new System.Drawing.Point(6, 45);
             this.TextBoxRepositorio.Name = "TextBoxRepositorio";
-            this.TextBoxRepositorio.Size = new System.Drawing.Size(425, 20);
+            this.TextBoxRepositorio.Size = new System.Drawing.Size(687, 20);
             this.TextBoxRepositorio.TabIndex = 7;
             // 
             // label3
@@ -238,25 +257,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Nome Repositório";
             // 
-            // TextBoxNamespace
-            // 
-            this.TextBoxNamespace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxNamespace.Enabled = false;
-            this.TextBoxNamespace.Location = new System.Drawing.Point(6, 233);
-            this.TextBoxNamespace.Name = "TextBoxNamespace";
-            this.TextBoxNamespace.Size = new System.Drawing.Size(425, 20);
-            this.TextBoxNamespace.TabIndex = 22;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 217);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Namespace";
-            // 
             // ControleProjetos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,7 +265,7 @@
             this.Controls.Add(this.ButtonNovo);
             this.Controls.Add(this.ListBoxProjetos);
             this.Name = "ControleProjetos";
-            this.Size = new System.Drawing.Size(623, 499);
+            this.Size = new System.Drawing.Size(885, 603);
             this.Load += new System.EventHandler(this.ControleProjetos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

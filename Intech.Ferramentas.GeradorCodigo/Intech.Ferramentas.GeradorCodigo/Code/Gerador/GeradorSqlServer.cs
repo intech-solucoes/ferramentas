@@ -56,6 +56,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                     {
                         Nome = column.name,
                         Tipo = MapeiaTipo(column.type),
+                        TipoTS = MapeiaTipoTS(column.type),
                         AceitaNulo = column.is_nullable,
                         IsColunaExtra = false,
                         ChavePrimaria = column.is_identity || column.name == configEntidade.ChavePrimaria

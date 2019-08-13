@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions; 
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 #endregion
 
 namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
@@ -36,19 +37,26 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 
         public void Gerar(bool gerarEntidade, bool gerarDAO, bool gerarProxy)
         {
-            CriarConexao();
-
-            foreach (var configEntidade in ConfigsEntidades)
+            try
             {
-                BuscarColunas(configEntidade);
-                BuscarConsultas(configEntidade);
+                CriarConexao();
 
-                if(gerarEntidade) SalvarEntidade(configEntidade);
-                if(gerarDAO) SalvarDAO(configEntidade);
-                if (gerarProxy) SalvarProxy(configEntidade);
+                foreach (var configEntidade in ConfigsEntidades)
+                {
+                    BuscarColunas(configEntidade);
+                    BuscarConsultas(configEntidade);
 
-                ColunasEntidade.Clear();
-                Consultas.Clear();
+                    if (gerarEntidade) SalvarEntidade(configEntidade);
+                    if (gerarDAO) SalvarDAO(configEntidade);
+                    if (gerarProxy) SalvarProxy(configEntidade);
+
+                    ColunasEntidade.Clear();
+                    Consultas.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -112,29 +120,61 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
             
             foreach (var colunaExtra in configEntidade.ColunasExtras)
             {
+                colunaExtra.TipoTS = MapeiaTipoDotNetParaTS(colunaExtra.Tipo);
                 colunaExtra.ChavePrimaria = false;
                 colunaExtra.IsColunaExtra = true;
                 ColunasEntidade.Add(colunaExtra);
+
+                if (colunaExtra.TipoTS.Contains("Entidade"))
+                {
+                    configEntidade.Imports.Add(colunaExtra.TipoTS.Replace("Array<", "").Replace(">", ""));
+                }
             }
         }
 
         protected void SalvarEntidade(Entidade configEntidade)
         {
-            try
+            var model = new
             {
-                var model = new
+                Config,
+                Sistema,
+                ConfigEntidade = configEntidade,
+                ColunasEntidade
+            };
+
+            var template = File.ReadAllText("Templates/Entidade.template");
+            var entidade = RazorEngine.Engine.Razor.RunCompile(template, "templateEntidade", null, model);
+
+            File.WriteAllText(Path.Combine(DirEntidades.FullName, $"{configEntidade.Nome}Entidade.cs"), entidade, Encoding.UTF8);
+
+            var projetosDependentes = new Projetos().BuscarPorSistema(Sistema.Nome);
+
+            foreach (var projeto in projetosDependentes)
+            {
+                var dirEntidades = Path.Combine(projeto.Diretorio, "src", "entidades");
+
+                if (!Directory.Exists(dirEntidades))
+                    Directory.CreateDirectory(dirEntidades);
+
+                var templateTS = File.ReadAllText("Templates/EntidadeTS.template");
+                var entidadeTS = RazorEngine.Engine.Razor.RunCompile(templateTS, "templateEntidadeTS", null, model);
+
+                File.WriteAllText(Path.Combine(dirEntidades, $"{configEntidade.Nome}Entidade.tsx"), entidadeTS, Encoding.UTF8);
+
+                // Salva index.tsx
+                var listaEntidades = Directory.GetFiles(dirEntidades).ToList();
+                var entidadesIndex = new List<string>();
+                foreach(var ent in listaEntidades)
                 {
-                    Config,
-                    Sistema,
-                    ConfigEntidade = configEntidade,
-                    ColunasEntidade
-                };
+                    var arquivo = new FileInfo(ent);
+                    if(arquivo.Name != "index.tsx")
+                        entidadesIndex.Add(arquivo.Name.Replace(".tsx", ""));
+                }
 
-                var template = File.ReadAllText("Templates/Entidade.template");
-                var entidade = RazorEngine.Engine.Razor.RunCompile(template, "templateEntidade", null, model);
-
-                File.WriteAllText(Path.Combine(DirEntidades.FullName, $"{configEntidade.Nome}Entidade.cs"), entidade, Encoding.UTF8);
-            } catch(Exception ex) { }
+                var entidadesIndexTemplateFile = File.ReadAllText("Templates/EntidadeTSIndex.template");
+                var serviceIndexTemplate = RazorEngine.Engine.Razor.RunCompile(entidadesIndexTemplateFile, "templateEntidadesIndex", null, entidadesIndex);
+                File.WriteAllText(Path.Combine(dirEntidades, $"index.tsx"), serviceIndexTemplate, Encoding.UTF8);
+            }
         }
 
         protected void SalvarDAO(Entidade configEntidade)
@@ -209,6 +249,73 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                     return "int";
                 default:
                     throw new Exception(string.Format("Tipo não mapeado: {0}", type));
+            }
+        }
+
+        /// <summary>
+        /// Mapeia os tipos de colunas para tipos do Typescript
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        protected string MapeiaTipoTS(string type)
+        {
+            switch (type.ToUpper())
+            {
+                case "BIGINT":
+                case "FLOAT":
+                case "LONG":
+                case "MONEY":
+                case "NUMERIC":
+                case "NUMBER":
+                case "SMALLINT":
+                case "SMALLMONEY":
+                case "DECIMAL":
+                case "INT":
+                case "INT32":
+                case "INT16":
+                    return "number";
+                case "STRING":
+                case "TEXT":
+                case "CHAR":
+                case "VARCHAR":
+                case "VARCHAR2":
+                case "NVARCHAR":
+                case "ANSISTRING":
+                case "VARBINARY":
+                case "NCHAR":
+                    return "string";
+                case "DATE":
+                case "DATETIME":
+                    return "Date";
+                default:
+                    throw new Exception(string.Format("Tipo não mapeado: {0}", type));
+            }
+        }
+
+        /// <summary>
+        /// Mapeia os tipos de colunas para tipos do .Net para Typescript
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        protected string MapeiaTipoDotNetParaTS(string type)
+        {
+            switch (type.ToUpper())
+            {
+                case "DECIMAL":
+                case "INT":
+                    return "number";
+                case "BOOL":
+                    return "boolean";
+                case "STRING":
+                    return "string";
+                case "DATE":
+                case "DATETIME":
+                    return "Date";
+                default:
+                    if (type.Contains("List<"))
+                        return type.Replace("List", "Array");
+                    else
+                        throw new Exception(string.Format("Tipo não mapeado: {0}", type));
             }
         }
 

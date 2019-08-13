@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Intech.Ferramentas.GeradorCodigo.Code
 {
@@ -12,6 +13,9 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         {
 
         }
+
+        public List<Projeto> BuscarPorSistema(string sistema) =>
+            Lista.Where(x => x.Sistema == sistema && x.Tipo != TipoProjeto.API).ToList();
     }
 
     public class Projeto : JsonListItem

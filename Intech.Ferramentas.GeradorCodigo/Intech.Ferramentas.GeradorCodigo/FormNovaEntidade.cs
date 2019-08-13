@@ -43,7 +43,7 @@ namespace Intech.Ferramentas.GeradorCodigo
 
             TextBoxNomeTabela.Text = entidade.NomeTabela;
 
-            if(entidade.Sinonimo.HasValue)
+            if (entidade.Sinonimo.HasValue)
                 CheckBoxSinonimo.Checked = entidade.Sinonimo.Value;
 
             if (!string.IsNullOrEmpty(entidade.ChavePrimaria))
@@ -51,11 +51,17 @@ namespace Intech.Ferramentas.GeradorCodigo
                 CheckBoxChavePrimaria.Checked = true;
                 TextBoxChavePrimaria.Text = entidade.ChavePrimaria;
             }
-            
-            ListBoxColunasExtras.DataSource = entidade.ColunasExtras;
+
+            PreencherColunas();
             ListBoxColunasExtras.DisplayMember = "Nome";
 
             Edicao = true;
+        }
+
+        private void PreencherColunas()
+        {
+            foreach (var coluna in Entidade.ColunasExtras)
+                ListBoxColunasExtras.Items.Add(coluna);
         }
 
         private void ButtonSalvar_Click(object sender, EventArgs e)
@@ -138,6 +144,7 @@ namespace Intech.Ferramentas.GeradorCodigo
             TextBoxNomeColuna.Text = "";
             TextBoxTipo.Text = "";
             CheckBoxNulo.Checked = false;
+            ListBoxColunasExtras.SelectedIndex = -1;
         }
 
         private void ButtonDeletar_Click(object sender, EventArgs e)

@@ -11,6 +11,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
         public bool? Sinonimo { get; set; }
         public string ChavePrimaria { get; set; }
         public List<Coluna> ColunasExtras { get; set; } = new List<Coluna>();
+        public List<string> Imports { get; set; } = new List<string>();
 
         public static Entidade Buscar(DirectoryInfo diretorio)
         {
@@ -24,6 +25,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code
     {
         public string Nome { get; set; }
         public string Tipo { get; set; }
+        public string TipoTS { get; set; }
         public bool AceitaNulo { get; set; }
         public bool? ChavePrimaria { get; set; }
         public bool? IsColunaExtra { get; set; }

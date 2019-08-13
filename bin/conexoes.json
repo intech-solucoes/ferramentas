@@ -40,17 +40,26 @@
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "PW_EQTPREV",
-    "Sistema": null,
-    "ID": "3ab04252-1172-4e98-b544-4aba1fde29e2"
+    "Database": "FSF_160519_NAOAPAGAR",
+    "Sistema": "PrevSystem",
+    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "localhost",
+    "Username": "sa",
+    "Password": "masterkey",
+    "Database": "FSF_220719",
+    "Sistema": "PrevSystem",
+    "ID": "0dc477a7-a19a-4cc8-8916-93e395af1054"
   },
   {
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "FSF_160519_NAOAPAGAR",
-    "Sistema": "PrevSystem",
-    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
+    "Database": "PW_EQTPREV",
+    "Sistema": "PrevSystemWeb",
+    "ID": "3ab04252-1172-4e98-b544-4aba1fde29e2"
   }
 ]
