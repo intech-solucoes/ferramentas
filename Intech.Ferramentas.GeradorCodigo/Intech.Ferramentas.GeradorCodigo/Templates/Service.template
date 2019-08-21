@@ -21,7 +21,7 @@ class @(Model.Nome)Service extends BaseService {
         }
 
         @Raw(") => \n")
-        @Raw("\t\tthis.CriarRequisicao(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null, \"" + @Model.Metodos[i].Rota + "\", {") 
+        @Raw("\t\tthis.CriarRequisicao(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null, `" + @Model.Metodos[i].Rota + "`, {") 
         
         for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
             @Raw(@Model.Metodos[i].Parametros[i2].Nome )

@@ -150,7 +150,7 @@
             this.ButtonGerarService.Name = "ButtonGerarService";
             this.ButtonGerarService.Size = new System.Drawing.Size(143, 23);
             this.ButtonGerarService.TabIndex = 18;
-            this.ButtonGerarService.Text = "Gerar Service";
+            this.ButtonGerarService.Text = "Gerar Services";
             this.ButtonGerarService.UseVisualStyleBackColor = true;
             this.ButtonGerarService.Click += new System.EventHandler(this.ButtonGerarService_Click);
             // 
