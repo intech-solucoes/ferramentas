@@ -180,10 +180,15 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
                             foreach(var param in metodo.parametros)
                             {
+                                var isURL = false;
+                                if (metodoObj.Rota.Contains(param.nome))
+                                    isURL = true;
+
                                 metodoObj.Parametros.Add(new Parametro
                                 {
                                     Nome = param.nome,
-                                    Tipo = param.tipo
+                                    Tipo = param.tipo,
+                                    IsURL = isURL
                                 });
 
                                 if (param.tipo.Contains("Entidade") && !serviceObj.Imports.Contains(param.tipo))

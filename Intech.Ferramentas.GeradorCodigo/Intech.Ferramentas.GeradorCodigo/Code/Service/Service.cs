@@ -22,5 +22,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Service
     {
         public string Nome { get; set; }
         public string Tipo { get; set; }
+        public bool IsURL { get; set; }
     }
 }

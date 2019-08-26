@@ -21,17 +21,25 @@ class @(Model.Nome)Service extends BaseService {
         }
 
         @Raw(") => \n")
-        @Raw("\t\tthis.CriarRequisicao(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null, `" + @Model.Metodos[i].Rota + "`, {") 
+        @Raw("\t\tthis.CriarRequisicao(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null, `" + @Model.Metodos[i].Rota + "`") 
         
-        for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
-            @Raw(@Model.Metodos[i].Parametros[i2].Nome )
+        if(@Model.Metodos[i].Parametros.Count > 0) {
+            @Raw(", {")
 
-            if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
-                @Raw(", ")
+            for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
+                if(@Model.Metodos[i].Parametros[i2].IsURL != true) {
+                    @Raw(@Model.Metodos[i].Parametros[i2].Nome)
+                }
+
+                if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
+                    @Raw(", ")
+                }
             }
+
+            @Raw("}")
         }
 
-        @Raw("});\n")
+        @Raw(");\n")
     }
 
 }

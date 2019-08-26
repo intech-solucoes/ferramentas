@@ -79,23 +79,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ExecutarLimpezaNodeModules()
         {
-            //try
-            //{
-            //    using (var fldrDlg = new FolderBrowserDialog())
-            //    {
-            //        fldrDlg.SelectedPath = "C:\\";
-
-            //        if (fldrDlg.ShowDialog() == DialogResult.OK)
-            //        {
-            //            ApagarPastaNodeModules(fldrDlg.SelectedPath);
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
             ApagarPastaNodeModules("C:\\git");
         }
 
