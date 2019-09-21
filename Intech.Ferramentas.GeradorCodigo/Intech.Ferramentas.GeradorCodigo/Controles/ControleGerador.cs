@@ -35,7 +35,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ControleGerador_Enter(object sender, EventArgs e)
         {
-            CarregarConexoes();
+            if (!DesignMode)
+                CarregarConexoes();
         }
 
         private void ButtonGerar_Click(object sender, EventArgs e)
@@ -61,8 +62,12 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ComboBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BuscarEntidades();
-            CarregarConexoes();
+
+            if (!DesignMode)
+            {
+                BuscarEntidades();
+                CarregarConexoes();
+            }
         }
 
         private void ListEntidades_SelectedIndexChanged(object sender, EventArgs e)

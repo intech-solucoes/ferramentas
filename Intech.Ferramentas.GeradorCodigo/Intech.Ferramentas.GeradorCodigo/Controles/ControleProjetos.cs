@@ -1,6 +1,8 @@
 ﻿using Intech.Ferramentas.GeradorCodigo.Code;
+using Intech.Ferramentas.GeradorCodigo.Code.Postman;
 using Intech.Ferramentas.GeradorCodigo.Code.Service;
 using Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto;
+using Newtonsoft.Json;
 using RazorEngine.Templating;
 using System;
 using System.Collections.Generic;
@@ -108,53 +110,49 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             new FormProjetosDependentes(this).ShowDialog();
         }
 
-        private void ButtonGerarService_Click(object sender, EventArgs e)
+        private async void ButtonGerarService_Click(object sender, EventArgs e)
         {
             try
             {
-                var temErros = false;
-
                 string arquivoProjeto = Path.Combine(ProjetoSelecionado.Diretorio, ProjetoSelecionado.Namespace + ".csproj");
                 var projeto = (Projeto)ListBoxProjetos.SelectedItem;
 
-                var dotnetBuild = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = "dotnet",
-                        Arguments = $"build {arquivoProjeto}",
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true
-                    }
-                };
-
-                dotnetBuild.Start();
-                while (!dotnetBuild.StandardOutput.EndOfStream)
-                {
-                    string line = dotnetBuild.StandardOutput.ReadLine().Trim();
-
-                    if (line.Contains("Erro(s)"))
-                    {
-                        var numeroErros = Convert.ToInt32(line.Split(' ')[0]);
-                        if (numeroErros > 0)
-                        {
-                            temErros = true;
-                            MessageBox.Show($"Falha ao executar build do projeto! {numeroErros} erros encontrados!");
-                        }
-                    }
-                }
+                // Faz build do projeto para gerar documentação XML atualizada
+                var temErros = BuildProjeto(arquivoProjeto);
 
                 if (!temErros)
                 {
+                    // Busca XML de documentação do projeto
                     var xml = ParseXML();
 
+                    // Busca todos os <member> da documentação que não sejam um método (que sejam uma controller)
                     var services = xml.members.Where(x => !x.IsMetodo).ToList();
 
                     var listaServices = new List<Service>();
 
-                    foreach(var service in services)
+                    // Integração com Postman
+                    var postmanService = new PostmanService();
+                    var postmanCollection = await postmanService.BuscarCollectionPorNome(projeto.Nome);
+                    if(postmanCollection == null)
                     {
+                        postmanCollection = new PostmanCollection
+                        {
+                            collection = new PostmanCollectionObj
+                            {
+                                info = new PostmanCollectionInfo
+                                {
+                                    name = xml.assembly.name,
+                                    description = $"API do projeto {xml.assembly.name}",
+                                    schema = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+                                },
+                                item = new List<PostmanCollectionItem>()
+                            }
+                        };
+                    }
+
+                    foreach (var service in services)
+                    {
+                        // Cria novo service
                         var serviceObj = new Service
                         {
                             Nome = service.NomeMetodo.Replace("Controller", ""),
@@ -162,23 +160,37 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                             Imports = new List<string>()
                         };
 
-                        var metodos = xml.members.Where(x => 
-                            x.name.Substring(2).Contains(service.name.Substring(2)) && 
+                        // Cria nova pasta no Postman
+                        var novaPasta = new PostmanCollectionItem
+                        {
+                            name = serviceObj.Nome,
+                            item = new List<PostmanCollectionItem>()
+                        };
+
+                        var metodos = xml.members.Where(x =>
+                            x.name.Substring(2).Contains(service.name.Substring(2)) &&
                             x.IsMetodo
                         ).ToList();
 
-                        foreach(var metodo in metodos)
+                        foreach (var metodo in metodos)
                         {
+                            var caminhoRota = metodo.rota.caminho;
+
+                            caminhoRota 
+                                = caminhoRota != null
+                                ? caminhoRota.Replace("[action]", metodo.NomeMetodo).Replace("{", "${")
+                                : "";
+
                             var metodoObj = new Metodo
                             {
                                 Nome = metodo.NomeMetodo,
-                                Rota = metodo.rota.caminho,
+                                Rota = caminhoRota,
                                 Tipo = metodo.rota.tipo,
                                 Retorno = metodo.retorno.lista ? $"Array<{metodo.retorno.tipo}>" : metodo.retorno.tipo,
                                 Parametros = new List<Parametro>()
                             };
 
-                            foreach(var param in metodo.parametros)
+                            foreach (var param in metodo.parametros)
                             {
                                 var isURL = false;
                                 if (metodoObj.Rota.Contains(param.nome))
@@ -195,11 +207,57 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                                     serviceObj.Imports.Add(param.tipo);
                             }
 
+                            if (!serviceObj.Imports.Contains(metodo.retorno.tipo)
+                                && metodo.retorno.tipo != "string"
+                                && metodo.retorno.tipo != "boolean"
+                                && metodo.retorno.tipo != "number"
+                                && metodo.retorno.tipo != "any")
+                            {
+                                serviceObj.Imports.Add(metodo.retorno.tipo);
+                            }
+
+                            // Cria novo endpoint no Postman
+                            var novoEndpoint = new PostmanCollectionItem
+                            {
+                                name = $"/{metodoObj.Rota.Replace("$", "")}",
+                                request = new PostmanRequest
+                                {
+                                    url = new PostmanUrl {
+                                        raw = "{{host}}/" + serviceObj.Nome + "/" + metodoObj.Rota.Replace("$", ""),
+                                        host = new List<string> { "{{host}}" },
+                                        path = new List<string> { $"{serviceObj.Nome}/{metodoObj.Rota.Replace("$", "")}" }
+                                    },
+                                    method = metodoObj.Tipo,
+                                    description = ""
+                                }
+                            };
+
+                            if (metodoObj.Rota == "/")
+                            {
+                                novoEndpoint.name = "/";
+                                novoEndpoint.request.url.raw = "{{host}}/" + serviceObj.Nome;
+                                novoEndpoint.request.url.path = new List<string> { $"{serviceObj.Nome}" };
+                            }
+
+                            if (metodoObj.Tipo == "POST")
+                            {
+                                novoEndpoint.request.header = new List<PostmanHeader>
+                                {
+                                    new PostmanHeader("Content-Type", "application/json")
+                                };
+
+                                novoEndpoint.request.body = new PostmanBody();
+                            }
+
+                            novaPasta.item.Add(novoEndpoint);
                             serviceObj.Metodos.Add(metodoObj);
                         }
 
+                        postmanCollection.collection.item.Add(novaPasta);
                         listaServices.Add(serviceObj);
                     }
+
+                    await postmanService.CriarOuAtualizarCollection(postmanCollection);
 
                     var serviceTemplateFile = File.ReadAllText("Templates/Service.template");
 
@@ -223,6 +281,43 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        #region Métodos Auxiliares
+
+        private bool BuildProjeto(string arquivoProjeto)
+        {
+            var temErros = false;
+
+            var dotnetBuild = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "dotnet",
+                    Arguments = $"build {arquivoProjeto}",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                }
+            };
+
+            dotnetBuild.Start();
+            while (!dotnetBuild.StandardOutput.EndOfStream)
+            {
+                string line = dotnetBuild.StandardOutput.ReadLine().Trim();
+
+                if (line.Contains("Erro(s)"))
+                {
+                    var numeroErros = Convert.ToInt32(line.Split(' ')[0]);
+                    if (numeroErros > 0)
+                    {
+                        temErros = true;
+                        MessageBox.Show($"Falha ao executar build do projeto! {numeroErros} erros encontrados!");
+                    }
+                }
+            }
+
+            return temErros;
         }
 
         private APIXML ParseXML()
@@ -256,5 +351,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                     strReader.Close();
             }
         }
+
+        #endregion
     }
 }

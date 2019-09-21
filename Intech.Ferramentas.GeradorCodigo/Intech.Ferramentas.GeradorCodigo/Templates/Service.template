@@ -21,23 +21,34 @@ class @(Model.Nome)Service extends BaseService {
         }
 
         @Raw(") => \n")
-        @Raw("\t\tthis.CriarRequisicao(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null, `" + @Model.Metodos[i].Rota + "`") 
+        @Raw("\t\tthis.CriarRequisicao<" + @Model.Metodos[i].Retorno + ">")
+        @Raw("(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null")
         
-        if(@Model.Metodos[i].Parametros.Count > 0) {
-            @Raw(", {")
+        
+            @Raw(", `" + @Model.Metodos[i].Rota + "`") 
+        
+            if(@Model.Metodos[i].Parametros.Count == 1 && @Model.Metodos[i].Parametros[0].IsURL != true) {
+                @Raw(", ")
 
-            for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
-                if(@Model.Metodos[i].Parametros[i2].IsURL != true) {
-                    @Raw(@Model.Metodos[i].Parametros[i2].Nome)
-                }
-
-                if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
-                    @Raw(", ")
-                }
+                @Raw(@Model.Metodos[i].Parametros[0].Nome)
             }
+            else if(@Model.Metodos[i].Parametros.Count > 1) {
+                @Raw(", {")
 
-            @Raw("}")
-        }
+                for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
+                    if(@Model.Metodos[i].Parametros[i2].IsURL != true) {
+                        @Raw(@Model.Metodos[i].Parametros[i2].Nome)
+
+                        if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
+                            @Raw(", ")
+                        }
+                    }
+                }
+
+                @Raw("}")
+            }
+        
+        
 
         @Raw(");\n")
     }

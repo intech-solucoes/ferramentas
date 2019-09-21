@@ -61,5 +61,14 @@
     "Database": "PW_EQTPREV",
     "Sistema": "PrevSystemWeb",
     "ID": "3ab04252-1172-4e98-b544-4aba1fde29e2"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PW_CURITIBAPREV",
+    "Sistema": "PrevSystemWeb",
+    "ID": "865f27e6-e48e-49f9-a5e2-8c439735bc36"
   }
 ]

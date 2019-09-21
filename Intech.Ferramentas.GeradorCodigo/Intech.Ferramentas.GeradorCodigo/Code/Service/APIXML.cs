@@ -10,8 +10,13 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Service
     [XmlRoot(ElementName = "doc")]
     public class APIXML
     {
-        public object assembly { get; set; }
+        public assembly assembly { get; set; }
         public List<member> members { get; set; }
+    }
+
+    public class assembly
+    {
+        public string name { get; set; }
     }
 
     public class member
