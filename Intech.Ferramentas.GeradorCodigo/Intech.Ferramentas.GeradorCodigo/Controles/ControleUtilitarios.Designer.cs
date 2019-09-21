@@ -174,6 +174,7 @@
             this.ButtonPWCriarUsuarios.TabIndex = 6;
             this.ButtonPWCriarUsuarios.Text = "Criar Usuários";
             this.ButtonPWCriarUsuarios.UseVisualStyleBackColor = true;
+            this.ButtonPWCriarUsuarios.Click += new System.EventHandler(this.ButtonPWCriarUsuarios_Click);
             // 
             // groupBox4
             // 

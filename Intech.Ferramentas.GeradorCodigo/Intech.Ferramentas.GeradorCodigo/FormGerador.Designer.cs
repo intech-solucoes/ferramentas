@@ -31,15 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerador));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.controleGerador1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleGerador();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.controleConexoes1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleConexoes();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.controleProjetos1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleProjetos();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.controleUtilitarios1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleUtilitarios();
             this.ButtonConfiguracao = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.controleGerador1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleGerador();
-            this.controleConexoes1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleConexoes();
-            this.controleProjetos1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleProjetos();
-            this.controleUtilitarios1 = new Intech.Ferramentas.GeradorCodigo.Controles.ControleUtilitarios();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -52,6 +53,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,6 +74,15 @@
             this.tabPage1.Text = "Gerador";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // controleGerador1
+            // 
+            this.controleGerador1.Config = null;
+            this.controleGerador1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controleGerador1.Location = new System.Drawing.Point(3, 3);
+            this.controleGerador1.Name = "controleGerador1";
+            this.controleGerador1.Size = new System.Drawing.Size(1178, 634);
+            this.controleGerador1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.controleConexoes1);
@@ -82,6 +93,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Conexões";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // controleConexoes1
+            // 
+            this.controleConexoes1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controleConexoes1.Location = new System.Drawing.Point(3, 3);
+            this.controleConexoes1.Name = "controleConexoes1";
+            this.controleConexoes1.Size = new System.Drawing.Size(1178, 634);
+            this.controleConexoes1.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -94,6 +113,14 @@
             this.tabPage3.Text = "Projetos";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // controleProjetos1
+            // 
+            this.controleProjetos1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controleProjetos1.Location = new System.Drawing.Point(3, 3);
+            this.controleProjetos1.Name = "controleProjetos1";
+            this.controleProjetos1.Size = new System.Drawing.Size(1178, 634);
+            this.controleProjetos1.TabIndex = 0;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.controleUtilitarios1);
@@ -104,6 +131,14 @@
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Utilitários";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // controleUtilitarios1
+            // 
+            this.controleUtilitarios1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controleUtilitarios1.Location = new System.Drawing.Point(3, 3);
+            this.controleUtilitarios1.Name = "controleUtilitarios1";
+            this.controleUtilitarios1.Size = new System.Drawing.Size(1178, 634);
+            this.controleUtilitarios1.TabIndex = 0;
             // 
             // ButtonConfiguracao
             // 
@@ -124,38 +159,15 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // controleGerador1
+            // tabPage5
             // 
-            this.controleGerador1.Config = null;
-            this.controleGerador1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controleGerador1.Location = new System.Drawing.Point(3, 3);
-            this.controleGerador1.Name = "controleGerador1";
-            this.controleGerador1.Size = new System.Drawing.Size(1178, 634);
-            this.controleGerador1.TabIndex = 0;
-            // 
-            // controleConexoes1
-            // 
-            this.controleConexoes1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controleConexoes1.Location = new System.Drawing.Point(3, 3);
-            this.controleConexoes1.Name = "controleConexoes1";
-            this.controleConexoes1.Size = new System.Drawing.Size(1178, 634);
-            this.controleConexoes1.TabIndex = 0;
-            // 
-            // controleProjetos1
-            // 
-            this.controleProjetos1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controleProjetos1.Location = new System.Drawing.Point(3, 3);
-            this.controleProjetos1.Name = "controleProjetos1";
-            this.controleProjetos1.Size = new System.Drawing.Size(1178, 634);
-            this.controleProjetos1.TabIndex = 0;
-            // 
-            // controleUtilitarios1
-            // 
-            this.controleUtilitarios1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controleUtilitarios1.Location = new System.Drawing.Point(3, 3);
-            this.controleUtilitarios1.Name = "controleUtilitarios1";
-            this.controleUtilitarios1.Size = new System.Drawing.Size(1178, 634);
-            this.controleUtilitarios1.TabIndex = 0;
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1184, 640);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Sistemas";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // FormGerador
             // 
@@ -194,6 +206,7 @@
         private Controles.ControleProjetos controleProjetos1;
         private System.Windows.Forms.TabPage tabPage4;
         private Controles.ControleUtilitarios controleUtilitarios1;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }
 
