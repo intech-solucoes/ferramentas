@@ -190,6 +190,14 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                                 Parametros = new List<Parametro>()
                             };
 
+
+                            if (metodo.retorno.resposta == "blob")
+                                metodoObj.Resposta = "Blob";
+                            else if (metodo.retorno.resposta == "zip")
+                                metodoObj.Resposta = "Zip";
+                            else
+                                metodoObj.Resposta = "";
+
                             foreach (var param in metodo.parametros)
                             {
                                 var isURL = false;

@@ -138,6 +138,15 @@
     "ID": "21fc88b8-14ac-4a7e-89d9-c99e4db4917b"
   },
   {
+    "Nome": "curitibaprev-adesao",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\curitibaprev-adesao",
+    "Dependentes": null,
+    "Sistema": "PrevSystemWeb",
+    "Namespace": "",
+    "ID": "4ac6cef5-b362-4271-9c71-8d2ba262a0f6"
+  },
+  {
     "Nome": "curitibaprev-api",
     "Tipo": 2,
     "Diretorio": "C:\\git\\curitibaprev-api\\Intech.PrevSystemWeb.CuritibaPrev.API",

@@ -64,5 +64,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Service
 
         [XmlAttribute]
         public bool lista { get; set; }
+
+        [XmlAttribute]
+        public string resposta { get; set; }
     }
 }

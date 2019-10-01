@@ -25,30 +25,36 @@ class @(Model.Nome)Service extends BaseService {
         @Raw("(TipoRequisicao." + @Model.Metodos[i].Tipo + ", null")
         
         
-            @Raw(", `" + @Model.Metodos[i].Rota + "`") 
+        @Raw(", `" + @Model.Metodos[i].Rota + "`") 
         
-            if(@Model.Metodos[i].Parametros.Count == 1 && @Model.Metodos[i].Parametros[0].IsURL != true) {
-                @Raw(", ")
+        if(@Model.Metodos[i].Parametros.Count == 1 && @Model.Metodos[i].Parametros[0].IsURL != true) {
+            @Raw(", ")
 
-                @Raw(@Model.Metodos[i].Parametros[0].Nome)
-            }
-            else if(@Model.Metodos[i].Parametros.Count > 1) {
-                @Raw(", {")
+            @Raw(@Model.Metodos[i].Parametros[0].Nome)
+        }
+        else if(@Model.Metodos[i].Tipo == "POST" && @Model.Metodos[i].Parametros.Count > 1) {
+            @Raw(", {")
 
-                for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
-                    if(@Model.Metodos[i].Parametros[i2].IsURL != true) {
-                        @Raw(@Model.Metodos[i].Parametros[i2].Nome)
+            for(int i2 = 0; i2 < @Model.Metodos[i].Parametros.Count; i2++) {
+                if(@Model.Metodos[i].Parametros[i2].IsURL != true) {
+                    @Raw(@Model.Metodos[i].Parametros[i2].Nome)
 
-                        if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
-                            @Raw(", ")
-                        }
+                    if(i2 < @Model.Metodos[i].Parametros.Count - 1) {
+                        @Raw(", ")
                     }
                 }
-
-                @Raw("}")
             }
+
+            @Raw("}")
+        }
         
-        
+        if(@Model.Metodos[i].Resposta != "") {
+            if(@Model.Metodos[i].Parametros.Count == 0 || @Model.Metodos[i].Parametros.Count > 0 && @Model.Metodos[i].Parametros[0].IsURL == true) {
+                @Raw(", null")
+            }
+
+            @Raw(", TipoResposta." + @Model.Metodos[i].Resposta)
+        }
 
         @Raw(");\n")
     }

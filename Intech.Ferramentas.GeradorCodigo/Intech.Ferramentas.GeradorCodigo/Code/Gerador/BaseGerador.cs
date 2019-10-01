@@ -314,6 +314,8 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                 default:
                     if (type.Contains("List<"))
                         return type.Replace("List", "Array");
+                    else if (type.Contains("Entidade"))
+                        return type;
                     else
                         throw new Exception(string.Format("Tipo não mapeado: {0}", type));
             }

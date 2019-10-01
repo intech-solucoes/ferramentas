@@ -16,6 +16,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Service
         public string Rota { get; set; }
         public string Tipo { get; set; }
         public List<Parametro> Parametros { get; set; }
+        public string Resposta { get; set; }
     }
 
     public class Parametro

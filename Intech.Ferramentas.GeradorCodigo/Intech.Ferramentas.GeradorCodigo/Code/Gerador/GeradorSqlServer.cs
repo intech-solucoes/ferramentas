@@ -51,7 +51,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 
             foreach (var column in result)
             {
-                if (!listaColunas.Any(x => x.Nome == column.name))
+                if (!column.type.Contains("Entidade") || !listaColunas.Any(x => x.Nome == column.name))
                     listaColunas.Add(new Coluna
                     {
                         Nome = column.name,
