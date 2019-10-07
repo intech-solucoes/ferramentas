@@ -62,7 +62,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
         private void ComboBoxSistemas_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (!DesignMode)
             {
                 BuscarEntidades();
@@ -100,7 +99,10 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
         private void ButtonNovaEntidade_Click(object sender, EventArgs e)
         {
             var formNovaEntidade = new FormNovaEntidade(SistemaSelecionado);
-            formNovaEntidade.ShowDialog();
+            if(formNovaEntidade.ShowDialog() == DialogResult.OK)
+            {
+                BuscarEntidades();
+            }
         }
 
         private void CarregarConexoes()

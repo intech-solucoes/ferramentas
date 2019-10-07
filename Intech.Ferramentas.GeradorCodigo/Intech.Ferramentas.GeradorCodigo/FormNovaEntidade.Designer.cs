@@ -48,11 +48,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.CheckBoxSinonimo = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TextBoxChavePrimaria = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.CheckBoxChavePrimaria = new System.Windows.Forms.CheckBox();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TextBoxChavePrimaria = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -73,7 +73,7 @@
             this.TextBoxNomeEntidade.Location = new System.Drawing.Point(13, 64);
             this.TextBoxNomeEntidade.Name = "TextBoxNomeEntidade";
             this.TextBoxNomeEntidade.Size = new System.Drawing.Size(541, 20);
-            this.TextBoxNomeEntidade.TabIndex = 1;
+            this.TextBoxNomeEntidade.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -127,7 +127,7 @@
             this.ButtonAdicionar.Location = new System.Drawing.Point(9, 160);
             this.ButtonAdicionar.Name = "ButtonAdicionar";
             this.ButtonAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.ButtonAdicionar.TabIndex = 6;
+            this.ButtonAdicionar.TabIndex = 9;
             this.ButtonAdicionar.Text = "Adicionar";
             this.ButtonAdicionar.UseVisualStyleBackColor = false;
             this.ButtonAdicionar.Click += new System.EventHandler(this.ButtonAdicionar_Click);
@@ -138,7 +138,7 @@
             this.CheckBoxNulo.Location = new System.Drawing.Point(9, 121);
             this.CheckBoxNulo.Name = "CheckBoxNulo";
             this.CheckBoxNulo.Size = new System.Drawing.Size(81, 17);
-            this.CheckBoxNulo.TabIndex = 5;
+            this.CheckBoxNulo.TabIndex = 8;
             this.CheckBoxNulo.Text = "Aceita Nulo";
             this.CheckBoxNulo.UseVisualStyleBackColor = true;
             // 
@@ -147,7 +147,7 @@
             this.TextBoxTipo.Location = new System.Drawing.Point(7, 84);
             this.TextBoxTipo.Name = "TextBoxTipo";
             this.TextBoxTipo.Size = new System.Drawing.Size(336, 20);
-            this.TextBoxTipo.TabIndex = 3;
+            this.TextBoxTipo.TabIndex = 7;
             // 
             // label3
             // 
@@ -163,7 +163,7 @@
             this.TextBoxNomeColuna.Location = new System.Drawing.Point(7, 33);
             this.TextBoxNomeColuna.Name = "TextBoxNomeColuna";
             this.TextBoxNomeColuna.Size = new System.Drawing.Size(336, 20);
-            this.TextBoxNomeColuna.TabIndex = 1;
+            this.TextBoxNomeColuna.TabIndex = 6;
             // 
             // label2
             // 
@@ -184,7 +184,7 @@
             this.ButtonNovaColuna.Location = new System.Drawing.Point(6, 19);
             this.ButtonNovaColuna.Name = "ButtonNovaColuna";
             this.ButtonNovaColuna.Size = new System.Drawing.Size(174, 23);
-            this.ButtonNovaColuna.TabIndex = 8;
+            this.ButtonNovaColuna.TabIndex = 5;
             this.ButtonNovaColuna.Text = "Nova";
             this.ButtonNovaColuna.UseVisualStyleBackColor = false;
             this.ButtonNovaColuna.Click += new System.EventHandler(this.ButtonNovaColuna_Click);
@@ -195,7 +195,7 @@
             this.ListBoxColunasExtras.Location = new System.Drawing.Point(6, 45);
             this.ListBoxColunasExtras.Name = "ListBoxColunasExtras";
             this.ListBoxColunasExtras.Size = new System.Drawing.Size(174, 160);
-            this.ListBoxColunasExtras.TabIndex = 0;
+            this.ListBoxColunasExtras.TabIndex = 50;
             this.ListBoxColunasExtras.SelectedIndexChanged += new System.EventHandler(this.ListBoxColunasExtras_SelectedIndexChanged);
             // 
             // ButtonSalvar
@@ -204,7 +204,7 @@
             this.ButtonSalvar.Location = new System.Drawing.Point(13, 468);
             this.ButtonSalvar.Name = "ButtonSalvar";
             this.ButtonSalvar.Size = new System.Drawing.Size(75, 23);
-            this.ButtonSalvar.TabIndex = 3;
+            this.ButtonSalvar.TabIndex = 10;
             this.ButtonSalvar.Text = "Salvar";
             this.ButtonSalvar.UseVisualStyleBackColor = true;
             this.ButtonSalvar.Click += new System.EventHandler(this.ButtonSalvar_Click);
@@ -235,7 +235,7 @@
             this.TextBoxNomeTabela.Location = new System.Drawing.Point(13, 105);
             this.TextBoxNomeTabela.Name = "TextBoxNomeTabela";
             this.TextBoxNomeTabela.Size = new System.Drawing.Size(541, 20);
-            this.TextBoxNomeTabela.TabIndex = 7;
+            this.TextBoxNomeTabela.TabIndex = 1;
             // 
             // label5
             // 
@@ -252,7 +252,7 @@
             this.CheckBoxSinonimo.Location = new System.Drawing.Point(13, 132);
             this.CheckBoxSinonimo.Name = "CheckBoxSinonimo";
             this.CheckBoxSinonimo.Size = new System.Drawing.Size(112, 17);
-            this.CheckBoxSinonimo.TabIndex = 8;
+            this.CheckBoxSinonimo.TabIndex = 2;
             this.CheckBoxSinonimo.Text = "Tabela é sinônimo";
             this.CheckBoxSinonimo.UseVisualStyleBackColor = true;
             // 
@@ -271,33 +271,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "       Chave Primária Manual";
             // 
-            // CheckBoxChavePrimaria
-            // 
-            this.CheckBoxChavePrimaria.AutoSize = true;
-            this.CheckBoxChavePrimaria.Location = new System.Drawing.Point(12, 0);
-            this.CheckBoxChavePrimaria.Name = "CheckBoxChavePrimaria";
-            this.CheckBoxChavePrimaria.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxChavePrimaria.TabIndex = 0;
-            this.CheckBoxChavePrimaria.UseVisualStyleBackColor = true;
-            this.CheckBoxChavePrimaria.CheckedChanged += new System.EventHandler(this.CheckBoxChavePrimaria_CheckedChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Nome Chave Primária";
-            // 
-            // TextBoxChavePrimaria
-            // 
-            this.TextBoxChavePrimaria.Enabled = false;
-            this.TextBoxChavePrimaria.Location = new System.Drawing.Point(6, 42);
-            this.TextBoxChavePrimaria.Name = "TextBoxChavePrimaria";
-            this.TextBoxChavePrimaria.Size = new System.Drawing.Size(319, 20);
-            this.TextBoxChavePrimaria.TabIndex = 2;
-            // 
             // label7
             // 
             this.label7.Location = new System.Drawing.Point(331, 29);
@@ -308,8 +281,36 @@
             this.label7.Text = "Utilize essa opção caso necessite indicar uma coluna para chave primária";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // TextBoxChavePrimaria
+            // 
+            this.TextBoxChavePrimaria.Enabled = false;
+            this.TextBoxChavePrimaria.Location = new System.Drawing.Point(6, 42);
+            this.TextBoxChavePrimaria.Name = "TextBoxChavePrimaria";
+            this.TextBoxChavePrimaria.Size = new System.Drawing.Size(319, 20);
+            this.TextBoxChavePrimaria.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Nome Chave Primária";
+            // 
+            // CheckBoxChavePrimaria
+            // 
+            this.CheckBoxChavePrimaria.AutoSize = true;
+            this.CheckBoxChavePrimaria.Location = new System.Drawing.Point(12, 0);
+            this.CheckBoxChavePrimaria.Name = "CheckBoxChavePrimaria";
+            this.CheckBoxChavePrimaria.Size = new System.Drawing.Size(15, 14);
+            this.CheckBoxChavePrimaria.TabIndex = 3;
+            this.CheckBoxChavePrimaria.UseVisualStyleBackColor = true;
+            this.CheckBoxChavePrimaria.CheckedChanged += new System.EventHandler(this.CheckBoxChavePrimaria_CheckedChanged);
+            // 
             // FormNovaEntidade
             // 
+            this.AcceptButton = this.ButtonSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 503);

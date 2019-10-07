@@ -110,6 +110,7 @@ namespace Intech.Ferramentas.GeradorCodigo
             File.WriteAllText(diretorioEntidadeJson, JsonConvert.SerializeObject(entidade, Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore } ));
 
             MessageBox.Show("Entidade criada com sucesso!");
+            DialogResult = DialogResult.OK;
             Close();
         }
 

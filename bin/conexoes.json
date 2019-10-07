@@ -58,17 +58,26 @@
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "PW_CURITIBAPREV",
+    "Database": "FSF_050919",
+    "Sistema": "PrevSystem",
+    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.13",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "FACEB_170919",
     "Sistema": "PrevSystemWeb",
-    "ID": "865f27e6-e48e-49f9-a5e2-8c439735bc36"
+    "ID": "53e68a29-808b-4a7f-a91e-47cea5a2ae38"
   },
   {
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "FSF_050919",
-    "Sistema": "PrevSystem",
-    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
+    "Database": "PW_CURITIBAPREV_NAOAPAGAR",
+    "Sistema": "PrevSystemWeb",
+    "ID": "865f27e6-e48e-49f9-a5e2-8c439735bc36"
   }
 ]
