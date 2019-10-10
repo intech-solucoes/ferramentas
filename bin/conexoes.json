@@ -55,15 +55,6 @@
   },
   {
     "Provider": "sqlserver",
-    "DataSource": "10.10.170.39",
-    "Username": "sysdba",
-    "Password": "masterkey",
-    "Database": "FSF_050919",
-    "Sistema": "PrevSystem",
-    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
-  },
-  {
-    "Provider": "sqlserver",
     "DataSource": "10.10.170.13",
     "Username": "sysdba",
     "Password": "masterkey",
@@ -79,5 +70,23 @@
     "Database": "PW_CURITIBAPREV_NAOAPAGAR",
     "Sistema": "PrevSystemWeb",
     "ID": "865f27e6-e48e-49f9-a5e2-8c439735bc36"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "FSF_011019",
+    "Sistema": "PrevSystem",
+    "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "BRPREV_FSF_04062019",
+    "Sistema": "BrPrev SEG",
+    "ID": "381ceb96-ff0e-4970-8e01-b46b8a712872"
   }
 ]

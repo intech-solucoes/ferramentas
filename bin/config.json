@@ -51,6 +51,19 @@
                 "Negocio": "Intech.EfdReinf.Negocio",
                 "Entidades": "Intech.EfdReinf.Entidades"
             }
+        },
+        {
+            "Nome": "BrPrev SEG",
+            "Diretorios": {
+                "Dados": "{0}\\brprev-seg\\API\\Intech.BrPrev.SEG.Dados",
+                "Negocio": "{0}\\brprev-seg\\API\\Intech.BrPrev.SEG.Negocio",
+                "Entidades": "{0}\\brprev-seg\\API\\Intech.BrPrev.SEG.Entidades"
+            },
+            "Namespaces": {
+                "Dados": "Intech.BrPrev.SEG.Dados",
+                "Negocio": "Intech.BrPrev.SEG.Negocio",
+                "Entidades": "Intech.BrPrev.SEG.Entidades"
+            }
         }
     ]
 }
