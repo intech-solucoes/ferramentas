@@ -45,6 +45,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TextBoxRepositorio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ButtonSelecionarServices = new System.Windows.Forms.Button();
+            this.ComboBoxAPI = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CheckBoxBuild = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +83,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.CheckBoxBuild);
+            this.groupBox1.Controls.Add(this.ComboBoxAPI);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.ButtonSelecionarServices);
             this.groupBox1.Controls.Add(this.TextBoxNamespace);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.ComboBoxSistema);
@@ -146,7 +154,7 @@
             // 
             // ButtonGerarService
             // 
-            this.ButtonGerarService.Location = new System.Drawing.Point(6, 290);
+            this.ButtonGerarService.Location = new System.Drawing.Point(6, 343);
             this.ButtonGerarService.Name = "ButtonGerarService";
             this.ButtonGerarService.Size = new System.Drawing.Size(143, 23);
             this.ButtonGerarService.TabIndex = 18;
@@ -156,7 +164,7 @@
             // 
             // ButtonProjetosDependentes
             // 
-            this.ButtonProjetosDependentes.Location = new System.Drawing.Point(6, 261);
+            this.ButtonProjetosDependentes.Location = new System.Drawing.Point(6, 314);
             this.ButtonProjetosDependentes.Name = "ButtonProjetosDependentes";
             this.ButtonProjetosDependentes.Size = new System.Drawing.Size(143, 23);
             this.ButtonProjetosDependentes.TabIndex = 17;
@@ -257,6 +265,53 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Nome Repositório";
             // 
+            // ButtonSelecionarServices
+            // 
+            this.ButtonSelecionarServices.Location = new System.Drawing.Point(6, 372);
+            this.ButtonSelecionarServices.Name = "ButtonSelecionarServices";
+            this.ButtonSelecionarServices.Size = new System.Drawing.Size(143, 23);
+            this.ButtonSelecionarServices.TabIndex = 23;
+            this.ButtonSelecionarServices.Text = "Selecionar Services";
+            this.ButtonSelecionarServices.UseVisualStyleBackColor = true;
+            this.ButtonSelecionarServices.Click += new System.EventHandler(this.ButtonSelecionarServices_Click);
+            // 
+            // ComboBoxAPI
+            // 
+            this.ComboBoxAPI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxAPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxAPI.Enabled = false;
+            this.ComboBoxAPI.FormattingEnabled = true;
+            this.ComboBoxAPI.Items.AddRange(new object[] {
+            "API",
+            "Web",
+            "Mobile"});
+            this.ComboBoxAPI.Location = new System.Drawing.Point(6, 278);
+            this.ComboBoxAPI.Name = "ComboBoxAPI";
+            this.ComboBoxAPI.Size = new System.Drawing.Size(687, 21);
+            this.ComboBoxAPI.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 261);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "API";
+            // 
+            // CheckBoxBuild
+            // 
+            this.CheckBoxBuild.AutoSize = true;
+            this.CheckBoxBuild.Checked = true;
+            this.CheckBoxBuild.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CheckBoxBuild.Location = new System.Drawing.Point(155, 347);
+            this.CheckBoxBuild.Name = "CheckBoxBuild";
+            this.CheckBoxBuild.Size = new System.Drawing.Size(145, 17);
+            this.CheckBoxBuild.TabIndex = 26;
+            this.CheckBoxBuild.Text = "Executar Build do Projeto";
+            this.CheckBoxBuild.UseVisualStyleBackColor = true;
+            // 
             // ControleProjetos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,5 +346,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TextBoxNamespace;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button ButtonSelecionarServices;
+        private System.Windows.Forms.ComboBox ComboBoxAPI;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox CheckBoxBuild;
     }
 }

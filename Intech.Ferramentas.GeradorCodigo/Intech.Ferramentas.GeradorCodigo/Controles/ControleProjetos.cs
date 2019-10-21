@@ -57,6 +57,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
                 ButtonProjetosDependentes.Enabled = ProjetoSelecionado.Tipo == TipoProjeto.API;
                 ButtonGerarService.Enabled = ProjetoSelecionado.Tipo == TipoProjeto.API;
+                ButtonSelecionarServices.Enabled = ProjetoSelecionado.Tipo != TipoProjeto.API;
                 ComboBoxSistema.Text = ProjetoSelecionado.Sistema;
                 TextBoxNamespace.Text = ProjetoSelecionado.Namespace;
             }
@@ -84,10 +85,20 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
         {
             ComboBoxSistema.Items.Clear();
 
-            foreach (var cliente in ConfigManager.Config.Sistema)
-                ComboBoxSistema.Items.Add(cliente.Nome);
+            foreach (var sistema in ConfigManager.Config.Sistema)
+                ComboBoxSistema.Items.Add(sistema.Nome);
 
             ComboBoxSistema.SelectedIndex = 0;
+        }
+
+        private void PreencherAPIs()
+        {
+            ComboBoxAPI.Items.Clear();
+
+            foreach (var api in new Projetos().Lista.Where(x => x.Tipo == TipoProjeto.API).OrderBy(x => x.Nome).ToList())
+                ComboBoxAPI.Items.Add(api.Nome);
+
+            ComboBoxAPI.SelectedIndex = 0;
         }
 
         private void CarregarListaProjetos()
@@ -110,6 +121,11 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
             new FormProjetosDependentes(this).ShowDialog();
         }
 
+        private void ButtonSelecionarServices_Click(object sender, EventArgs e)
+        {
+            new FormSelecionarServices(this).ShowDialog();
+        }
+
         private async void ButtonGerarService_Click(object sender, EventArgs e)
         {
             try
@@ -117,8 +133,13 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                 string arquivoProjeto = Path.Combine(ProjetoSelecionado.Diretorio, ProjetoSelecionado.Namespace + ".csproj");
                 var projeto = (Projeto)ListBoxProjetos.SelectedItem;
 
-                // Faz build do projeto para gerar documentação XML atualizada
-                var temErros = BuildProjeto(arquivoProjeto);
+                var temErros = false;
+
+                if (CheckBoxBuild.Checked)
+                {
+                    // Faz build do projeto para gerar documentação XML atualizada
+                    temErros = BuildProjeto(arquivoProjeto);
+                }
 
                 if (!temErros)
                 {
@@ -262,6 +283,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                         }
 
                         postmanCollection.collection.item.Add(novaPasta);
+                        
                         listaServices.Add(serviceObj);
                     }
 
@@ -269,16 +291,29 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
 
                     var serviceTemplateFile = File.ReadAllText("Templates/Service.template");
 
-                    foreach (var dependente in projeto.Dependentes)
+                    foreach (var projDependente in projeto.Dependentes)
                     {
-                        foreach (var service in listaServices)
+                        var listaServicesProjetoDependente = listaServices;
+                        var dependente = new Projetos().BuscarPorID(projDependente);
+
+                        if (!Directory.Exists(Path.Combine(dependente.Diretorio, "src", "services")))
+                            Directory.CreateDirectory(Path.Combine(dependente.Diretorio, "src", "services"));
+
+                        // Filtra os services a serem gerados
+                        if (dependente.Services != null)
+                        {
+                            var listaControllers = dependente.Services.Select(x => x.Replace("Controller", "")).ToList();
+                            listaServicesProjetoDependente = listaServices.Where(x => listaControllers.Contains(x.Nome)).ToList();
+                        }
+
+                        foreach (var service in listaServicesProjetoDependente)
                         {
                             var serviceTemplate = RazorEngine.Engine.Razor.RunCompile(serviceTemplateFile, "templateService", null, service);
                             File.WriteAllText(Path.Combine(dependente.Diretorio, "src", "services", $"{service.Nome}Service.tsx"), serviceTemplate, Encoding.UTF8);
                         }
 
                         var serviceIndexTemplateFile = File.ReadAllText("Templates/ServiceIndex.template");
-                        var serviceIndexTemplate = RazorEngine.Engine.Razor.RunCompile(serviceIndexTemplateFile, "templateServiceIndex", null, listaServices);
+                        var serviceIndexTemplate = RazorEngine.Engine.Razor.RunCompile(serviceIndexTemplateFile, "templateServiceIndex", null, listaServicesProjetoDependente);
                         File.WriteAllText(Path.Combine(dependente.Diretorio, "src", "services", $"index.tsx"), serviceIndexTemplate, Encoding.UTF8);
                     }
 

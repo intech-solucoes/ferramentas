@@ -38,6 +38,7 @@
             this.CheckedListBoxProjetos.FormattingEnabled = true;
             this.CheckedListBoxProjetos.Location = new System.Drawing.Point(13, 13);
             this.CheckedListBoxProjetos.Name = "CheckedListBoxProjetos";
+            this.CheckedListBoxProjetos.ScrollAlwaysVisible = true;
             this.CheckedListBoxProjetos.Size = new System.Drawing.Size(227, 259);
             this.CheckedListBoxProjetos.TabIndex = 0;
             // 

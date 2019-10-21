@@ -1,7 +1,6 @@
 ﻿#region Usings
-using Intech.Lib.Data.Util.Tradutor;
+using Intech.Lib.TradutorSqlOracle;
 using RazorEngine.Templating;
-using Scriban;
 using System;
 using System.Collections.Generic;
 using System.IO;

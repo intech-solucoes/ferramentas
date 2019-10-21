@@ -1,7 +1,8 @@
-﻿using Intech.Ferramentas.GeradorCodigo.Code;
-using System.Collections.Generic;
+﻿#region Usings
+using Intech.Ferramentas.GeradorCodigo.Code;
 using System.Linq;
-using System.Windows.Forms;
+using System.Windows.Forms; 
+#endregion
 
 namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
 {
@@ -28,14 +29,14 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
             {
                 for (int i = 0; i < projetos.Count; i++)
                 {
-                    CheckedListBoxProjetos.SetItemChecked(i, Projeto.Dependentes.Any(x => x.ID == projetos[i].ID));
+                    CheckedListBoxProjetos.SetItemChecked(i, Projeto.Dependentes.Any(x => x == projetos[i].ID));
                 }
             }
         }
 
         private void ButtonSalvar_Click(object sender, System.EventArgs e)
         {
-            Projeto.Dependentes = CheckedListBoxProjetos.CheckedItems.Cast<Projeto>().ToList();
+            Projeto.Dependentes = CheckedListBoxProjetos.CheckedItems.Cast<Projeto>().Select(x => x.ID).ToList();
             new Projetos().Salvar(Projeto);
             Close();
         }

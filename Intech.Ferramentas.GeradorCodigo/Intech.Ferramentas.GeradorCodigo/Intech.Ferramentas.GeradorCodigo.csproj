@@ -239,6 +239,12 @@
     <Compile Include="Controles\NovoProjeto\FormProjetosDependentes.Designer.cs">
       <DependentUpon>FormProjetosDependentes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\NovoProjeto\FormSelecionarServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\NovoProjeto\FormSelecionarServices.Designer.cs">
+      <DependentUpon>FormSelecionarServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\NovoProjeto\ParametrosProjeto.cs" />
     <Compile Include="FormConfiguracao.cs">
       <SubType>Form</SubType>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\NovoProjeto\FormProjetosDependentes.resx">
       <DependentUpon>FormProjetosDependentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\NovoProjeto\FormSelecionarServices.resx">
+      <DependentUpon>FormSelecionarServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>
@@ -361,6 +370,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="..\..\..\lib\dotnet-lib\Intech.Lib.Data\Intech.Lib.Data.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Intech.Lib\Intech.Lib.TradutorSqlOracle\Intech.Lib.TradutorSqlOracle.csproj">
+      <Project>{3143c793-4c24-48e6-85ef-ac2131ffa514}</Project>
+      <Name>Intech.Lib.TradutorSqlOracle</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

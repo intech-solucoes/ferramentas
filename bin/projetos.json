@@ -4,8 +4,10 @@
     "Tipo": 0,
     "Diretorio": "C:\\git\\eqtprev-portal",
     "Dependentes": null,
+    "Services": null,
     "Sistema": "PrevSystemWeb",
     "Namespace": null,
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "4860c493-cb36-4d84-93cc-657efa6c61f5"
   },
   {
@@ -13,8 +15,10 @@
     "Tipo": 0,
     "Diretorio": "C:\\git\\cageprev-portal",
     "Dependentes": null,
+    "Services": null,
     "Sistema": "PrevSystemWeb",
     "Namespace": null,
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "27b27406-36ce-40f7-8ca3-42915d0e3835"
   },
   {
@@ -22,8 +26,10 @@
     "Tipo": 1,
     "Diretorio": "C:\\git\\cageprev-mobile",
     "Dependentes": null,
+    "Services": null,
     "Sistema": "PrevSystemWeb",
     "Namespace": null,
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "c765be38-51ae-4c7c-b098-6236c161e5e1"
   },
   {
@@ -31,27 +37,13 @@
     "Tipo": 2,
     "Diretorio": "C:\\git\\cageprev-api\\Intech.PrevSystemWeb.Cageprev.Api",
     "Dependentes": [
-      {
-        "Nome": "cageprev-portal",
-        "Tipo": 0,
-        "Diretorio": "C:\\git\\cageprev-portal",
-        "Dependentes": null,
-        "Sistema": null,
-        "Namespace": null,
-        "ID": "27b27406-36ce-40f7-8ca3-42915d0e3835"
-      },
-      {
-        "Nome": "cageprev-mobile",
-        "Tipo": 1,
-        "Diretorio": "C:\\git\\cageprev-mobile",
-        "Dependentes": null,
-        "Sistema": null,
-        "Namespace": null,
-        "ID": "c765be38-51ae-4c7c-b098-6236c161e5e1"
-      }
+      "27b27406-36ce-40f7-8ca3-42915d0e3835",
+      "c765be38-51ae-4c7c-b098-6236c161e5e1"
     ],
+    "Services": null,
     "Sistema": "PrevSystemWeb",
     "Namespace": "Intech.PrevSystemWeb.Cageprev.Api",
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "1e2a9939-77c4-46d1-a06d-37f5c2737385"
   },
   {
@@ -59,8 +51,10 @@
     "Tipo": 1,
     "Diretorio": "C:\\git\\saofrancisco-mobile",
     "Dependentes": null,
+    "Services": null,
     "Sistema": "PrevSystem",
     "Namespace": null,
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "0da2ae24-8bf4-41a7-982b-f4cad58e0938"
   },
   {
@@ -68,8 +62,10 @@
     "Tipo": 0,
     "Diretorio": "C:\\git\\saofrancisco-portal",
     "Dependentes": null,
+    "Services": null,
     "Sistema": "PrevSystem",
     "Namespace": null,
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "c8a4bdd5-f7a7-4f34-b225-b907c32d6bbc"
   },
   {
@@ -77,8 +73,10 @@
     "Tipo": 1,
     "Diretorio": "C:\\git\\sabesprev-mobile",
     "Dependentes": null,
+    "Services": null,
     "Sistema": "PrevSystem",
     "Namespace": null,
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "78417a39-236c-48e5-ab08-07e5f6af8882"
   },
   {
@@ -86,27 +84,13 @@
     "Tipo": 2,
     "Diretorio": "C:\\git\\saofrancisco-api\\Intech.PrevSystem.Saofrancisco.API",
     "Dependentes": [
-      {
-        "Nome": "saofrancisco-mobile",
-        "Tipo": 1,
-        "Diretorio": "C:\\git\\saofrancisco-mobile",
-        "Dependentes": null,
-        "Sistema": "PrevSystem",
-        "Namespace": null,
-        "ID": "0da2ae24-8bf4-41a7-982b-f4cad58e0938"
-      },
-      {
-        "Nome": "saofrancisco-portal",
-        "Tipo": 0,
-        "Diretorio": "C:\\git\\saofrancisco-portal",
-        "Dependentes": null,
-        "Sistema": "PrevSystem",
-        "Namespace": null,
-        "ID": "c8a4bdd5-f7a7-4f34-b225-b907c32d6bbc"
-      }
+      "0da2ae24-8bf4-41a7-982b-f4cad58e0938",
+      "c8a4bdd5-f7a7-4f34-b225-b907c32d6bbc"
     ],
+    "Services": null,
     "Sistema": "PrevSystem",
     "Namespace": "Intech.PrevSystem.Saofrancisco.API",
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "a221d4b6-c49e-49fd-ab49-3cd6455b6c8d"
   },
   {
@@ -114,55 +98,90 @@
     "Tipo": 2,
     "Diretorio": "C:\\git\\eqtprev-api\\Intech.PrevSystemWeb.Eqtprev.API",
     "Dependentes": [
-      {
-        "Nome": "eqtprev-portal",
-        "Tipo": 0,
-        "Diretorio": "C:\\git\\eqtprev-portal",
-        "Dependentes": null,
-        "Sistema": "PrevSystemWeb",
-        "Namespace": null,
-        "ID": "4860c493-cb36-4d84-93cc-657efa6c61f5"
-      }
+      "4860c493-cb36-4d84-93cc-657efa6c61f5"
     ],
+    "Services": null,
     "Sistema": "PrevSystemWeb",
     "Namespace": "Intech.PrevSystemWeb.Eqtprev.API",
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "50ba0ff5-a318-477e-bd25-f67175be7903"
   },
   {
-    "Nome": "curitibaprev-portal",
+    "Nome": "regius-adesao",
     "Tipo": 0,
-    "Diretorio": "C:\\git\\curitibaprev-portal",
+    "Diretorio": "C:\\git\\regius-adesao",
     "Dependentes": null,
-    "Sistema": "PrevSystemWeb",
+    "Services": null,
+    "Sistema": "PrevSystem",
     "Namespace": "",
-    "ID": "21fc88b8-14ac-4a7e-89d9-c99e4db4917b"
+    "API": "00000000-0000-0000-0000-000000000000",
+    "ID": "ded4b64f-eb84-46bc-b803-3f3a62d18262"
   },
   {
-    "Nome": "curitibaprev-adesao",
-    "Tipo": 0,
-    "Diretorio": "C:\\git\\curitibaprev-adesao",
-    "Dependentes": null,
-    "Sistema": "PrevSystemWeb",
-    "Namespace": "",
-    "ID": "4ac6cef5-b362-4271-9c71-8d2ba262a0f6"
+    "Nome": "regius-api",
+    "Tipo": 2,
+    "Diretorio": "C:\\git\\regius-api\\Intech.PrevSystem.Regius.API",
+    "Dependentes": [
+      "ded4b64f-eb84-46bc-b803-3f3a62d18262"
+    ],
+    "Services": null,
+    "Sistema": "PrevSystem",
+    "Namespace": "Intech.PrevSystem.Regius.API",
+    "API": "00000000-0000-0000-0000-000000000000",
+    "ID": "d572c8f1-4622-4caf-bd99-2ee8a0c4b86b"
   },
   {
     "Nome": "curitibaprev-api",
     "Tipo": 2,
     "Diretorio": "C:\\git\\curitibaprev-api\\Intech.PrevSystemWeb.CuritibaPrev.API",
     "Dependentes": [
-      {
-        "Nome": "curitibaprev-portal",
-        "Tipo": 0,
-        "Diretorio": "C:\\git\\curitibaprev-portal",
-        "Dependentes": null,
-        "Sistema": "PrevSystemWeb",
-        "Namespace": "",
-        "ID": "21fc88b8-14ac-4a7e-89d9-c99e4db4917b"
-      }
+      "4ac6cef5-b362-4271-9c71-8d2ba262a0f6",
+      "21fc88b8-14ac-4a7e-89d9-c99e4db4917b"
+    ],
+    "Services": [
+      "AdesaoController"
     ],
     "Sistema": "PrevSystemWeb",
     "Namespace": "Intech.PrevSystemWeb.CuritibaPrev.API",
+    "API": "00000000-0000-0000-0000-000000000000",
     "ID": "027f2244-37ef-46ad-b6de-61d0bd482cb7"
+  },
+  {
+    "Nome": "curitibaprev-adesao",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\curitibaprev-adesao",
+    "Dependentes": null,
+    "Services": [
+      "AdesaoController"
+    ],
+    "Sistema": "PrevSystemWeb",
+    "Namespace": "",
+    "API": "027f2244-37ef-46ad-b6de-61d0bd482cb7",
+    "ID": "4ac6cef5-b362-4271-9c71-8d2ba262a0f6"
+  },
+  {
+    "Nome": "curitibaprev-portal",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\curitibaprev-portal",
+    "Dependentes": null,
+    "Services": [
+      "ContratoEmprestimoController",
+      "DadosPessoaisController",
+      "DependenteController",
+      "DocumentoController",
+      "FichaContribPrevidencialController",
+      "FichaFinancAssistidoController",
+      "FichaSalarioContribuicaoController",
+      "IndiceController",
+      "PlanoPrevidencialController",
+      "PlanoVinculadoController",
+      "ProcessoBeneficioController",
+      "RelacionamentoController",
+      "UsuarioController"
+    ],
+    "Sistema": "PrevSystemWeb",
+    "Namespace": "",
+    "API": "027f2244-37ef-46ad-b6de-61d0bd482cb7",
+    "ID": "21fc88b8-14ac-4a7e-89d9-c99e4db4917b"
   }
 ]
