@@ -19,6 +19,14 @@
   },
   {
     "Provider": "sqlserver",
+    "DataSource": "localhost",
+    "Username": "sa",
+    "Password": "masterkey",
+    "Database": "FSF_021018"
+  },
+  {
+    "ID": "506a7303-91cf-4fd4-8003-455fac26ddcf",
+    "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
