@@ -22,15 +22,6 @@
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "REGIUS_01032016",
-    "Sistema": "PrevSystem",
-    "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5"
-  },
-  {
-    "Provider": "sqlserver",
-    "DataSource": "10.10.170.39",
-    "Username": "sysdba",
-    "Password": "masterkey",
     "Database": "EFD_REINF",
     "Sistema": "EFD-Reinf",
     "ID": "9e97ce3d-b360-41eb-8999-7ebe1995cb7b"
@@ -43,15 +34,6 @@
     "Database": "FSF_220719",
     "Sistema": "PrevSystem",
     "ID": "0dc477a7-a19a-4cc8-8916-93e395af1054"
-  },
-  {
-    "Provider": "sqlserver",
-    "DataSource": "10.10.170.39",
-    "Username": "sysdba",
-    "Password": "masterkey",
-    "Database": "PW_EQTPREV",
-    "Sistema": "PrevSystemWeb",
-    "ID": "3ab04252-1172-4e98-b544-4aba1fde29e2"
   },
   {
     "Provider": "sqlserver",
@@ -88,5 +70,23 @@
     "Database": "BRPREV_FSF_04062019",
     "Sistema": "BrPrev SEG",
     "ID": "381ceb96-ff0e-4970-8e01-b46b8a712872"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PW_EQTPREV_PORTAL_NAO_APAGAR",
+    "Sistema": "PrevSystemWeb",
+    "ID": "3ab04252-1172-4e98-b544-4aba1fde29e2"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.13",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "REGIUS_28102019",
+    "Sistema": "BrPrev SEG",
+    "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5"
   }
 ]

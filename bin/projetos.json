@@ -107,17 +107,6 @@
     "ID": "50ba0ff5-a318-477e-bd25-f67175be7903"
   },
   {
-    "Nome": "regius-adesao",
-    "Tipo": 0,
-    "Diretorio": "C:\\git\\regius-adesao",
-    "Dependentes": null,
-    "Services": null,
-    "Sistema": "PrevSystem",
-    "Namespace": "",
-    "API": "00000000-0000-0000-0000-000000000000",
-    "ID": "ded4b64f-eb84-46bc-b803-3f3a62d18262"
-  },
-  {
     "Nome": "regius-api",
     "Tipo": 2,
     "Diretorio": "C:\\git\\regius-api\\Intech.PrevSystem.Regius.API",
@@ -183,5 +172,44 @@
     "Namespace": "",
     "API": "027f2244-37ef-46ad-b6de-61d0bd482cb7",
     "ID": "21fc88b8-14ac-4a7e-89d9-c99e4db4917b"
+  },
+  {
+    "Nome": "regius-adesao",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\regius-adesao",
+    "Dependentes": null,
+    "Services": [
+      "AdesaoController"
+    ],
+    "Sistema": "PrevSystem",
+    "Namespace": "",
+    "API": "d572c8f1-4622-4caf-bd99-2ee8a0c4b86b",
+    "ID": "ded4b64f-eb84-46bc-b803-3f3a62d18262"
+  },
+  {
+    "Nome": "BrPrev SEG API",
+    "Tipo": 2,
+    "Diretorio": "C:\\git\\brprev-seg\\API\\Intech.BrPrev.SEG",
+    "Dependentes": [
+      "368701d8-1a7e-4e61-9b99-47be450bda88"
+    ],
+    "Services": null,
+    "Sistema": "BrPrev SEG",
+    "Namespace": "Intech.BrPrev.SEG",
+    "API": "00000000-0000-0000-0000-000000000000",
+    "ID": "050e121f-533f-49b0-9286-fff4661bb2b3"
+  },
+  {
+    "Nome": "BrPrev SEG View",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\brprev-seg\\SEG-view",
+    "Dependentes": null,
+    "Services": [
+      "UsuarioController"
+    ],
+    "Sistema": "BrPrev SEG",
+    "Namespace": "",
+    "API": "050e121f-533f-49b0-9286-fff4661bb2b3",
+    "ID": "368701d8-1a7e-4e61-9b99-47be450bda88"
   }
 ]
