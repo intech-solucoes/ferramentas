@@ -20,7 +20,6 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
 
             if (ParametrosProjeto.TipoOperacao == TipoOperacao.ProjetoExistente)
             {
-                TextBoxNomeProjeto.Enabled = false;
                 RadioButtonAPI.Enabled = false;
                 RadioButtonMobile.Enabled = false;
                 RadioButtonWeb.Enabled = false;
@@ -61,8 +60,9 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
             var repositorio = new DirectoryInfo(ParametrosProjeto.Diretorio);
 
             // Verifica se é um projeto API
-            var diretorioAppsettings = Path.Combine(ParametrosProjeto.Diretorio, "appsettings.json");
-            if (File.Exists(diretorioAppsettings))
+            //var diretorioAppsettings = Path.Combine(ParametrosProjeto.Diretorio, "API.xml");
+            var csproj = Directory.GetFiles(ParametrosProjeto.Diretorio, "*.csproj");
+            if (csproj.Length > 0)
             {
                 ParametrosProjeto.TipoProjeto = TipoProjeto.API;
                 ParametrosProjeto.NomeProjeto = repositorio.Parent.Name;
