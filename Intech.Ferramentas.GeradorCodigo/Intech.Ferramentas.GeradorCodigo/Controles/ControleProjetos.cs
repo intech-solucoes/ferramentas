@@ -152,24 +152,24 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                     var listaServices = new List<Service>();
 
                     // Integração com Postman
-                    var postmanService = new PostmanService();
-                    var postmanCollection = await postmanService.BuscarCollectionPorNome(projeto.Nome);
-                    if(postmanCollection == null)
-                    {
-                        postmanCollection = new PostmanCollection
-                        {
-                            collection = new PostmanCollectionObj
-                            {
-                                info = new PostmanCollectionInfo
-                                {
-                                    name = xml.assembly.name,
-                                    description = $"API do projeto {xml.assembly.name}",
-                                    schema = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-                                },
-                                item = new List<PostmanCollectionItem>()
-                            }
-                        };
-                    }
+                    //var postmanService = new PostmanService();
+                    //var postmanCollection = await postmanService.BuscarCollectionPorNome(projeto.Nome);
+                    //if(postmanCollection == null)
+                    //{
+                    //    postmanCollection = new PostmanCollection
+                    //    {
+                    //        collection = new PostmanCollectionObj
+                    //        {
+                    //            info = new PostmanCollectionInfo
+                    //            {
+                    //                name = xml.assembly.name,
+                    //                description = $"API do projeto {xml.assembly.name}",
+                    //                schema = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+                    //            },
+                    //            item = new List<PostmanCollectionItem>()
+                    //        }
+                    //    };
+                    //}
 
                     foreach (var service in services)
                     {
@@ -246,48 +246,48 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                             }
 
                             // Cria novo endpoint no Postman
-                            var novoEndpoint = new PostmanCollectionItem
-                            {
-                                name = $"/{metodoObj.Rota.Replace("$", "")}",
-                                request = new PostmanRequest
-                                {
-                                    url = new PostmanUrl {
-                                        raw = "{{host}}/" + serviceObj.Nome + "/" + metodoObj.Rota.Replace("$", ""),
-                                        host = new List<string> { "{{host}}" },
-                                        path = new List<string> { $"{serviceObj.Nome}/{metodoObj.Rota.Replace("$", "")}" }
-                                    },
-                                    method = metodoObj.Tipo,
-                                    description = ""
-                                }
-                            };
+                            //var novoEndpoint = new PostmanCollectionItem
+                            //{
+                            //    name = $"/{metodoObj.Rota.Replace("$", "")}",
+                            //    request = new PostmanRequest
+                            //    {
+                            //        url = new PostmanUrl {
+                            //            raw = "{{host}}/" + serviceObj.Nome + "/" + metodoObj.Rota.Replace("$", ""),
+                            //            host = new List<string> { "{{host}}" },
+                            //            path = new List<string> { $"{serviceObj.Nome}/{metodoObj.Rota.Replace("$", "")}" }
+                            //        },
+                            //        method = metodoObj.Tipo,
+                            //        description = ""
+                            //    }
+                            //};
 
-                            if (metodoObj.Rota == "/")
-                            {
-                                novoEndpoint.name = "/";
-                                novoEndpoint.request.url.raw = "{{host}}/" + serviceObj.Nome;
-                                novoEndpoint.request.url.path = new List<string> { $"{serviceObj.Nome}" };
-                            }
+                            //if (metodoObj.Rota == "/")
+                            //{
+                            //    novoEndpoint.name = "/";
+                            //    novoEndpoint.request.url.raw = "{{host}}/" + serviceObj.Nome;
+                            //    novoEndpoint.request.url.path = new List<string> { $"{serviceObj.Nome}" };
+                            //}
 
-                            if (metodoObj.Tipo == "POST")
-                            {
-                                novoEndpoint.request.header = new List<PostmanHeader>
-                                {
-                                    new PostmanHeader("Content-Type", "application/json")
-                                };
+                            //if (metodoObj.Tipo == "POST")
+                            //{
+                            //    novoEndpoint.request.header = new List<PostmanHeader>
+                            //    {
+                            //        new PostmanHeader("Content-Type", "application/json")
+                            //    };
 
-                                novoEndpoint.request.body = new PostmanBody();
-                            }
+                            //    novoEndpoint.request.body = new PostmanBody();
+                            //}
 
-                            novaPasta.item.Add(novoEndpoint);
+                            //novaPasta.item.Add(novoEndpoint);
                             serviceObj.Metodos.Add(metodoObj);
                         }
 
-                        postmanCollection.collection.item.Add(novaPasta);
+                        //postmanCollection.collection.item.Add(novaPasta);
                         
                         listaServices.Add(serviceObj);
                     }
 
-                    await postmanService.CriarOuAtualizarCollection(postmanCollection);
+                    //await postmanService.CriarOuAtualizarCollection(postmanCollection);
 
                     var serviceTemplateFile = File.ReadAllText("Templates/Service.template");
 

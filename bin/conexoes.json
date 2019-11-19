@@ -22,10 +22,11 @@
     "DataSource": "localhost",
     "Username": "sa",
     "Password": "masterkey",
-    "Database": "FSF_021018"
+    "Database": "FSF_021018",
+    "Sistema": null,
+    "ID": "00000000-0000-0000-0000-000000000000"
   },
   {
-    "ID": "506a7303-91cf-4fd4-8003-455fac26ddcf",
     "Provider": "sqlserver",
     "DataSource": "10.10.170.39",
     "Username": "sysdba",
@@ -93,8 +94,35 @@
     "DataSource": "10.10.170.13",
     "Username": "sysdba",
     "Password": "masterkey",
-    "Database": "REGIUS_28102019",
-    "Sistema": "BrPrev SEG",
+    "Database": "PREVIRB_250919",
+    "Sistema": "PrevSystem",
+    "ID": "9ac82472-fa6d-4d50-bfd1-98eabc2d6ced"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "INTECH_FERRAMENTAS",
+    "Sistema": "Ferramentas",
+    "ID": "f9b2d456-5097-4716-b146-7f6875d6bd44"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.13",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "REGIUS_131119",
+    "Sistema": "PrevSystem",
     "ID": "10eaea16-9c9a-4b5a-ab55-9ad8a073cdf5"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PW_CURITIBAPREV",
+    "Sistema": "PrevSystemWeb",
+    "ID": "15445e7c-0c7d-446b-a9f1-0d166854bdad"
   }
 ]

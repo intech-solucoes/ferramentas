@@ -136,19 +136,6 @@
     "ID": "027f2244-37ef-46ad-b6de-61d0bd482cb7"
   },
   {
-    "Nome": "curitibaprev-adesao",
-    "Tipo": 0,
-    "Diretorio": "C:\\git\\curitibaprev-adesao",
-    "Dependentes": null,
-    "Services": [
-      "AdesaoController"
-    ],
-    "Sistema": "PrevSystemWeb",
-    "Namespace": "",
-    "API": "027f2244-37ef-46ad-b6de-61d0bd482cb7",
-    "ID": "4ac6cef5-b362-4271-9c71-8d2ba262a0f6"
-  },
-  {
     "Nome": "curitibaprev-portal",
     "Tipo": 0,
     "Diretorio": "C:\\git\\curitibaprev-portal",
@@ -211,5 +198,44 @@
     "Namespace": "",
     "API": "050e121f-533f-49b0-9286-fff4661bb2b3",
     "ID": "368701d8-1a7e-4e61-9b99-47be450bda88"
+  },
+  {
+    "Nome": "previrb-portal",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\previrb-portal",
+    "Dependentes": null,
+    "Services": [
+      "UsuarioController"
+    ],
+    "Sistema": "PrevSystem",
+    "Namespace": "",
+    "API": "fb21ecc8-79bb-46aa-a792-df677cf4cb73",
+    "ID": "4871c3d4-3004-41eb-b510-3f3634daba47"
+  },
+  {
+    "Nome": "previrb-api",
+    "Tipo": 2,
+    "Diretorio": "C:\\git\\previrb-api\\Intech.PrevSystem.Previrb.API",
+    "Dependentes": [
+      "4871c3d4-3004-41eb-b510-3f3634daba47"
+    ],
+    "Services": null,
+    "Sistema": "PrevSystem",
+    "Namespace": "Intech.PrevSystem.Previrb.API",
+    "API": "00000000-0000-0000-0000-000000000000",
+    "ID": "fb21ecc8-79bb-46aa-a792-df677cf4cb73"
+  },
+  {
+    "Nome": "curitibaprev-adesao",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\curitibaprev-adesao",
+    "Dependentes": null,
+    "Services": [
+      "AdesaoController"
+    ],
+    "Sistema": "PrevSystemWeb",
+    "Namespace": "",
+    "API": "027f2244-37ef-46ad-b6de-61d0bd482cb7",
+    "ID": "4ac6cef5-b362-4271-9c71-8d2ba262a0f6"
   }
 ]
