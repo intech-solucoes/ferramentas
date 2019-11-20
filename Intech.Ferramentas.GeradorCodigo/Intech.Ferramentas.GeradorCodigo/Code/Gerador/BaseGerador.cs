@@ -65,47 +65,201 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
         private void BuscarConsultas(Entidade configEntidade)
         {
             var arquivosSQL = DirScripts.GetDirectories(configEntidade.Nome).Single().EnumerateFiles().Where(x => x.Name.EndsWith(".sql"));
+            var arquivosJaProcessados = new List<string>();
 
             // Executa a busca de consultas e parâmetros em todos os arquivos do diretório base
             foreach (var sqlFile in arquivosSQL)
             {
-                var sql = sqlFile.OpenText().ReadToEnd();
-                // Extrai config da consulta
-                var configConsulta = ExtrairConfigConsulta(sql);
+                if (arquivosJaProcessados.Contains(sqlFile.Name))
+                    return;
 
-                if (configConsulta?.Retorno == null)
-                    throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
+                var nomeQuery = sqlFile.Name.Replace(".oracle", string.Empty).Replace(".sqlserver", string.Empty).Replace(".sql", string.Empty);
 
-                var querySqlServer = new Regex("\n").Replace(sql, " ");
-                querySqlServer = new Regex("\r").Replace(querySqlServer, " ");
-                querySqlServer = querySqlServer.Substring(querySqlServer.IndexOf("*/") + 2).Trim();
+                var consultaOracle = false;
+                var consultaSQLServer = false;
+                var consultasSeparadas = false;
+
+                if (arquivosSQL.Any(x => x.Name.Contains(nomeQuery + ".sqlserver.")) && arquivosSQL.Any(x => x.Name.Contains(nomeQuery + ".oracle.")))
+                    consultasSeparadas = true;
+
+                else if (sqlFile.Name.Contains(".oracle."))
+                    consultaOracle = true;
+
+                else if (sqlFile.Name.Contains(".sqlserver."))
+                    consultaSQLServer = true;
 
                 var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria.HasValue && x.ChavePrimaria.Value);
 
-                var queryOracle = "";
-
-                // Se não tiver .sqlserver nem .oracle no nome, traduz pra oracle normalmente
-                if (!sqlFile.Name.Contains(".sqlserver.") && !sqlFile.Name.Contains(".oracle."))
+                // Caso uma mesma query tenha a versão sqlserver e oracle separadas
+                if (consultasSeparadas)
                 {
-                    queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
+                    var querySqlServer = arquivosSQL
+                        .Single(x => x.Name.Contains(nomeQuery + ".sqlserver."))
+                        .OpenText()
+                        .ReadToEnd();
+
+                    var configConsulta = ExtrairConfigConsulta(querySqlServer);
+
+                    querySqlServer = new Regex("\n").Replace(querySqlServer, " ");
+                    querySqlServer = new Regex("\r").Replace(querySqlServer, " ")
+                        .Substring(querySqlServer.IndexOf("*/") + 2).Trim();
+
+                    var queryOracle = arquivosSQL
+                        .Single(x => x.Name.Contains(nomeQuery + ".oracle."))
+                        .OpenText()
+                        .ReadToEnd();
+
+                    queryOracle = new Regex("\n").Replace(queryOracle, " ");
+                    queryOracle = new Regex("\r").Replace(queryOracle, " ")
+                        .Substring(queryOracle.IndexOf("*/") + 2).Trim();
+
+                    if (configConsulta?.Retorno == null)
+                        throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
+
+                    var consulta = new Consulta
+                    {
+                        Nome = nomeQuery,
+                        QuerySqlServer = querySqlServer,
+                        QueryOracle = queryOracle,
+                        Parametros = configConsulta.ParametrosConsulta,
+                        Retorno = configConsulta.Retorno,
+                        RetornaLista = configConsulta.RetornaLista
+                    };
+
+                    Consultas.Add(consulta);
+                    arquivosJaProcessados.Add(arquivosSQL.Single(x => x.Name.Contains(nomeQuery + ".sqlserver.")).Name);
+                    arquivosJaProcessados.Add(arquivosSQL.Single(x => x.Name.Contains(nomeQuery + ".oracle.")).Name);
                 }
-                // se tiver .oracle, a query do arquivo será a query do oracle sem tradução
-                else if (sqlFile.Name.Contains(".oracle."))
+
+                // Caso exista uma query apenas para sqlserver
+                else if (consultaSQLServer)
                 {
-                    queryOracle = querySqlServer;
+                    var querySqlServer = sqlFile
+                        .OpenText()
+                        .ReadToEnd();
+
+                    var configConsulta = ExtrairConfigConsulta(querySqlServer);
+
+                    querySqlServer = new Regex("\n").Replace(querySqlServer, " ");
+                    querySqlServer = new Regex("\r").Replace(querySqlServer, " ")
+                        .Substring(querySqlServer.IndexOf("*/") + 2).Trim();
+
+                    if (configConsulta?.Retorno == null)
+                        throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
+
+                    var consulta = new Consulta
+                    {
+                        Nome = nomeQuery,
+                        QuerySqlServer = querySqlServer,
+                        QueryOracle = string.Empty,
+                        Parametros = configConsulta.ParametrosConsulta,
+                        Retorno = configConsulta.Retorno,
+                        RetornaLista = configConsulta.RetornaLista
+                    };
+
+                    Consultas.Add(consulta);
+                    arquivosJaProcessados.Add(sqlFile.Name);
                 }
 
-                var consulta = new Consulta
+                // Caso exista uma query apenas para oracle
+                else if (consultaOracle)
                 {
-                    Nome = sqlFile.Name.Replace(".oracle", string.Empty).Replace(".sqlserver", string.Empty).Replace(".sql", string.Empty),
-                    QuerySqlServer = querySqlServer,
-                    QueryOracle = queryOracle,
-                    Parametros = configConsulta.ParametrosConsulta,
-                    Retorno = configConsulta.Retorno,
-                    RetornaLista = configConsulta.RetornaLista
-                };
+                    var queryOracle = sqlFile
+                        .OpenText()
+                        .ReadToEnd();
 
-                Consultas.Add(consulta);
+                    var configConsulta = ExtrairConfigConsulta(queryOracle);
+
+                    queryOracle = new Regex("\n").Replace(queryOracle, " ");
+                    queryOracle = new Regex("\r").Replace(queryOracle, " ")
+                        .Substring(queryOracle.IndexOf("*/") + 2).Trim();
+
+                    if (configConsulta?.Retorno == null)
+                        throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
+
+                    var consulta = new Consulta
+                    {
+                        Nome = nomeQuery,
+                        QuerySqlServer = string.Empty,
+                        QueryOracle = queryOracle,
+                        Parametros = configConsulta.ParametrosConsulta,
+                        Retorno = configConsulta.Retorno,
+                        RetornaLista = configConsulta.RetornaLista
+                    };
+
+                    Consultas.Add(consulta);
+                    arquivosJaProcessados.Add(sqlFile.Name);
+                }
+
+                // Caminho padrão. Gera sqlserver e traduz para oracle
+                else
+                {
+                    var querySqlServer = sqlFile
+                        .OpenText()
+                        .ReadToEnd();
+
+                    var configConsulta = ExtrairConfigConsulta(querySqlServer);
+
+                    querySqlServer = new Regex("\n").Replace(querySqlServer, " ");
+                    querySqlServer = new Regex("\r").Replace(querySqlServer, " ")
+                        .Substring(querySqlServer.IndexOf("*/") + 2).Trim();
+
+                    var queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
+
+                    if (configConsulta?.Retorno == null)
+                        throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
+
+                    var consulta = new Consulta
+                    {
+                        Nome = nomeQuery,
+                        QuerySqlServer = querySqlServer,
+                        QueryOracle = queryOracle,
+                        Parametros = configConsulta.ParametrosConsulta,
+                        Retorno = configConsulta.Retorno,
+                        RetornaLista = configConsulta.RetornaLista
+                    };
+
+                    Consultas.Add(consulta);
+                    arquivosJaProcessados.Add(sqlFile.Name);
+                }
+
+                //var sql = sqlFile.OpenText().ReadToEnd();
+                //// Extrai config da consulta
+                //var configConsulta = ExtrairConfigConsulta(sql);
+
+                //if (configConsulta?.Retorno == null)
+                //    throw new Exception($"E necessario especificar um tipo de retorno na consulta {sqlFile.Name}");
+
+                //var querySqlServer = new Regex("\n").Replace(sql, " ");
+                //querySqlServer = new Regex("\r").Replace(querySqlServer, " ");
+                //querySqlServer = querySqlServer.Substring(querySqlServer.IndexOf("*/") + 2).Trim();
+
+                //var gerarInsertComPK = ColunasEntidade.Any(x => x.ChavePrimaria.HasValue && x.ChavePrimaria.Value);
+
+                //var queryOracle = "";
+
+                //// Se não tiver .sqlserver nem .oracle no nome, traduz pra oracle normalmente
+                //if (!sqlFile.Name.Contains(".sqlserver.") && !sqlFile.Name.Contains(".oracle."))
+                //{
+                //    queryOracle = new TradutorSqlToOracle().Traduz(querySqlServer, gerarInsertComPK);
+                //}
+                //// se tiver .oracle, a query do arquivo será a query do oracle sem tradução
+                //else if (sqlFile.Name.Contains(".oracle."))
+                //{
+                //    queryOracle = querySqlServer;
+                //}
+
+                //var consulta = new Consulta
+                //{
+                //    Nome = nomeQuery,
+                //    QuerySqlServer = querySqlServer,
+                //    QueryOracle = queryOracle,
+                //    Parametros = configConsulta.ParametrosConsulta,
+                //    Retorno = configConsulta.Retorno,
+                //    RetornaLista = configConsulta.RetornaLista
+                //};
+
+                //Consultas.Add(consulta);
             }
         }
 
@@ -116,7 +270,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                 if (!ColunasEntidade.Any(x => x.Nome == coluna.Nome))
                     ColunasEntidade.Add(coluna);
             });
-            
+
             foreach (var colunaExtra in configEntidade.ColunasExtras)
             {
                 colunaExtra.TipoTS = MapeiaTipoDotNetParaTS(colunaExtra.Tipo);
@@ -163,10 +317,10 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                 // Salva index.tsx
                 var listaEntidades = Directory.GetFiles(dirEntidades).ToList();
                 var entidadesIndex = new List<string>();
-                foreach(var ent in listaEntidades)
+                foreach (var ent in listaEntidades)
                 {
                     var arquivo = new FileInfo(ent);
-                    if(arquivo.Name != "index.tsx")
+                    if (arquivo.Name != "index.tsx")
                         entidadesIndex.Add(arquivo.Name.Replace(".tsx", ""));
                 }
 
@@ -209,7 +363,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
 
             File.WriteAllText(Path.Combine(DirProxy.FullName, $"{configEntidade.Nome}Proxy.cs"), dao, Encoding.UTF8);
         }
-        
+
         /// <summary>
         /// Mapeia os tipos de colunas para tipos do .net
         /// </summary>
