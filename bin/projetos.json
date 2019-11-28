@@ -237,5 +237,33 @@
     "Namespace": "",
     "API": "027f2244-37ef-46ad-b6de-61d0bd482cb7",
     "ID": "4ac6cef5-b362-4271-9c71-8d2ba262a0f6"
+  },
+  {
+    "Nome": "preves-api",
+    "Tipo": 2,
+    "Diretorio": "C:\\git\\preves-api\\Intech.PrevSystem.Preves.API",
+    "Dependentes": [
+      "1855ac58-aca0-495a-a964-7fedac90be11"
+    ],
+    "Services": null,
+    "Sistema": "PrevSystem",
+    "Namespace": "Intech.PrevSystem.Preves.API",
+    "API": "00000000-0000-0000-0000-000000000000",
+    "ID": "940c2d37-0da7-479a-96cd-ca4a51964d1d"
+  },
+  {
+    "Nome": "preves-portal",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\preves-portal",
+    "Dependentes": null,
+    "Services": [
+      "DadosPessoaisController",
+      "DependenteController",
+      "FuncionarioController"
+    ],
+    "Sistema": "PrevSystem",
+    "Namespace": "",
+    "API": "940c2d37-0da7-479a-96cd-ca4a51964d1d",
+    "ID": "1855ac58-aca0-495a-a964-7fedac90be11"
   }
 ]
