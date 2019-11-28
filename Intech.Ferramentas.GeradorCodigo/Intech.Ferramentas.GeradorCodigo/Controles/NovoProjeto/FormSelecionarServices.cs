@@ -39,7 +39,7 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles.NovoProjeto
             if (xml != null)
             {
                 // Busca todos os <member> da documentação que não sejam um método (que sejam uma controller)
-                var services = xml.members.Where(x => !x.IsMetodo).ToList();
+                var services = xml.members.Where(x => !x.IsMetodo && x.service != null).ToList();
 
                 CheckedListBoxServices.DataSource = services;
                 CheckedListBoxServices.DisplayMember = "NomeMetodo";
