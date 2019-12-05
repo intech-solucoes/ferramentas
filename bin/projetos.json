@@ -259,7 +259,17 @@
     "Services": [
       "DadosPessoaisController",
       "DependenteController",
-      "FuncionarioController"
+      "DocumentoController",
+      "FichaFechamentoController",
+      "FichaFinanceiraAssistidoController",
+      "FichaFinanceiraController",
+      "FuncionarioController",
+      "InfoRendController",
+      "MensagemController",
+      "PlanoController",
+      "RelacionamentoController",
+      "SalarioBaseController",
+      "UsuarioController"
     ],
     "Sistema": "PrevSystem",
     "Namespace": "",

@@ -452,26 +452,32 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
         /// <returns></returns>
         protected string MapeiaTipoDotNetParaTS(string type)
         {
-            switch (type.ToUpper())
+            var lista = type.Contains("List<");
+            var tipo = type.Replace("List<", "").Replace(">", "");
+            string tipoTraduzido;
+
+            switch (tipo.ToUpper())
             {
                 case "DECIMAL":
                 case "INT":
-                    return "number";
+                    tipoTraduzido = "number";
+                    break;
                 case "BOOL":
-                    return "boolean";
-                case "STRING":
-                    return "string";
+                    tipoTraduzido = "boolean";
+                    break;
                 case "DATE":
                 case "DATETIME":
-                    return "Date";
+                    tipoTraduzido = "Date";
+                    break;
                 default:
-                    if (type.Contains("List<"))
-                        return type.Replace("List", "Array");
-                    else if (type.Contains("Entidade"))
-                        return type;
-                    else
-                        throw new Exception(string.Format("Tipo não mapeado: {0}", type));
+                    tipoTraduzido = tipo;
+                    break;
             }
+
+            if (lista)
+                return $"Array<{tipoTraduzido}>";
+            else
+                return tipoTraduzido;
         }
 
         #region Métodos Privados
