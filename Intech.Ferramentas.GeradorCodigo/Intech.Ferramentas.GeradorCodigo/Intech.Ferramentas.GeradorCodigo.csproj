@@ -64,6 +64,9 @@
     <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
     </Reference>
+    <Reference Include="Intech.Lib.TradutorSqlOracle, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Intech.Lib.TradutorSqlOracle.1.1.0\lib\net472\Intech.Lib.TradutorSqlOracle.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Razor, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Razor.1.1.2\lib\net451\Microsoft.AspNetCore.Razor.dll</HintPath>
     </Reference>
@@ -369,12 +372,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Intech.Lib\Intech.Lib.TradutorSqlOracle\Intech.Lib.TradutorSqlOracle.csproj">
-      <Project>{3143c793-4c24-48e6-85ef-ac2131ffa514}</Project>
-      <Name>Intech.Lib.TradutorSqlOracle</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

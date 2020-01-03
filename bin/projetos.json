@@ -200,19 +200,6 @@
     "ID": "368701d8-1a7e-4e61-9b99-47be450bda88"
   },
   {
-    "Nome": "previrb-portal",
-    "Tipo": 0,
-    "Diretorio": "C:\\git\\previrb-portal",
-    "Dependentes": null,
-    "Services": [
-      "UsuarioController"
-    ],
-    "Sistema": "PrevSystem",
-    "Namespace": "",
-    "API": "fb21ecc8-79bb-46aa-a792-df677cf4cb73",
-    "ID": "4871c3d4-3004-41eb-b510-3f3634daba47"
-  },
-  {
     "Nome": "previrb-api",
     "Tipo": 2,
     "Diretorio": "C:\\git\\previrb-api\\Intech.PrevSystem.Previrb.API",
@@ -275,5 +262,29 @@
     "Namespace": "",
     "API": "940c2d37-0da7-479a-96cd-ca4a51964d1d",
     "ID": "1855ac58-aca0-495a-a964-7fedac90be11"
+  },
+  {
+    "Nome": "previrb-portal",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\previrb-portal",
+    "Dependentes": null,
+    "Services": [
+      "CalendarioPagamentoController",
+      "DependenteController",
+      "FichaFechamentoController",
+      "FichaFinanceiraAssistidoController",
+      "FichaFinanceiraController",
+      "FuncionarioController",
+      "InfoRendController",
+      "LGPDController",
+      "PlanoController",
+      "PlanoSaudeController",
+      "ProcessoBeneficioController",
+      "UsuarioController"
+    ],
+    "Sistema": "PrevSystem",
+    "Namespace": "",
+    "API": "fb21ecc8-79bb-46aa-a792-df677cf4cb73",
+    "ID": "4871c3d4-3004-41eb-b510-3f3634daba47"
   }
 ]

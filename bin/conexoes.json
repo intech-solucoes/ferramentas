@@ -124,5 +124,14 @@
     "Database": "PW_CURITIBAPREV",
     "Sistema": "PrevSystemWeb",
     "ID": "15445e7c-0c7d-446b-a9f1-0d166854bdad"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PREVIRB_PORTAL_NAOAPAGAR",
+    "Sistema": "PrevSystem",
+    "ID": "62ed1daa-bb13-41f9-b45b-b8b360192a90"
   }
 ]
