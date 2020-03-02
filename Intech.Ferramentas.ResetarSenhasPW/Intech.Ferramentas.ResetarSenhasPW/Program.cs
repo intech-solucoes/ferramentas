@@ -62,7 +62,7 @@ namespace Intech.Ferramentas.ResetarSenhasPW
 
                 var conexao = new SqlConnection(connectionString);
 
-                var result = conexao.Query("SELECT * FROM FR_USUARIO").ToList();
+                var result = conexao.Query<User>("SELECT USR_CODIGO FROM FR_USUARIO").ToList();
                 foreach (var user in result)
                 {
                     var senhaCriptografada = GerarHashMd5(user.USR_CODIGO.ToString() + (123).ToString());
@@ -75,6 +75,7 @@ namespace Intech.Ferramentas.ResetarSenhasPW
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.ReadKey();
             }
         }
 
@@ -92,5 +93,10 @@ namespace Intech.Ferramentas.ResetarSenhasPW
 
             return sBuilder.ToString();
         }
+    }
+
+    public class User
+    {
+        public int USR_CODIGO { get; set; }
     }
 }

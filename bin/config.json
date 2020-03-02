@@ -68,9 +68,9 @@
         {
             "Nome": "Ferramentas",
             "Diretorios": {
-                "Dados": "{0}\\ferramentas\\Intech.Ferramentas.Dados",
-                "Negocio": "{0}\\ferramentas\\Intech.Ferramentas.Dados",
-                "Entidades": "{0}\\ferramentas\\Intech.Ferramentas.Dados\\Entidades"
+                "Dados": "{0}\\ferramentas\\Intech.Ferramentas\\Intech.Ferramentas.Dados",
+                "Negocio": "{0}\\ferramentas\\Intech.Ferramentas\\Intech.Ferramentas.Dados",
+                "Entidades": "{0}\\ferramentas\\Intech.Ferramentas\\Intech.Ferramentas.Dados\\Entidades"
             },
             "Namespaces": {
                 "Dados": "Intech.Ferramentas.Dados",

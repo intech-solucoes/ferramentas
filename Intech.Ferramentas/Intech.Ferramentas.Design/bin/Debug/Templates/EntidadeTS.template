@@ -1,0 +1,17 @@
+﻿@for(int i = 0; i < @Model.ConfigEntidade.Imports.Count; i++) {
+    @Raw("import " + @Model.ConfigEntidade.Imports[i] + " from \"./" + @Model.ConfigEntidade.Imports[i] + "\";")
+}
+
+
+export default class @(Model.ConfigEntidade.Nome)Entidade {
+    @for (int i = 0; i < @Model.ColunasEntidade.Count; i++) {
+        @Raw("\tpublic " + @Model.ColunasEntidade[i].Nome)
+
+        if(@Model.ColunasEntidade[i].AceitaNulo && @Model.ColunasEntidade[i].TipoTS != "string")
+        {
+            @Raw("?")
+        }
+
+        @Raw(": " + @Model.ColunasEntidade[i].TipoTS + ";\n")
+    }
+}

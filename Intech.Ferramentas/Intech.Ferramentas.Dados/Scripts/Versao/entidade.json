@@ -1,0 +1,11 @@
+{
+  "NomeTabela": "VERSAO",
+  "ColunasExtras": [
+    {
+      "Nome": "Projeto",
+      "Tipo": "ProjetoEntidade",
+      "AceitaNulo": false
+    }
+  ],
+  "Imports": []
+}

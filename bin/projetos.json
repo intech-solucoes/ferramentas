@@ -1,16 +1,5 @@
 [
   {
-    "Nome": "eqtprev-portal",
-    "Tipo": 0,
-    "Diretorio": "C:\\git\\eqtprev-portal",
-    "Dependentes": null,
-    "Services": null,
-    "Sistema": "PrevSystemWeb",
-    "Namespace": null,
-    "API": "00000000-0000-0000-0000-000000000000",
-    "ID": "4860c493-cb36-4d84-93cc-657efa6c61f5"
-  },
-  {
     "Nome": "cageprev-portal",
     "Tipo": 0,
     "Diretorio": "C:\\git\\cageprev-portal",
@@ -246,17 +235,7 @@
     "Services": [
       "DadosPessoaisController",
       "DependenteController",
-      "DocumentoController",
-      "FichaFechamentoController",
-      "FichaFinanceiraAssistidoController",
-      "FichaFinanceiraController",
-      "FuncionarioController",
-      "InfoRendController",
-      "MensagemController",
-      "PlanoController",
-      "RelacionamentoController",
-      "SalarioBaseController",
-      "UsuarioController"
+      "FuncionarioController"
     ],
     "Sistema": "PrevSystem",
     "Namespace": "",
@@ -271,20 +250,48 @@
     "Services": [
       "CalendarioPagamentoController",
       "DependenteController",
+      "DocumentoController",
+      "EmprestimoController",
       "FichaFechamentoController",
       "FichaFinanceiraAssistidoController",
       "FichaFinanceiraController",
       "FuncionarioController",
+      "GrupoUsuarioController",
       "InfoRendController",
       "LGPDController",
       "PlanoController",
       "PlanoSaudeController",
       "ProcessoBeneficioController",
+      "RelacionamentoController",
       "UsuarioController"
     ],
     "Sistema": "PrevSystem",
     "Namespace": "",
     "API": "fb21ecc8-79bb-46aa-a792-df677cf4cb73",
     "ID": "4871c3d4-3004-41eb-b510-3f3634daba47"
+  },
+  {
+    "Nome": "eqtprev-portal",
+    "Tipo": 0,
+    "Diretorio": "C:\\git\\eqtprev-portal",
+    "Dependentes": null,
+    "Services": [
+      "ContratoEmprestimoController",
+      "DadosPessoaisController",
+      "DependenteController",
+      "FichaContribPrevidencialController",
+      "FichaFinancAssistidoController",
+      "FichaSalarioContribuicaoController",
+      "IndiceController",
+      "InformeRendimentosController",
+      "PlanoVinculadoController",
+      "ProcessoBeneficioController",
+      "RelacionamentoController",
+      "UsuarioController"
+    ],
+    "Sistema": "PrevSystemWeb",
+    "Namespace": null,
+    "API": "50ba0ff5-a318-477e-bd25-f67175be7903",
+    "ID": "4860c493-cb36-4d84-93cc-657efa6c61f5"
   }
 ]

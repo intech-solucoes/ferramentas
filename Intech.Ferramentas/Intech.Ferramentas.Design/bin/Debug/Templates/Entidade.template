@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using Dapper.Contrib.Extensions;
+
+namespace @Model.Sistema.Namespaces.Entidades
+{
+    [Table("@Model.ConfigEntidade.NomeTabela")]
+    public class @(Model.ConfigEntidade.Nome)Entidade
+    {
+        @for (int i = 0; i < @Model.ColunasEntidade.Count; i++) {
+            if (@Model.ColunasEntidade[i].ChavePrimaria) {
+                @Raw("\t\t[Key]\n")
+            }
+
+            if(@Model.ColunasEntidade[i].IsColunaExtra)
+            {
+                @Raw("\t\t[Write(false)] ")
+            } else {
+                @Raw("\t\t")
+            }
+            
+            @Raw("public " + @Model.ColunasEntidade[i].Tipo)
+
+            if(@Model.ColunasEntidade[i].AceitaNulo && @Model.ColunasEntidade[i].Tipo != "string")
+            {
+                @Raw("?")
+            }
+
+            @Raw(" " + @Model.ColunasEntidade[i].Nome + " { get; set; }\n")
+        }
+        
+    }
+}

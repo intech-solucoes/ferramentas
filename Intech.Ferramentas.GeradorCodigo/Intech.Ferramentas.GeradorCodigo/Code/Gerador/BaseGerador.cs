@@ -470,8 +470,16 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                     tipoTraduzido = "Date";
                     break;
                 default:
-                    tipoTraduzido = tipo;
-                    break;
+                    if (type.Contains("List<"))
+                    {
+                        type = type.Replace("List<", "").Replace(">", "");
+                        type = MapeiaTipoDotNetParaTS(type);
+                        return $"Array<{type}>";
+                    }
+                    else if (type.Contains("Entidade"))
+                        return type;
+                    else
+                        throw new Exception(string.Format("Tipo não mapeado: {0}", type));
             }
 
             if (lista)

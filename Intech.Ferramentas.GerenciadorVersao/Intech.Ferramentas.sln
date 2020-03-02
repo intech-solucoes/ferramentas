@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Ferramentas.API", "Intech.Ferramentas.GerenciadorVersao\Intech.Ferramentas.API.csproj", "{B80666F3-38A3-403D-A2BF-C5147E3332D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Ferramentas.Dados", "..\Intech.Ferramentas.Dados\Intech.Ferramentas.Dados.csproj", "{0E75D7B9-5750-44E8-A331-67F1FBA1ED25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{3F0990E1-09B1-4C88-84B6-EA65328EEBCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Lib.Dapper", "..\..\Intech.Lib\Intech.Lib.Dapper\Intech.Lib.Dapper.csproj", "{4F8B9C24-D022-4B09-9126-2386B44DE026}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Lib.Util", "..\..\Intech.Lib\Intech.Lib.Util\Intech.Lib.Util.csproj", "{5F1364AF-39D8-49F3-9F5B-5565E78D3030}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Ferramentas", "..\Intech.Ferramentas\Intech.Ferramentas\Intech.Ferramentas.csproj", "{A899FA94-4CAB-4932-828E-D4246116A90E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B80666F3-38A3-403D-A2BF-C5147E3332D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80666F3-38A3-403D-A2BF-C5147E3332D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80666F3-38A3-403D-A2BF-C5147E3332D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80666F3-38A3-403D-A2BF-C5147E3332D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E75D7B9-5750-44E8-A331-67F1FBA1ED25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E75D7B9-5750-44E8-A331-67F1FBA1ED25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E75D7B9-5750-44E8-A331-67F1FBA1ED25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E75D7B9-5750-44E8-A331-67F1FBA1ED25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8B9C24-D022-4B09-9126-2386B44DE026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8B9C24-D022-4B09-9126-2386B44DE026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8B9C24-D022-4B09-9126-2386B44DE026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8B9C24-D022-4B09-9126-2386B44DE026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1364AF-39D8-49F3-9F5B-5565E78D3030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1364AF-39D8-49F3-9F5B-5565E78D3030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1364AF-39D8-49F3-9F5B-5565E78D3030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1364AF-39D8-49F3-9F5B-5565E78D3030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A899FA94-4CAB-4932-828E-D4246116A90E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A899FA94-4CAB-4932-828E-D4246116A90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A899FA94-4CAB-4932-828E-D4246116A90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A899FA94-4CAB-4932-828E-D4246116A90E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4F8B9C24-D022-4B09-9126-2386B44DE026} = {3F0990E1-09B1-4C88-84B6-EA65328EEBCD}
+		{5F1364AF-39D8-49F3-9F5B-5565E78D3030} = {3F0990E1-09B1-4C88-84B6-EA65328EEBCD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5679C4E-6899-4E36-93F9-07DAFFE8EBDA}
+	EndGlobalSection
+EndGlobal

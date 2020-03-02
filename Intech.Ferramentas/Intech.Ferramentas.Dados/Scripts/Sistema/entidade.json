@@ -1,0 +1,11 @@
+{
+  "NomeTabela": "SISTEMA",
+  "ColunasExtras": [
+    {
+      "Nome": "Projetos",
+      "Tipo": "List<ProjetoEntidade>",
+      "AceitaNulo": false
+    }
+  ],
+  "Imports": []
+}

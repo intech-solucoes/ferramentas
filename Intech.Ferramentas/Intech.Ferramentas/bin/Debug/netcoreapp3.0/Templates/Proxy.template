@@ -1,0 +1,8 @@
+using @(Model.Sistema.Namespaces.Dados).DAO;
+
+namespace @(Model.Sistema.Namespaces.Negocio).Proxy
+{
+    public class @(Model.ConfigEntidade.Nome)Proxy : @(Model.ConfigEntidade.Nome)DAO
+    {
+    }
+}

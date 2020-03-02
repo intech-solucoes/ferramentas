@@ -182,11 +182,11 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                         };
 
                         // Cria nova pasta no Postman
-                        var novaPasta = new PostmanCollectionItem
-                        {
-                            name = serviceObj.Nome,
-                            item = new List<PostmanCollectionItem>()
-                        };
+                        //var novaPasta = new PostmanCollectionItem
+                        //{
+                        //    name = serviceObj.Nome,
+                        //    item = new List<PostmanCollectionItem>()
+                        //};
 
                         var metodos = xml.members.Where(x =>
                             x.name.Substring(2).Contains(service.name.Substring(2)) &&
@@ -206,12 +206,11 @@ namespace Intech.Ferramentas.GeradorCodigo.Controles
                             {
                                 Nome = metodo.NomeMetodo,
                                 Rota = caminhoRota,
-                                Tipo = metodo.rota.tipo,
+                                Tipo = metodo.rota.tipo, 
                                 Retorno = metodo.retorno.lista ? $"Array<{metodo.retorno.tipo}>" : metodo.retorno.tipo,
                                 Parametros = new List<Parametro>()
                             };
-
-
+                            
                             if (metodo.retorno.resposta == "blob")
                                 metodoObj.Resposta = "Blob";
                             else if (metodo.retorno.resposta == "zip")
