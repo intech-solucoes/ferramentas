@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="DevExpress.Reporting.Core" Version="18.1.12" />
+    <PackageReference Include="Intech.Lib.JWT" Version="1.1.2" />
     <PackageReference Include="Intech.Lib.TradutorSqlOracle" Version="1.1.0" />
     <PackageReference Include="Intech.Lib.Web" Version="1.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />

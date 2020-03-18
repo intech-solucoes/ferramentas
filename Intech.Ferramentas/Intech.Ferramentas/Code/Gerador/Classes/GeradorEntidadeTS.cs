@@ -10,7 +10,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 {
     public class GeradorEntidadeTS
     {
-        public StringBuilder StringEntidade { get; private set; }
+        public StringBuilder SB { get; private set; }
 
         private readonly Entidade Entidade;
         private readonly List<EntidadeColuna> Colunas;
@@ -23,7 +23,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         public string Gerar()
         {
-            StringEntidade = new StringBuilder();
+            SB = new StringBuilder();
 
             if(Entidade.Imports.Count > 0)
                 GerarImports();
@@ -32,7 +32,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             GerarColunas();
             Fechar();
 
-            return StringEntidade.ToString();
+            return SB.ToString();
         }
 
         #region Métodos Privados
@@ -41,33 +41,33 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
         {
             foreach (var import in Entidade.Imports)
             {
-                StringEntidade.AppendLine($"import {import} from \"./{import}\";");
+                SB.AppendLine($"import {import} from \"./{import}\";");
             }
 
-            StringEntidade.AppendLine();
+            SB.AppendLine();
         }
 
         private void GerarDeclaracaoClasse()
         {
-            StringEntidade.AppendLine($"export class {Entidade.Nome}Entidade {{");
+            SB.AppendLine($"export class {Entidade.Nome}Entidade {{");
         }
 
         private void GerarColunas()
         {
             foreach (var coluna in Colunas)
             {
-                StringEntidade.Append($"\tpublic {coluna.Nome}");
+                SB.Append($"\tpublic {coluna.Nome}");
 
                 if (coluna.AceitaNulo && coluna.TipoTS != "string")
-                    StringEntidade.Append("?");
+                    SB.Append("?");
 
-                StringEntidade.Append($": {coluna.TipoTS};\n");
+                SB.Append($": {coluna.TipoTS};\n");
             }
         }
 
         private void Fechar()
         {
-            StringEntidade.AppendLine("}");
+            SB.AppendLine("}");
         }
 
         #endregion

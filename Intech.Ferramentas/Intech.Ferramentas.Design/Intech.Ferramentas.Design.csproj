@@ -328,6 +328,7 @@
     <Compile Include="Code\Gerador\Classes\GeradorEntidadeTSIndex.cs" />
     <Compile Include="Code\Gerador\Classes\GeradorEntidadeTS.cs" />
     <Compile Include="Code\Gerador\Classes\GeradorProxy.cs" />
+    <Compile Include="Code\Gerador\Classes\GeradorService.cs" />
     <Compile Include="Code\Gerador\GeradorSqlServer.cs" />
     <Compile Include="Code\Gerador\IGerador.cs" />
     <Compile Include="Code\Services\ServiceMetodo.cs" />
