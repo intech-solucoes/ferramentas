@@ -12,6 +12,7 @@ namespace Intech.Ferramentas.Controles.Projetos
     public partial class Projetos : PageControl
     {
         public bool ModoEdicao = false;
+        private ProjetoEntidade ProjetoSelecionado => (ProjetoEntidade) ListProjetos.SelectedItem;
 
         public Projetos()
         {
@@ -40,15 +41,13 @@ namespace Intech.Ferramentas.Controles.Projetos
 
         private void ListProjetos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var projetoSelecionado = (ProjetoEntidade)ListProjetos.SelectedItem;
-
-            if (projetoSelecionado != null)
+            if (ProjetoSelecionado != null)
             {
-                TextBoxNome.Text = projetoSelecionado.NOM_PROJETO;
-                TextBoxDiretorio.Text = $"{UserConfigManager.Get().GitBase}{projetoSelecionado.TXT_DIRETORIO}";
-                TextBoxNamespace.Text = projetoSelecionado.TXT_NAMESPACE;
+                TextBoxNome.Text = ProjetoSelecionado.NOM_PROJETO;
+                TextBoxDiretorio.Text = $"{UserConfigManager.Get().GitBase}{ProjetoSelecionado.TXT_DIRETORIO}";
+                TextBoxNamespace.Text = ProjetoSelecionado.TXT_NAMESPACE;
 
-                switch (projetoSelecionado.IND_TIPO_PROJETO)
+                switch (ProjetoSelecionado.IND_TIPO_PROJETO)
                 {
                     case "WEB":
                         ComboBoxTipo.SelectedItem = "Web";
@@ -61,16 +60,16 @@ namespace Intech.Ferramentas.Controles.Projetos
                         break;
                 }
 
-                ComboBoxSistema.SelectedValue = projetoSelecionado.OID_SISTEMA;
+                ComboBoxSistema.SelectedValue = ProjetoSelecionado.OID_SISTEMA;
 
-                CarregarProjetosAPI(projetoSelecionado);
+                CarregarProjetosAPI(ProjetoSelecionado);
 
                 if (ComboBoxProjetoAPI.Items.Count > 0)
                 {
                     ComboBoxProjetoAPI.Enabled = true;
 
-                    if (projetoSelecionado.OID_PROJETO_API.HasValue)
-                        ComboBoxProjetoAPI.SelectedValue = projetoSelecionado.OID_PROJETO_API.Value;
+                    if (ProjetoSelecionado.OID_PROJETO_API.HasValue)
+                        ComboBoxProjetoAPI.SelectedValue = ProjetoSelecionado.OID_PROJETO_API.Value;
                     else
                         ComboBoxProjetoAPI.SelectedIndex = -1;
                 } else
@@ -95,31 +94,29 @@ namespace Intech.Ferramentas.Controles.Projetos
         {
             if (ModoEdicao)
             {
-                var projeto = (ProjetoEntidade)ListProjetos.SelectedItem;
-
-                projeto.NOM_PROJETO = TextBoxNome.Text;
-                projeto.TXT_DIRETORIO = TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase, "");
-                projeto.TXT_NAMESPACE = TextBoxNamespace.Text;
+                ProjetoSelecionado.NOM_PROJETO = TextBoxNome.Text;
+                ProjetoSelecionado.TXT_DIRETORIO = TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase, "");
+                ProjetoSelecionado.TXT_NAMESPACE = TextBoxNamespace.Text;
 
                 switch (ComboBoxTipo.SelectedItem)
                 {
                     case "Web":
-                        projeto.IND_TIPO_PROJETO = "WEB";
+                        ProjetoSelecionado.IND_TIPO_PROJETO = "WEB";
                         break;
                     case "API":
-                        projeto.IND_TIPO_PROJETO = "API";
+                        ProjetoSelecionado.IND_TIPO_PROJETO = "API";
                         break;
                     case "Mobile":
-                        projeto.IND_TIPO_PROJETO = "MOB";
+                        ProjetoSelecionado.IND_TIPO_PROJETO = "MOB";
                         break;
                 }
 
-                projeto.OID_SISTEMA = ((SistemaEntidade)ComboBoxSistema.SelectedItem).OID_SISTEMA;
+                ProjetoSelecionado.OID_SISTEMA = ((SistemaEntidade)ComboBoxSistema.SelectedItem).OID_SISTEMA;
 
                 if (ComboBoxProjetoAPI.SelectedItem != null)
-                    projeto.OID_PROJETO_API = ((ProjetoEntidade)ComboBoxProjetoAPI.SelectedItem).OID_PROJETO;
+                    ProjetoSelecionado.OID_PROJETO_API = ((ProjetoEntidade)ComboBoxProjetoAPI.SelectedItem).OID_PROJETO;
 
-                ProjetoService.Atualizar(projeto);
+                ProjetoService.Atualizar(ProjetoSelecionado);
 
                 MessageBox.Show("Projeto alterado com sucesso!");
             }
@@ -161,8 +158,6 @@ namespace Intech.Ferramentas.Controles.Projetos
 
         private void ButtonExcluir_Click(object sender, EventArgs e)
         {
-            var ProjetoSelecionado = (ProjetoEntidade)ListProjetos.SelectedItem;
-
             if (ProjetoSelecionado != null)
             {
                 ProjetoService.Deletar(ProjetoSelecionado);
@@ -225,6 +220,11 @@ namespace Intech.Ferramentas.Controles.Projetos
                 if (fldrDlg.ShowDialog() == DialogResult.OK)
                     TextBoxDiretorio.Text = fldrDlg.SelectedPath;
             }
+        }
+
+        private void ButtonDependencias_Click(object sender, EventArgs e)
+        {
+            new Dependecias(ProjetoSelecionado).ShowDialog();
         }
     }
 }

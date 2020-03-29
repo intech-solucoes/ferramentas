@@ -48,7 +48,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             var caminho = $"{Config.GitBase}{Projeto.TXT_DIRETORIO}\\bin\\Debug\\netcoreapp2.2\\{Projeto.TXT_NAMESPACE}.dll";
             var assembly = Assembly.LoadFile(caminho);
 
-            var caminhoEntidades = @"C:\git\brprev-seg\API\Intech.BrPrev.SEG.Entidades\bin\Debug\netcoreapp2.2\Intech.BrPrev.SEG.Entidades.dll";
+            var caminhoEntidades = $"{Config.GitBase}\\{Projeto.Sistema.TXT_DIRETORIO_ENTIDADES}\\bin\\Debug\\netstandard2\\{Projeto.Sistema.TXT_NAMESPACE_ENTIDADES}.dll";
             CarregarDLL(caminhoEntidades);
 
             var controllers = AppDomain.CurrentDomain.GetAssemblies()
@@ -154,7 +154,6 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
         {
             var lista = type.Contains("List<");
             var tipo = type.Replace("List<", "").Replace(">", "");
-            string tipoTraduzido = "";
 
             var numbers = new string[] { "BIGINT", "FLOAT", "LONG", "MONEY", "NUMERIC", "NUMBER", "SMALLINT", "SMALLMONEY", "DECIMAL", "INT", "INT32", "INT16" };
             var strings = new string[] { "STRING", "TEXT", "CHAR", "VARCHAR", "VARCHAR2", "NVARCHAR", "ANSISTRING", "VARBINARY", "NCHAR" };
@@ -163,28 +162,28 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             var tipoUpper = tipo.ToUpper();
 
             if (numbers.Contains(tipoUpper))
-                tipoTraduzido = "number";
+                tipo = "number";
             else if (strings.Contains(tipoUpper))
-                tipoTraduzido = "string";
+                tipo = "string";
             else if (dates.Contains(tipoUpper))
-                tipoTraduzido = "Date";
+                tipo = "Date";
             else if (tipoUpper == "BOOL")
-                tipoTraduzido = "boolean";
+                tipo = "boolean";
             else if (tipoUpper == "OBJECT")
-                tipoTraduzido = "any";
+                tipo = "any";
             else
             {
                 if (tipo.Contains("List<"))
                 {
                     tipo = tipo.Replace("List<", "").Replace(">", "");
-                    tipoTraduzido = MapeiaTipoTS(tipo);
+                    tipo = MapeiaTipoTS(tipo);
                 }
             }
 
             if (lista)
-                return $"Array<{tipoTraduzido}>";
+                return $"Array<{tipo}>";
             else
-                return tipoTraduzido;
+                return tipo;
         }
 
         private static void CarregarDLL(string caminhoEntidades)

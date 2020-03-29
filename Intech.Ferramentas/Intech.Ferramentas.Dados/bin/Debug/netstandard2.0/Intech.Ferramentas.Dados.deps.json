@@ -11,7 +11,7 @@
         "dependencies": {
           "Intech.Lib.Dapper": "1.1.2",
           "Intech.Lib.Email": "1.1.1",
-          "Intech.Lib.Util": "1.1.2",
+          "Intech.Lib.Util": "1.1.3",
           "Microsoft.Extensions.Configuration": "3.0.0",
           "NETStandard.Library": "2.0.3"
         },
@@ -46,7 +46,7 @@
       "Intech.Lib.Dapper/1.1.2": {
         "dependencies": {
           "Dapper.Contrib": "2.0.30",
-          "Intech.Lib.Web": "1.1.0",
+          "Intech.Lib.Web": "1.2.1",
           "Newtonsoft.Json": "12.0.3",
           "Oracle.ManagedDataAccess.Core": "2.19.60",
           "System.Data.SqlClient": "4.8.0"
@@ -69,19 +69,19 @@
           }
         }
       },
-      "Intech.Lib.Util/1.1.2": {
+      "Intech.Lib.Util/1.1.3": {
         "runtime": {
           "lib/netstandard2.0/Intech.Lib.Util.dll": {
-            "assemblyVersion": "1.1.2.0",
-            "fileVersion": "1.1.2.0"
+            "assemblyVersion": "1.1.3.0",
+            "fileVersion": "1.1.3.0"
           }
         }
       },
-      "Intech.Lib.Web/1.1.0": {
+      "Intech.Lib.Web/1.2.1": {
         "runtime": {
           "lib/netstandard2.0/Intech.Lib.Web.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
           }
         }
       },
@@ -915,30 +915,30 @@
     "Intech.Lib.Dapper/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MLP6OfZQVGUybURPI3GrNgJg7FtWPCHoVP2ByL+pwXIZ7mJAhxCnASX7xpQmkGkX3wkZM9GEBn2wjq37ueM9uw==",
+      "sha512": "sha512-Ku4FyOINncLZhUIkIhGwCTOWqxzYDZ1HLx/6WpHzTkqlNDKf4ApGVmqorPNFagOhdFfAV8qhrLszyQyPBG0f9w==",
       "path": "intech.lib.dapper/1.1.2",
       "hashPath": "intech.lib.dapper.1.1.2.nupkg.sha512"
     },
     "Intech.Lib.Email/1.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-e4hieNCuj3wJj53KBFxlmzLxZqGQnaE6QTMlschJEL7bnX0KQBtMrmEtrtWWBy6zT0DEHgc92tDLJILZG2gI6Q==",
+      "sha512": "sha512-7rSsNjmDn7AfWrxB+eQCk8HySU4L9RIjFFnTjsADy3pNf8f8bwCsbLnPyZWawZ2Eal3KvQ0WNKR1mygejv4rLA==",
       "path": "intech.lib.email/1.1.1",
       "hashPath": "intech.lib.email.1.1.1.nupkg.sha512"
     },
-    "Intech.Lib.Util/1.1.2": {
+    "Intech.Lib.Util/1.1.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cNVUpna6+wKeB+6PwL4rg5rcw6ZFXRv9CyzB1eZNUc8clsogTOn5VDZxuUXT0zcqB8Tz8bebosSRTdlMikJneg==",
-      "path": "intech.lib.util/1.1.2",
-      "hashPath": "intech.lib.util.1.1.2.nupkg.sha512"
+      "sha512": "sha512-dQszCCiyAUAySTArC++4zr8qwhqfJqPx5iCsnl0ImRtrzpvGFYoVB2s6GMK3pcCxg7XLVQ+5uzgn3I2YFBUjWA==",
+      "path": "intech.lib.util/1.1.3",
+      "hashPath": "intech.lib.util.1.1.3.nupkg.sha512"
     },
-    "Intech.Lib.Web/1.1.0": {
+    "Intech.Lib.Web/1.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-pouNRvcSsbmM78GpO7FOtVmuFeIJTLFMDA28BqSZkg066n9fVxFNYc1xQKEI8knS7RteUpqO/yIqj8cz/3fSbw==",
-      "path": "intech.lib.web/1.1.0",
-      "hashPath": "intech.lib.web.1.1.0.nupkg.sha512"
+      "sha512": "sha512-lPmB7W4U/puJgET+sbNPb4BcOoNB8zsAmH3XtKVZKzlWw2F+AkL+8Q0j3QENa298S/rTKNC5qZ4lwBlv4qSueg==",
+      "path": "intech.lib.web/1.2.1",
+      "hashPath": "intech.lib.web.1.2.1.nupkg.sha512"
     },
     "MailKit/2.4.1": {
       "type": "package",
@@ -1013,7 +1013,7 @@
     "NETStandard.Library/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-isy/vcUKE+8RdGq3VuOhC+ht19KzFQSEEaERRNItmBOD7pkJWwYmlQ9r22EdqgFL8eqAEo7WtrsIsJuiyrqWAw==",
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
@@ -1202,7 +1202,7 @@
     "System.Data.Common/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OGX4ifHI67s/2KRrXGMmEjmszCptbhWS4BieBdiBPl/8pn0A1xPMx0Gn0dKK0zKtEaelYNh5M7M5lCZL0EA4eA==",
+      "sha512": "sha512-lm6E3T5u7BOuEH0u18JpbJHxBfOJPuCyl4Kg1RH10ktYLp5uEEE1xKrHW56/We4SnZpGAuCc9N0MJpSDhTHZGQ==",
       "path": "system.data.common/4.3.0",
       "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
@@ -1251,7 +1251,7 @@
     "System.Globalization.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UFW3Iy2iHOM5evsEMfHZ2OIKdEwoy/gPk305RE1+kAmetlwyjj723i5HsHJll1bcWiyl02IVHsnMvDmrf3S0Kw==",
+      "sha512": "sha512-FhKmdR6MPG+pxow6wGtNAWdZh7noIOpdD5TwQ3CprzgIE1bBBoim0vbR1+AWsWjQmU7zXHgQo4TWSP6lCeiWcQ==",
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
@@ -1314,7 +1314,7 @@
     "System.Numerics.Vectors/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gdRrUJs1RrjW3JB5p82hYjA67xoeFLvh0SdSIWjTiN8qExlbFt/RtXwVYNc5BukJ/f9OKzQQS6gakzbJeHTqHg==",
+      "sha512": "sha512-UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
       "path": "system.numerics.vectors/4.4.0",
       "hashPath": "system.numerics.vectors.4.4.0.nupkg.sha512"
     },
@@ -1412,7 +1412,7 @@
     "System.Runtime.Serialization.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BGJ4kH4WUzLmQGxSwPa46SRp8sjwMEnyhHaiEhxsqiVRNh7WciHm51kNqDgvgymCz2ruLc+n3uc4w7uWAGMloA==",
+      "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
@@ -1447,7 +1447,7 @@
     "System.Security.Cryptography.Csp/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CwUJQP7fHsv3Nzo+cZ34qO0tmCZk61yimzfx71/pUQBcEwpXygysd+C0Jd+I6Pq4KhF6cIUCJBZ/FEla0MMAgQ==",
+      "sha512": "sha512-X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==",
       "path": "system.security.cryptography.csp/4.3.0",
       "hashPath": "system.security.cryptography.csp.4.3.0.nupkg.sha512"
     },
@@ -1531,7 +1531,7 @@
     "System.Threading.ThreadPool/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Icq+MVWGFI3ehA9XhIbEB9wcJwiAi6gm3KLuvahInp1uf3XOwEl7jqEgzyvOacyMEyPgqLK/Cbb2zy7lIl0j/g==",
+      "sha512": "sha512-k/+g4b7vjdd4aix83sTgC9VG6oXYKAktSfNIJUNGxPEj7ryEOfzHHhfnmsZvjxawwcD9HyWXKCXmPjX8U4zeSw==",
       "path": "system.threading.threadpool/4.3.0",
       "hashPath": "system.threading.threadpool.4.3.0.nupkg.sha512"
     }

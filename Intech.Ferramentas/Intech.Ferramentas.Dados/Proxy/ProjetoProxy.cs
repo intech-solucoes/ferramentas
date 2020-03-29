@@ -21,6 +21,7 @@ namespace Intech.Ferramentas.Dados.Proxy
             lista.ForEach(projeto =>
             {
                 projeto.Sistema = new SistemaProxy().BuscarPorChave(projeto.OID_SISTEMA);
+                projeto.Dependencias = new DependenciaProxy().BuscarPorOidProjeto(projeto.OID_PROJETO);
             });
 
             return lista;

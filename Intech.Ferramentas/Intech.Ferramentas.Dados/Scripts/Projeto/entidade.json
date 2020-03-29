@@ -1,16 +1,21 @@
 {
-  "NomeTabela": "PROJETO",
-  "ColunasExtras": [
-    {
-      "Nome": "Versoes",
-      "Tipo": "List<VersaoEntidade>",
-      "AceitaNulo": false
-    },
-    {
-      "Nome": "Sistema",
-      "Tipo": "SistemaEntidade",
-      "AceitaNulo": false
-    }
-  ],
-  "Imports": []
+    "NomeTabela": "PROJETO",
+    "ColunasExtras": [
+        {
+            "Nome": "Versoes",
+            "Tipo": "List<VersaoEntidade>",
+            "AceitaNulo": false
+        },
+        {
+            "Nome": "Sistema",
+            "Tipo": "SistemaEntidade",
+            "AceitaNulo": false
+        },
+        {
+            "Nome": "Dependencias",
+            "Tipo": "List<DependenciaEntidade>",
+            "AceitaNulo": false
+        }
+    ],
+    "Imports": []
 }

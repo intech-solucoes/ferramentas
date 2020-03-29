@@ -8,9 +8,9 @@ namespace Intech.Ferramentas
     static class Program
     {
         private static string SourceProjectDir =
-            @"C:\git\ferramentas\Intech.Ferramentas\Intech.Ferramentas.Design";
+            @"C:\git\intech\ferramentas\Intech.Ferramentas\Intech.Ferramentas.Design";
         private static string TargetProjectDir =
-            @"C:\git\ferramentas\Intech.Ferramentas\Intech.Ferramentas";
+            @"C:\git\intech\ferramentas\Intech.Ferramentas\Intech.Ferramentas";
 
         [STAThread]
         static void Main()

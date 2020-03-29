@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ButtonAtualizarBancos = new System.Windows.Forms.Button();
+            this.ComboBoxBanco = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.TextBoxSenha = new System.Windows.Forms.TextBox();
             this.TextBoxUsuario = new System.Windows.Forms.TextBox();
             this.ComboBoxServidor = new System.Windows.Forms.ComboBox();
@@ -47,9 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ListConexoes = new System.Windows.Forms.ListBox();
             this.ButtonNovo = new System.Windows.Forms.Button();
-            this.ComboBoxBanco = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ButtonAtualizarBancos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sistemaEntidadeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +75,7 @@
             this.groupBox1.Controls.Add(this.ButtonSalvar);
             this.groupBox1.Controls.Add(this.TextBoxNome);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(238, 36);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -85,13 +85,50 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parâmetros";
             // 
+            // ButtonAtualizarBancos
+            // 
+            this.ButtonAtualizarBancos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonAtualizarBancos.BackColor = System.Drawing.Color.Gold;
+            this.ButtonAtualizarBancos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAtualizarBancos.FlatAppearance.BorderSize = 0;
+            this.ButtonAtualizarBancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAtualizarBancos.Location = new System.Drawing.Point(703, 353);
+            this.ButtonAtualizarBancos.Name = "ButtonAtualizarBancos";
+            this.ButtonAtualizarBancos.Size = new System.Drawing.Size(31, 22);
+            this.ButtonAtualizarBancos.TabIndex = 26;
+            this.ButtonAtualizarBancos.UseVisualStyleBackColor = false;
+            this.ButtonAtualizarBancos.Click += new System.EventHandler(this.ButtonAtualizarBancos_Click);
+            // 
+            // ComboBoxBanco
+            // 
+            this.ComboBoxBanco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboBoxBanco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ComboBoxBanco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ComboBoxBanco.BackColor = System.Drawing.SystemColors.Window;
+            this.ComboBoxBanco.FormattingEnabled = true;
+            this.ComboBoxBanco.Location = new System.Drawing.Point(7, 352);
+            this.ComboBoxBanco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ComboBoxBanco.Name = "ComboBoxBanco";
+            this.ComboBoxBanco.Size = new System.Drawing.Size(690, 24);
+            this.ComboBoxBanco.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 331);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Banco";
+            // 
             // TextBoxSenha
             // 
             this.TextBoxSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxSenha.Location = new System.Drawing.Point(7, 290);
             this.TextBoxSenha.Name = "TextBoxSenha";
-            this.TextBoxSenha.Size = new System.Drawing.Size(727, 23);
+            this.TextBoxSenha.Size = new System.Drawing.Size(727, 22);
             this.TextBoxSenha.TabIndex = 4;
             this.TextBoxSenha.Text = "masterkey";
             // 
@@ -101,7 +138,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxUsuario.Location = new System.Drawing.Point(7, 227);
             this.TextBoxUsuario.Name = "TextBoxUsuario";
-            this.TextBoxUsuario.Size = new System.Drawing.Size(727, 23);
+            this.TextBoxUsuario.Size = new System.Drawing.Size(727, 22);
             this.TextBoxUsuario.TabIndex = 3;
             this.TextBoxUsuario.Text = "sysdba";
             // 
@@ -120,7 +157,7 @@
             this.ComboBoxServidor.Location = new System.Drawing.Point(7, 164);
             this.ComboBoxServidor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ComboBoxServidor.Name = "ComboBoxServidor";
-            this.ComboBoxServidor.Size = new System.Drawing.Size(727, 25);
+            this.ComboBoxServidor.Size = new System.Drawing.Size(727, 24);
             this.ComboBoxServidor.TabIndex = 2;
             // 
             // ComboBoxProvedor
@@ -137,7 +174,7 @@
             this.ComboBoxProvedor.Location = new System.Drawing.Point(7, 103);
             this.ComboBoxProvedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ComboBoxProvedor.Name = "ComboBoxProvedor";
-            this.ComboBoxProvedor.Size = new System.Drawing.Size(727, 25);
+            this.ComboBoxProvedor.Size = new System.Drawing.Size(727, 24);
             this.ComboBoxProvedor.TabIndex = 1;
             // 
             // label6
@@ -145,7 +182,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 270);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.Size = new System.Drawing.Size(47, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "Senha";
             // 
@@ -154,7 +191,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 207);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 17);
+            this.label5.Size = new System.Drawing.Size(55, 16);
             this.label5.TabIndex = 21;
             this.label5.Text = "Usuário";
             // 
@@ -163,7 +200,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 392);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 19;
             this.label4.Text = "Sistema";
             // 
@@ -181,7 +218,7 @@
             this.ComboBoxSistema.Location = new System.Drawing.Point(7, 413);
             this.ComboBoxSistema.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ComboBoxSistema.Name = "ComboBoxSistema";
-            this.ComboBoxSistema.Size = new System.Drawing.Size(727, 25);
+            this.ComboBoxSistema.Size = new System.Drawing.Size(727, 24);
             this.ComboBoxSistema.TabIndex = 5;
             this.ComboBoxSistema.ValueMember = "OID_SISTEMA";
             // 
@@ -194,7 +231,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.Size = new System.Drawing.Size(59, 16);
             this.label3.TabIndex = 16;
             this.label3.Text = "Servidor";
             // 
@@ -203,7 +240,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "Provedor";
             // 
@@ -214,7 +251,7 @@
             this.ButtonExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonExcluir.FlatAppearance.BorderSize = 0;
             this.ButtonExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonExcluir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonExcluir.Location = new System.Drawing.Point(125, 532);
             this.ButtonExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -232,7 +269,7 @@
             this.ButtonSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSalvar.FlatAppearance.BorderSize = 0;
             this.ButtonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSalvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSalvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonSalvar.Location = new System.Drawing.Point(6, 532);
             this.ButtonSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -249,7 +286,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxNome.Location = new System.Drawing.Point(7, 47);
             this.TextBoxNome.Name = "TextBoxNome";
-            this.TextBoxNome.Size = new System.Drawing.Size(727, 23);
+            this.TextBoxNome.Size = new System.Drawing.Size(727, 22);
             this.TextBoxNome.TabIndex = 0;
             // 
             // label1
@@ -257,7 +294,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
@@ -267,12 +304,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ListConexoes.DisplayMember = "NOME";
             this.ListConexoes.FormattingEnabled = true;
-            this.ListConexoes.ItemHeight = 17;
+            this.ListConexoes.ItemHeight = 16;
             this.ListConexoes.Location = new System.Drawing.Point(3, 44);
             this.ListConexoes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ListConexoes.Name = "ListConexoes";
             this.ListConexoes.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ListConexoes.Size = new System.Drawing.Size(229, 565);
+            this.ListConexoes.Size = new System.Drawing.Size(229, 564);
             this.ListConexoes.TabIndex = 16;
             this.ListConexoes.SelectedIndexChanged += new System.EventHandler(this.ListConexoes_SelectedIndexChanged);
             // 
@@ -283,7 +320,7 @@
             this.ButtonNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonNovo.FlatAppearance.BorderSize = 0;
             this.ButtonNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonNovo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNovo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonNovo.Location = new System.Drawing.Point(3, 6);
             this.ButtonNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -294,56 +331,15 @@
             this.ButtonNovo.UseVisualStyleBackColor = false;
             this.ButtonNovo.Click += new System.EventHandler(this.ButtonNovo_Click);
             // 
-            // ComboBoxBanco
-            // 
-            this.ComboBoxBanco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ComboBoxBanco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.ComboBoxBanco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ComboBoxBanco.BackColor = System.Drawing.SystemColors.Window;
-            this.ComboBoxBanco.FormattingEnabled = true;
-            this.ComboBoxBanco.Items.AddRange(new object[] {
-            "10.10.170.39",
-            "10.10.170.13",
-            "localhost"});
-            this.ComboBoxBanco.Location = new System.Drawing.Point(7, 352);
-            this.ComboBoxBanco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ComboBoxBanco.Name = "ComboBoxBanco";
-            this.ComboBoxBanco.Size = new System.Drawing.Size(690, 25);
-            this.ComboBoxBanco.TabIndex = 24;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 331);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 17);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Banco";
-            // 
-            // ButtonAtualizarBancos
-            // 
-            this.ButtonAtualizarBancos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAtualizarBancos.BackColor = System.Drawing.Color.Gold;
-            this.ButtonAtualizarBancos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonAtualizarBancos.FlatAppearance.BorderSize = 0;
-            this.ButtonAtualizarBancos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonAtualizarBancos.Location = new System.Drawing.Point(703, 353);
-            this.ButtonAtualizarBancos.Name = "ButtonAtualizarBancos";
-            this.ButtonAtualizarBancos.Size = new System.Drawing.Size(31, 22);
-            this.ButtonAtualizarBancos.TabIndex = 26;
-            this.ButtonAtualizarBancos.UseVisualStyleBackColor = false;
-            this.ButtonAtualizarBancos.Click += new System.EventHandler(this.ButtonAtualizarBancos_Click);
-            // 
             // Conexoes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ListConexoes);
             this.Controls.Add(this.ButtonNovo);
-            this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Conexoes";
             this.Size = new System.Drawing.Size(981, 613);

@@ -356,6 +356,12 @@
     <Compile Include="Controles\PageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controles\Projetos\Dependecias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controles\Projetos\Dependecias.Designer.cs">
+      <DependentUpon>Dependecias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\Projetos\Projetos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\Projetos\Dependecias.resx">
+      <DependentUpon>Dependecias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\Projetos\Projetos.resx">
       <DependentUpon>Projetos.cs</DependentUpon>
