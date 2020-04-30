@@ -71,7 +71,10 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 if (coluna.AceitaNulo && coluna.Tipo != "string")
                     StringEntidade.Append("?");
 
-                StringEntidade.Append($" {coluna.Nome} {{ get; set; }}\n");
+                if (coluna.IsColunaExtra.HasValue && coluna.IsColunaExtra.Value)
+                    StringEntidade.Append($" {coluna.Nome} {{ get; set; }}\n");
+                else
+                    StringEntidade.Append($" {coluna.Nome.ToUpper()} {{ get; set; }}\n");
             }
         }
 

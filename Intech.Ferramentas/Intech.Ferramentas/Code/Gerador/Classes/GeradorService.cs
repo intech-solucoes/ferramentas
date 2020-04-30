@@ -45,10 +45,10 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         private void ExtrairDados()
         {
-            var caminho = $"{Config.GitBase}{Projeto.TXT_DIRETORIO}\\bin\\Debug\\netcoreapp2.2\\{Projeto.TXT_NAMESPACE}.dll";
+            var caminho = Path.Combine(Config.GitBase, Projeto.TXT_DIRETORIO, $"bin\\Debug\\netcoreapp2.2\\{Projeto.TXT_NAMESPACE}.dll");
             var assembly = Assembly.LoadFile(caminho);
 
-            var caminhoEntidades = $"{Config.GitBase}\\{Projeto.Sistema.TXT_DIRETORIO_ENTIDADES}\\bin\\Debug\\netstandard2\\{Projeto.Sistema.TXT_NAMESPACE_ENTIDADES}.dll";
+            var caminhoEntidades = $"{Config.GitBase}\\{Projeto.Sistema.TXT_DIRETORIO_ENTIDADES}\\bin\\Debug\\netstandard2.0\\{Projeto.Sistema.TXT_NAMESPACE_ENTIDADES}.dll";
             CarregarDLL(caminhoEntidades);
 
             var controllers = AppDomain.CurrentDomain.GetAssemblies()
@@ -135,10 +135,10 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
                     var ret = metodoObj.Retorno.Replace("Array<", "").Replace(">", "");
                     if (!serviceObj.Imports.Contains(ret)
-                        && metodoObj.Retorno != "string"
-                        && metodoObj.Retorno != "boolean"
-                        && metodoObj.Retorno != "number"
-                        && metodoObj.Retorno != "any")
+                        && ret != "string"
+                        && ret != "boolean"
+                        && ret != "number"
+                        && ret != "any")
                     {
                         serviceObj.Imports.Add(ret);
                     }
@@ -212,7 +212,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         private void GerarImports(Service service)
         {
-            SB.AppendLine("import { BaseService, RequestType, ResponseType } from \"@intechprev/react-service\";");
+            SB.AppendLine("import { BaseService, RequestType, ResponseType } from \"@intech/react-service\";");
 
             foreach (var import in service.Imports)
             {
@@ -275,7 +275,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 }
                 else
                 {
-                    if (!string.IsNullOrEmpty(metodo.Resposta))
+                    if (!string.IsNullOrEmpty(metodo.Resposta) && metodo.Resposta != TipoResposta.Normal.ToDescriptionString())
                         SB.Append($", null, ResponseType.{metodo.Resposta}");
                 }
 

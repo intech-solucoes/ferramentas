@@ -327,6 +327,7 @@ namespace Intech.Ferramentas.Code.Gerador
                     return "string";
                 case "DATE":
                 case "DATETIME":
+                case "DATETIME2":
                     return "DateTime";
                 case "INT":
                 case "INT32":
@@ -371,6 +372,7 @@ namespace Intech.Ferramentas.Code.Gerador
                     return "string";
                 case "DATE":
                 case "DATETIME":
+                case "DATETIME2":
                     return "Date";
                 default:
                     throw new Exception(string.Format("Tipo não mapeado: {0}", type));
@@ -395,6 +397,7 @@ namespace Intech.Ferramentas.Code.Gerador
                     return "string";
                 case "DATE":
                 case "DATETIME":
+                case "DATETIME2":
                     return "Date";
                 default:
                     if (type.Contains("List<"))

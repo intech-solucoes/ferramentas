@@ -44,7 +44,7 @@ namespace Intech.Ferramentas.Controles.Projetos
             if (ProjetoSelecionado != null)
             {
                 TextBoxNome.Text = ProjetoSelecionado.NOM_PROJETO;
-                TextBoxDiretorio.Text = $"{UserConfigManager.Get().GitBase}{ProjetoSelecionado.TXT_DIRETORIO}";
+                TextBoxDiretorio.Text = Path.Combine(UserConfigManager.Get().GitBase, ProjetoSelecionado.TXT_DIRETORIO);
                 TextBoxNamespace.Text = ProjetoSelecionado.TXT_NAMESPACE;
 
                 switch (ProjetoSelecionado.IND_TIPO_PROJETO)
@@ -95,7 +95,7 @@ namespace Intech.Ferramentas.Controles.Projetos
             if (ModoEdicao)
             {
                 ProjetoSelecionado.NOM_PROJETO = TextBoxNome.Text;
-                ProjetoSelecionado.TXT_DIRETORIO = TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase, "");
+                ProjetoSelecionado.TXT_DIRETORIO = TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase + "\\", "");
                 ProjetoSelecionado.TXT_NAMESPACE = TextBoxNamespace.Text;
 
                 switch (ComboBoxTipo.SelectedItem)
@@ -125,7 +125,7 @@ namespace Intech.Ferramentas.Controles.Projetos
                 var projeto = new ProjetoEntidade
                 {
                     NOM_PROJETO = TextBoxNome.Text,
-                    TXT_DIRETORIO = TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase, ""),
+                    TXT_DIRETORIO = TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase + "\\", ""),
                     TXT_NAMESPACE = TextBoxNamespace.Text
                 };
 

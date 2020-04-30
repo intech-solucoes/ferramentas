@@ -41,7 +41,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
         {
             foreach (var import in Entidade.Imports)
             {
-                SB.AppendLine($"import {import} from \"./{import}\";");
+                SB.AppendLine($"import {{ {import} }} from \"./{import}\";");
             }
 
             SB.AppendLine();

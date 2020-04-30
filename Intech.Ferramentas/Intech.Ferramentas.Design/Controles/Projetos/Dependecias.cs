@@ -1,4 +1,5 @@
-﻿using Intech.Ferramentas.Dados.Entidades;
+﻿using Intech.Ferramentas.Code;
+using Intech.Ferramentas.Dados.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,23 +20,11 @@ namespace Intech.Ferramentas.Controles.Projetos
 
         public Dependecias(ProjetoEntidade projetoSelecionado)
         {
+            InitializeComponent();
+
             if (!DesignMode) {
                 ProjetoSelecionado = projetoSelecionado;
-                DataTable.Columns.Add("Diretorio");
-
-                var dependencias = projetoSelecionado.Dependencias;
-
-                foreach(var dependencia in dependencias)
-                {
-                    var newRow = DataTable.NewRow();
-                    newRow.SetField("Diretorio", dependencia.TXT_DIRETORIO);
-                    DataTable.Rows.Add(newRow);
-                }
-
-                GridDiretorios.DataSource = DataTable;
             }
-
-            InitializeComponent();
         }
 
         private void Dependecias_Load(object sender, EventArgs e)
@@ -49,16 +38,27 @@ namespace Intech.Ferramentas.Controles.Projetos
                         ForeColor = Color.Black
                     });
 
+                DataTable.Columns.Add("Diretorio");
 
+                var dependencias = ProjetoSelecionado.Dependencias;
+
+                foreach (var dependencia in dependencias)
+                {
+                    var newRow = DataTable.NewRow();
+                    newRow.SetField("Diretorio", dependencia.TXT_DIRETORIO);
+                    DataTable.Rows.Add(newRow);
+                }
+
+                GridDiretorios.DataSource = DataTable;
             }
         }
         
         private void ButtonProcurarDiretorio_Click(object sender, EventArgs e)
         {
-            using (var fldrDlg = new FolderBrowserDialog())
+            using (var fldrDlg = new OpenFileDialog())
             {
                 if (fldrDlg.ShowDialog() == DialogResult.OK)
-                    TextBoxDiretorio.Text = fldrDlg.SelectedPath;
+                    TextBoxDiretorio.Text = fldrDlg.FileName;
             }
         }
 
@@ -67,7 +67,7 @@ namespace Intech.Ferramentas.Controles.Projetos
             if (!string.IsNullOrEmpty(TextBoxDiretorio.Text))
             {
                 var newRow = DataTable.NewRow();
-                newRow.SetField("Diretorio", TextBoxDiretorio.Text);
+                newRow.SetField("Diretorio", TextBoxDiretorio.Text.Replace(UserConfigManager.Get().GitBase + "\\", ""));
                 DataTable.Rows.Add(newRow);
                 GridDiretorios.DataSource = DataTable;
                 TextBoxDiretorio.Text = "";

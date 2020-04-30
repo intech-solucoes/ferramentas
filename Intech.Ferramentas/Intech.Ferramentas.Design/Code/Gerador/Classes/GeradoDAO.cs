@@ -85,31 +85,14 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 SB.Append("\t\t");
                 SB.Append("{\n");
 
-                SB.Append("\t\t\t");
-                SB.Append("try\n");
-                SB.Append("\t\t\t");
-                SB.Append("{\n");
-
                 GerarQuery(consulta, true);
                 GerarQuery(consulta, false);
 
-                SB.Append("\t\t\t\t");
+                SB.Append("\t\t\t");
                 SB.Append("else\n");
 
-                SB.Append("\t\t\t\t\t");
-                SB.Append("throw new Exception(\"Provider não suportado!\");\n");
-                SB.Append("\t\t\t");
-                SB.Append("}\n");
-
-                SB.Append("\t\t\t");
-                SB.Append("finally\n");
-                SB.Append("\t\t\t");
-                SB.Append("{\n");
-
                 SB.Append("\t\t\t\t");
-                SB.Append("Conexao.Close();\n");
-                SB.Append("\t\t\t");
-                SB.Append("}\n");
+                SB.Append("throw new Exception(\"Provider não suportado!\");\n");
 
                 SB.Append("\t\t");
                 SB.Append("}\n\n");
@@ -118,14 +101,14 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         private void GerarQuery(EntidadeConsulta consulta, bool sqlServer)
         {
-            SB.Append("\t\t\t\t");
+            SB.Append("\t\t\t");
 
             if(sqlServer)
                 SB.AppendLine("if (AppSettings.IS_SQL_SERVER_PROVIDER)");
             else
                 SB.AppendLine("else if (AppSettings.IS_ORACLE_PROVIDER)");
 
-            SB.Append("\t\t\t\t\t");
+            SB.Append("\t\t\t\t");
 
             if (consulta.Retorno != "void")
                 SB.Append($"return ");
