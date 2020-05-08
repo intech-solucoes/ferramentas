@@ -56,7 +56,10 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
         {
             foreach (var coluna in Colunas)
             {
-                SB.Append($"\tpublic {coluna.Nome}");
+                if (coluna.IsColunaExtra.HasValue && coluna.IsColunaExtra.Value)
+                    SB.Append($"\tpublic {coluna.Nome}");
+                else
+                    SB.Append($"\tpublic {coluna.Nome.ToUpper()}");
 
                 if (coluna.AceitaNulo && coluna.TipoTS != "string")
                     SB.Append("?");

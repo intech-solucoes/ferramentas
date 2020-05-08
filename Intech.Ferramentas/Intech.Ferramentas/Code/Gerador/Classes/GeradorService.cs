@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Intech.Ferramentas.Code.Gerador.Classes
@@ -15,8 +14,11 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
     public class GeradorService
     {
         public StringBuilder SB { get; private set; }
-
         private UserConfig Config => UserConfigManager.Get();
+        internal static ProxyDomain AsmLoaderProxy { get; private set; }
+
+        //internal static SimpleUnloadableAssemblyLoadContext SAC { get; private set; }
+
         private ProjetoEntidade Projeto;
         private List<ProjetoEntidade> ProjetosSelecionados;
 
@@ -82,6 +84,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                         throw new Exception($"Nenhum atributo HttpGet ou HttpPost encontrado no método {endpoint.Name}");
 
                     var caminhoRota = httpMethodAttribute.ConstructorArguments.Count > 0 ? (string)httpMethodAttribute.ConstructorArguments[0].Value : "";
+                    caminhoRota = caminhoRota.Replace("{", "${");
                     var tipoRota = httpMethodAttribute.AttributeType.Name == "HttpGetAttribute" ? "GET" : "POST";
 
                     TipoResposta resposta = TipoResposta.Normal;
@@ -148,6 +151,8 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
                 ListaServices.Add(serviceObj);
             }
+
+            DescarregarDLL();
         }
 
         protected string MapeiaTipoTS(string type)
@@ -188,25 +193,50 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         private static void CarregarDLL(string caminhoEntidades)
         {
-            var asmLoaderProxy = (ProxyDomain)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName, typeof(ProxyDomain).FullName);
-            asmLoaderProxy.GetAssembly(caminhoEntidades);
+            AsmLoaderProxy = (ProxyDomain)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName, typeof(ProxyDomain).FullName);
+            AsmLoaderProxy.GetAssembly(caminhoEntidades);
+
+            //SAC = new SimpleUnloadableAssemblyLoadContext();
+            //SAC.LoadFromAssemblyPath(caminhoEntidades);
         }
+
+        private static void DescarregarDLL()
+        {
+            AsmLoaderProxy = null;
+            GC.Collect();
+            GC.SuppressFinalize(true);
+        }
+        //SAC.Unload();
 
         private void GerarClasse()
         {
-            foreach (var service in ListaServices)
+            foreach (var proj in ProjetosSelecionados)
             {
-                SB = new StringBuilder();
+                var dirServices = Path.Combine(Config.GitBase, proj.TXT_DIRETORIO, "src", "services");
 
-                GerarImports(service);
-                GerarDeclaracaoClasse(service);
-                GerarMetodos(service);
-                Fechar(service);
-
-                foreach (var proj in ProjetosSelecionados)
+                foreach (var service in ListaServices)
                 {
-                    File.WriteAllText(Path.Combine(Config.GitBase, proj.TXT_DIRETORIO, "src", "services", $"{service.Nome}Service.tsx"), SB.ToString(), Encoding.UTF8);
+                    SB = new StringBuilder();
+
+                    GerarImports(service);
+                    GerarDeclaracaoClasse(service);
+                    GerarMetodos(service);
+                    Fechar(service);
+                    File.WriteAllText(Path.Combine(dirServices, $"{service.Nome}Service.tsx"), SB.ToString(), Encoding.UTF8);
                 }
+
+                // Salva index.tsx
+                var listaServices = Directory.GetFiles(dirServices).ToList();
+                var servicesIndex = new List<string>();
+                foreach (var ent in listaServices)
+                {
+                    var arquivo = new FileInfo(ent);
+                    if (arquivo.Name != "index.tsx")
+                        servicesIndex.Add(arquivo.Name.Replace(".tsx", ""));
+                }
+
+                var servicesTSIndex = new GeradorServiceIndex(servicesIndex).Gerar();
+                File.WriteAllText(Path.Combine(dirServices, $"index.tsx"), servicesTSIndex, Encoding.UTF8);
             }
         }
 
@@ -306,4 +336,14 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             }
         }
     }
+
+    //class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext
+    //{
+    //    public SimpleUnloadableAssemblyLoadContext()
+    //       : base(isCollectible: true)
+    //    {
+    //    }
+
+    //    protected override Assembly Load(AssemblyName assemblyName) => null;
+    //}
 }

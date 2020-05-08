@@ -100,15 +100,6 @@
   },
   {
     "Provider": "sqlserver",
-    "DataSource": "10.10.170.39",
-    "Username": "sysdba",
-    "Password": "masterkey",
-    "Database": "PW_FACEB",
-    "Sistema": "Advanced",
-    "ID": "ab251e6c-fa6c-498b-8d85-5a4716782739"
-  },
-  {
-    "Provider": "sqlserver",
     "DataSource": "192.168.7.206",
     "Username": "portal.previrb",
     "Password": "j9CCqXFr",
@@ -142,5 +133,14 @@
     "Database": "FSF_17022020",
     "Sistema": "PrevSystem",
     "ID": "05ef3e78-2a8b-4b1d-a3da-cd457efd0e7a"
+  },
+  {
+    "Provider": "sqlserver",
+    "DataSource": "10.10.170.39",
+    "Username": "sysdba",
+    "Password": "masterkey",
+    "Database": "PW_FACEB_050520",
+    "Sistema": "Advanced",
+    "ID": "ab251e6c-fa6c-498b-8d85-5a4716782739"
   }
 ]
