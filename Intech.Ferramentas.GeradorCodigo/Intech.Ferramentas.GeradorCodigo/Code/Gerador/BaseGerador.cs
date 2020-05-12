@@ -469,6 +469,9 @@ namespace Intech.Ferramentas.GeradorCodigo.Code.Gerador
                 case "DATETIME":
                     tipoTraduzido = "Date";
                     break;
+                case "STRING":
+                    tipoTraduzido = "string";
+                    break;
                 default:
                     if (type.Contains("List<"))
                     {
