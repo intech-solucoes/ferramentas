@@ -35,5 +35,8 @@ namespace Intech.Ferramentas.API.Controllers
         [HttpPost("deletar")]
         public bool Delete([FromBody] ProjetoEntidade sistema) => 
             new ProjetoProxy().Deletar(sistema);
+
+        public bool InserirDependencias(decimal oidProjeto, List<string> dependencias) =>
+            new DependenciaProxy().Inserir(oidProjeto, dependencias);
     }
 }

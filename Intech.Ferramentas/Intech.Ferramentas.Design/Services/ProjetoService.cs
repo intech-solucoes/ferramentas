@@ -22,5 +22,7 @@ namespace Intech.Ferramentas.Services
 
         public static bool Deletar(ProjetoEntidade Projeto) =>
             CriarRequisicaoEnvio<ProjetoEntidade, bool>("Projeto/deletar", Projeto);
+        public static bool InserirDependencias(List<DependenciaEntidade> dependencias) =>
+            CriarRequisicaoEnvio<List<DependenciaEntidade>, bool>("Dependencia", dependencias);
     }
 }

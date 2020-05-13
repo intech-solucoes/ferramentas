@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Intech.Ferramentas.Code.Gerador.Classes
@@ -16,8 +15,11 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
     public class GeradorService
     {
         public StringBuilder SB { get; private set; }
-
         private UserConfig Config => UserConfigManager.Get();
+        internal static ProxyDomain AsmLoaderProxy { get; private set; }
+
+        //internal static SimpleUnloadableAssemblyLoadContext SAC { get; private set; }
+
         private ProjetoEntidade Projeto;
         private List<ProjetoEntidade> ProjetosSelecionados;
 
@@ -46,10 +48,10 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         private void ExtrairDados()
         {
-            var caminho = $"{Config.GitBase}{Projeto.TXT_DIRETORIO}\\bin\\Debug\\netcoreapp2.2\\{Projeto.TXT_NAMESPACE}.dll";
+            var caminho = Path.Combine(Config.GitBase, Projeto.TXT_DIRETORIO, $"bin\\Debug\\netcoreapp2.2\\{Projeto.TXT_NAMESPACE}.dll");
             var assembly = Assembly.LoadFile(caminho);
 
-            var caminhoEntidades = @"C:\git\brprev-seg\API\Intech.BrPrev.SEG.Entidades\bin\Debug\netcoreapp2.2\Intech.BrPrev.SEG.Entidades.dll";
+            var caminhoEntidades = $"{Config.GitBase}\\{Projeto.Sistema.TXT_DIRETORIO_ENTIDADES}\\bin\\Debug\\netstandard2.0\\{Projeto.Sistema.TXT_NAMESPACE_ENTIDADES}.dll";
             CarregarDLL(caminhoEntidades);
 
             var controllers = AppDomain.CurrentDomain.GetAssemblies()
@@ -83,6 +85,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                         throw new Exception($"Nenhum atributo HttpGet ou HttpPost encontrado no método {endpoint.Name}");
 
                     var caminhoRota = httpMethodAttribute.ConstructorArguments.Count > 0 ? (string)httpMethodAttribute.ConstructorArguments[0].Value : "";
+                    caminhoRota = caminhoRota.Replace("{", "${");
                     var tipoRota = httpMethodAttribute.AttributeType.Name == "HttpGetAttribute" ? "GET" : "POST";
 
                     TipoResposta resposta = TipoResposta.Normal;
@@ -136,10 +139,10 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
                     var ret = metodoObj.Retorno.Replace("Array<", "").Replace(">", "");
                     if (!serviceObj.Imports.Contains(ret)
-                        && metodoObj.Retorno != "string"
-                        && metodoObj.Retorno != "boolean"
-                        && metodoObj.Retorno != "number"
-                        && metodoObj.Retorno != "any")
+                        && ret != "string"
+                        && ret != "boolean"
+                        && ret != "number"
+                        && ret != "any")
                     {
                         serviceObj.Imports.Add(ret);
                     }
@@ -149,13 +152,14 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
                 ListaServices.Add(serviceObj);
             }
+
+            DescarregarDLL();
         }
 
         protected string MapeiaTipoTS(string type)
         {
             var lista = type.Contains("List<");
             var tipo = type.Replace("List<", "").Replace(">", "");
-            string tipoTraduzido = "";
 
             var numbers = new string[] { "BIGINT", "FLOAT", "LONG", "MONEY", "NUMERIC", "NUMBER", "SMALLINT", "SMALLMONEY", "DECIMAL", "INT", "INT32", "INT16" };
             var strings = new string[] { "STRING", "TEXT", "CHAR", "VARCHAR", "VARCHAR2", "NVARCHAR", "ANSISTRING", "VARBINARY", "NCHAR" };
@@ -164,63 +168,82 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             var tipoUpper = tipo.ToUpper();
 
             if (numbers.Contains(tipoUpper))
-                tipoTraduzido = "number";
+                tipo = "number";
             else if (strings.Contains(tipoUpper))
-                tipoTraduzido = "string";
+                tipo = "string";
             else if (dates.Contains(tipoUpper))
-                tipoTraduzido = "Date";
+                tipo = "Date";
             else if (tipoUpper == "BOOL")
-                tipoTraduzido = "boolean";
+                tipo = "boolean";
             else if (tipoUpper == "OBJECT")
-                tipoTraduzido = "any";
+                tipo = "any";
             else
             {
                 if (tipo.Contains("List<"))
                 {
                     tipo = tipo.Replace("List<", "").Replace(">", "");
-                    tipoTraduzido = MapeiaTipoTS(tipo);
+                    tipo = MapeiaTipoTS(tipo);
                 }
             }
 
             if (lista)
-                return $"Array<{tipoTraduzido}>";
+                return $"Array<{tipo}>";
             else
-                return tipoTraduzido;
+                return tipo;
         }
 
         private static void CarregarDLL(string caminhoEntidades)
         {
-            var asmLoaderProxy = (ProxyDomain)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName, typeof(ProxyDomain).FullName);
-            asmLoaderProxy.GetAssembly(caminhoEntidades);
+            AsmLoaderProxy = (ProxyDomain)AppDomain.CurrentDomain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName, typeof(ProxyDomain).FullName);
+            AsmLoaderProxy.GetAssembly(caminhoEntidades);
+
+            //SAC = new SimpleUnloadableAssemblyLoadContext();
+            //SAC.LoadFromAssemblyPath(caminhoEntidades);
         }
+
+        private static void DescarregarDLL()
+        {
+            AsmLoaderProxy = null;
+            GC.Collect();
+            GC.SuppressFinalize(true);
+        }
+        //SAC.Unload();
 
         private void GerarClasse()
         {
-            foreach (var service in ListaServices)
+            foreach (var proj in ProjetosSelecionados)
             {
-                SB = new StringBuilder();
+                var dirServices = Path.Combine(Config.GitBase, proj.TXT_DIRETORIO, "src", "services");
 
-                    GerarImports(proj, service);
+                foreach (var service in ListaServices)
+                {
+                    SB = new StringBuilder();
+
+                    GerarImports(service);
                     GerarDeclaracaoClasse(service);
                     GerarMetodos(service);
                     Fechar(service);
                     File.WriteAllText(Path.Combine(dirServices, $"{service.Nome}Service.tsx"), SB.ToString(), Encoding.UTF8);
                 }
 
-                foreach (var proj in ProjetosSelecionados)
+                // Salva index.tsx
+                var listaServices = Directory.GetFiles(dirServices).ToList();
+                var servicesIndex = new List<string>();
+                foreach (var ent in listaServices)
                 {
-                    File.WriteAllText(Path.Combine(Config.GitBase, proj.TXT_DIRETORIO, "src", "services", $"{service.Nome}Service.tsx"), SB.ToString(), Encoding.UTF8);
+                    var arquivo = new FileInfo(ent);
+                    if (arquivo.Name != "index.tsx")
+                        servicesIndex.Add(arquivo.Name.Replace(".tsx", ""));
                 }
+
+                var servicesTSIndex = new GeradorServiceIndex(servicesIndex).Gerar();
+                File.WriteAllText(Path.Combine(dirServices, $"index.tsx"), servicesTSIndex, Encoding.UTF8);
             }
         }
 
         private void GerarImports(ProjetoEntidade proj, Service service)
         {
-            var serviceLib = "react-service";
-            if (proj.IND_TIPO_PROJETO == DMN_TIPO_PROJETO.MOBILE)
-                serviceLib = "rn-service";
-
-            SB.AppendLine($"import {{ BaseService, RequestType, ResponseType }} from \"@intech/{serviceLib }\";");
+            SB.AppendLine("import { BaseService, RequestType, ResponseType } from \"@intech/react-service\";");
 
             foreach (var import in service.Imports)
             {
@@ -283,7 +306,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 }
                 else
                 {
-                    if (!string.IsNullOrEmpty(metodo.Resposta))
+                    if (!string.IsNullOrEmpty(metodo.Resposta) && metodo.Resposta != TipoResposta.Normal.ToDescriptionString())
                         SB.Append($", null, ResponseType.{metodo.Resposta}");
                 }
 
@@ -314,4 +337,14 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             }
         }
     }
+
+    //class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext
+    //{
+    //    public SimpleUnloadableAssemblyLoadContext()
+    //       : base(isCollectible: true)
+    //    {
+    //    }
+
+    //    protected override Assembly Load(AssemblyName assemblyName) => null;
+    //}
 }

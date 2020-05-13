@@ -46,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ListProjetos = new System.Windows.Forms.ListBox();
             this.ButtonNovo = new System.Windows.Forms.Button();
+            this.ButtonDependencias = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.ButtonDependencias);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.ComboBoxSistema);
             this.groupBox1.Controls.Add(this.label5);
@@ -68,7 +70,7 @@
             this.groupBox1.Controls.Add(this.ButtonSalvar);
             this.groupBox1.Controls.Add(this.TextBoxNome);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(238, 36);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -83,7 +85,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(7, 270);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 17);
+            this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "Sistema";
             // 
@@ -99,7 +101,7 @@
             this.ComboBoxSistema.Location = new System.Drawing.Point(7, 291);
             this.ComboBoxSistema.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ComboBoxSistema.Name = "ComboBoxSistema";
-            this.ComboBoxSistema.Size = new System.Drawing.Size(727, 25);
+            this.ComboBoxSistema.Size = new System.Drawing.Size(727, 24);
             this.ComboBoxSistema.TabIndex = 4;
             this.ComboBoxSistema.ValueMember = "OID_SISTEMA";
             // 
@@ -108,7 +110,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 207);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 17);
+            this.label5.Size = new System.Drawing.Size(36, 16);
             this.label5.TabIndex = 21;
             this.label5.Text = "Tipo";
             // 
@@ -127,7 +129,7 @@
             this.ComboBoxTipo.Location = new System.Drawing.Point(7, 228);
             this.ComboBoxTipo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ComboBoxTipo.Name = "ComboBoxTipo";
-            this.ComboBoxTipo.Size = new System.Drawing.Size(727, 25);
+            this.ComboBoxTipo.Size = new System.Drawing.Size(727, 24);
             this.ComboBoxTipo.TabIndex = 3;
             // 
             // label4
@@ -135,7 +137,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 338);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 17);
+            this.label4.Size = new System.Drawing.Size(75, 16);
             this.label4.TabIndex = 19;
             this.label4.Text = "Projeto API";
             // 
@@ -151,7 +153,7 @@
             this.ComboBoxProjetoAPI.Location = new System.Drawing.Point(7, 359);
             this.ComboBoxProjetoAPI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ComboBoxProjetoAPI.Name = "ComboBoxProjetoAPI";
-            this.ComboBoxProjetoAPI.Size = new System.Drawing.Size(727, 25);
+            this.ComboBoxProjetoAPI.Size = new System.Drawing.Size(727, 24);
             this.ComboBoxProjetoAPI.TabIndex = 5;
             this.ComboBoxProjetoAPI.ValueMember = "OID_PROJETO";
             // 
@@ -161,7 +163,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxNamespace.Location = new System.Drawing.Point(7, 164);
             this.TextBoxNamespace.Name = "TextBoxNamespace";
-            this.TextBoxNamespace.Size = new System.Drawing.Size(727, 23);
+            this.TextBoxNamespace.Size = new System.Drawing.Size(727, 22);
             this.TextBoxNamespace.TabIndex = 2;
             // 
             // label3
@@ -169,7 +171,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 17);
+            this.label3.Size = new System.Drawing.Size(83, 16);
             this.label3.TabIndex = 16;
             this.label3.Text = "Namespace";
             // 
@@ -193,7 +195,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxDiretorio.Location = new System.Drawing.Point(7, 102);
             this.TextBoxDiretorio.Name = "TextBoxDiretorio";
-            this.TextBoxDiretorio.Size = new System.Drawing.Size(690, 23);
+            this.TextBoxDiretorio.Size = new System.Drawing.Size(690, 22);
             this.TextBoxDiretorio.TabIndex = 1;
             // 
             // label2
@@ -201,7 +203,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
+            this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "Diretório";
             // 
@@ -212,7 +214,7 @@
             this.ButtonExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonExcluir.FlatAppearance.BorderSize = 0;
             this.ButtonExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonExcluir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonExcluir.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonExcluir.Location = new System.Drawing.Point(125, 532);
             this.ButtonExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -230,7 +232,7 @@
             this.ButtonSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSalvar.FlatAppearance.BorderSize = 0;
             this.ButtonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSalvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSalvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonSalvar.Location = new System.Drawing.Point(6, 532);
             this.ButtonSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -247,7 +249,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxNome.Location = new System.Drawing.Point(7, 47);
             this.TextBoxNome.Name = "TextBoxNome";
-            this.TextBoxNome.Size = new System.Drawing.Size(727, 23);
+            this.TextBoxNome.Size = new System.Drawing.Size(727, 22);
             this.TextBoxNome.TabIndex = 0;
             // 
             // label1
@@ -255,7 +257,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
@@ -280,7 +282,7 @@
             this.ButtonNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonNovo.FlatAppearance.BorderSize = 0;
             this.ButtonNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonNovo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNovo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonNovo.Location = new System.Drawing.Point(3, 6);
             this.ButtonNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -290,6 +292,24 @@
             this.ButtonNovo.Text = "Novo";
             this.ButtonNovo.UseVisualStyleBackColor = false;
             this.ButtonNovo.Click += new System.EventHandler(this.ButtonNovo_Click);
+            // 
+            // ButtonDependencias
+            // 
+            this.ButtonDependencias.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ButtonDependencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDependencias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDependencias.FlatAppearance.BorderSize = 0;
+            this.ButtonDependencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDependencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDependencias.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ButtonDependencias.Location = new System.Drawing.Point(7, 409);
+            this.ButtonDependencias.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonDependencias.Name = "ButtonDependencias";
+            this.ButtonDependencias.Size = new System.Drawing.Size(142, 30);
+            this.ButtonDependencias.TabIndex = 24;
+            this.ButtonDependencias.Text = "Dependências";
+            this.ButtonDependencias.UseVisualStyleBackColor = false;
+            this.ButtonDependencias.Click += new System.EventHandler(this.ButtonDependencias_Click);
             // 
             // Projetos
             // 
@@ -328,5 +348,6 @@
         private System.Windows.Forms.ComboBox ComboBoxTipo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ComboBoxSistema;
+        private System.Windows.Forms.Button ButtonDependencias;
     }
 }

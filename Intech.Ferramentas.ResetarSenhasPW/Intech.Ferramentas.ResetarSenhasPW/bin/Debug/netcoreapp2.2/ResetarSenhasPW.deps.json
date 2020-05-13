@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "d1cd7f4d99a2a2f4342c9bfd5e86b984785c6964"
+    "signature": ""
   },
   "compilationOptions": {},
   "targets": {
@@ -64,16 +64,6 @@
         "dependencies": {
           "System.Security.AccessControl": "4.4.0",
           "System.Security.Principal.Windows": "4.4.0"
-        },
-        "runtimeTargets": {
-          "runtime/unix/lib/_._": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
         }
       },
       "runtime.native.System.Data.SqlClient.sni/4.4.0": {
@@ -289,30 +279,9 @@
       "System.Security.AccessControl/4.4.0": {
         "dependencies": {
           "System.Security.Principal.Windows": "4.4.0"
-        },
-        "runtimeTargets": {
-          "runtime/unix/lib/_._": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
         }
       },
-      "System.Security.Principal.Windows/4.4.0": {
-        "runtimeTargets": {
-          "runtime/unix/lib/_._": {
-            "rid": "unix",
-            "assetType": "runtime"
-          },
-          "runtime/win/lib/_._": {
-            "rid": "win",
-            "assetType": "runtime"
-          }
-        }
-      },
+      "System.Security.Principal.Windows/4.4.0": {},
       "System.Text.Encoding/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -377,7 +346,7 @@
     "Microsoft.Win32.Registry/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LJh1PSoqdugrCv7t+k2B919GGdq4PyrntPVlMCMrcz59nsjOstYmtGWSCiFZ3UNpxv2dlsZdcLzJ847uyOlaEA==",
+      "sha512": "sha512-dA36TlNVn/XfrZtmf0fiI/z1nd3Wfp2QVzTdj26pqgP9LFWq0i1hYEUAW50xUjGFYn1+/cP3KGuxT2Yn1OUNBQ==",
       "path": "microsoft.win32.registry/4.4.0",
       "hashPath": "microsoft.win32.registry.4.4.0.nupkg.sha512"
     },
@@ -419,7 +388,7 @@
     "System.Data.SqlClient/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yuMDT9o4j0n3XnH7o7EYliyjUYPQ4RBo9tTNA+M6/KQKMcKXKGqHoq2gCb2sEHCRs5HjTwRlwT/F1JVdYaNaDA==",
+      "sha512": "sha512-fxb9ghn1k1Ua7FFdlvtiBOD4/PsQvD/fk2KnhS+FK7VC6OggEx6P+lP1P0+KMb5V2dqS1+FbR7HCenoqzJMNIA==",
       "path": "system.data.sqlclient/4.4.0",
       "hashPath": "system.data.sqlclient.4.4.0.nupkg.sha512"
     },
@@ -433,7 +402,7 @@
     "System.Dynamic.Runtime/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UqT9jn7lDoaro3RkW7qBPfZSlotn/4LQBAj51hwgDB1V5QzfGe3fniY3uPR/cgc2iP/9l6ytESSV1HpKmXO8GA==",
+      "sha512": "sha512-SNVi1E/vfWUAs/WYKhE9+qlS6KqK0YVhnlT0HQtr8pMIA8YX3lwy3uPMownDwdYISBdmAF/2holEIldVp85Wag==",
       "path": "system.dynamic.runtime/4.3.0",
       "hashPath": "system.dynamic.runtime.4.3.0.nupkg.sha512"
     },
@@ -482,21 +451,21 @@
     "System.Reflection.Emit/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Tz8PzO462DeNcizAE8Wa3/LEJYeXCF9ykkH39/WXkoCQ0feV1vp2Iule8yvbjazpwBVRyoHcRL8RVG4l5nSpBg==",
+      "sha512": "sha512-228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==",
       "path": "system.reflection.emit/4.3.0",
       "hashPath": "system.reflection.emit.4.3.0.nupkg.sha512"
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-At2Bqm3gLXWgDhV6GK7MbXXYyu4cnzrKISwwYQNME9yt0BZDKe7tGO7bFJ8LLsNWeWu2GWH8gL4OD50W9KV1fw==",
+      "sha512": "sha512-59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==",
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "hashPath": "system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512"
     },
     "System.Reflection.Emit.Lightweight/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-trzHtNDxVUCXrLBQ7FJ+3vvIl9c2W36h+5IKP3zG60hv8sMpdKQFtIGKxg4ycxZKjjUhnxKOpGs4sFPn9I9dWA==",
+      "sha512": "sha512-oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
       "path": "system.reflection.emit.lightweight/4.3.0",
       "hashPath": "system.reflection.emit.lightweight.4.3.0.nupkg.sha512"
     },
@@ -517,7 +486,7 @@
     "System.Reflection.TypeExtensions/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BWYdrACMy1Sbq7Kh1oISS+2qKX1dHhXNpRByG3c6M9i2fhU9BZqO3nFYIabmbZuQwd7svR5zfxNHgmgv2XkkIg==",
+      "sha512": "sha512-dkmh/ySlwnXJp/1qYP9uyKkCK1CXR/REFzl7abHcArxBcV91mY2CgrrzSRA5Z/X4MevJWwXsklGRdR3A7K9zbg==",
       "path": "system.reflection.typeextensions/4.4.0",
       "hashPath": "system.reflection.typeextensions.4.4.0.nupkg.sha512"
     },
@@ -559,14 +528,14 @@
     "System.Security.AccessControl/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UPF+s4KctOCpk7dpBe3QtZ1AzFEHKdhOtiNDLxGnD/nxKsVbsow5OClTy8c7yOObw/Evbv95xRwZfYZ4wLV4fA==",
+      "sha512": "sha512-2NRFPX/V81ucKQmqNgGBZrKGH/5ejsvivSGMRum0SMgPnJxwhuNkzVS1+7gC3R2X0f57CtwrPrXPPSe6nOp82g==",
       "path": "system.security.accesscontrol/4.4.0",
       "hashPath": "system.security.accesscontrol.4.4.0.nupkg.sha512"
     },
     "System.Security.Principal.Windows/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ynC5BKYwhgON6WH/yPM5ZLKc19wqC13A5fl4hZa5Lf8pQwv1YmbCPKGualWSRhEoOVWH2FzZhOXauER6al4Upg==",
+      "sha512": "sha512-pP+AOzt1o3jESOuLmf52YQTF7H3Ng9hTnrOESQiqsnl2IbBh1HInsAMHYtoh75iUYV0OIkHmjvveraYB6zM97w==",
       "path": "system.security.principal.windows/4.4.0",
       "hashPath": "system.security.principal.windows.4.4.0.nupkg.sha512"
     },
@@ -580,7 +549,7 @@
     "System.Text.Encoding.CodePages/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FpAgMC+BX6OOCiRebYqHP3r3aYU7o0lopPOo4zKyGc5LWXFEYRUaKtoXXvAJ3sP+IDOK/KBxZaiVAdi+QdZ0TA==",
+      "sha512": "sha512-6JX7ZdaceBiLKLkYt8zJcp4xTJd1uYyXXEkPw6mnlUIjh1gZPIVKPtRXPmY5kLf6DwZmf5YLwR3QUrRonl7l0A==",
       "path": "system.text.encoding.codepages/4.4.0",
       "hashPath": "system.text.encoding.codepages.4.4.0.nupkg.sha512"
     },

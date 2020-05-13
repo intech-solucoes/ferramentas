@@ -48,7 +48,7 @@ namespace Intech.Ferramentas.API.Controllers
                 ConnectionString = $"Data Source={server};User ID={user};Password={senha};Initial Catalog=master;Persist Security Info=True"
             });
 
-            var databases = conexao.Query<string>("SELECT name FROM master.dbo.sysdatabases WHERE dbid > 6 ORDER BY name");
+            var databases = conexao.Query<string>("SELECT name FROM master.dbo.sysdatabases WHERE name not in ('master', 'tempdb', 'model','msdb') ORDER BY name");
 
             return Ok(databases);
         }

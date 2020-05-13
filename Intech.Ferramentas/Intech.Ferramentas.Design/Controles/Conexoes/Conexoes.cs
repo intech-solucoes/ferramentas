@@ -45,6 +45,11 @@ namespace Intech.Ferramentas.Controles.Conexoes
             ComboBoxSistema.SelectedIndex = -1;
         }
 
+        private void CarregarBancos()
+        {
+            ComboBoxBanco.DataSource = ConexaoService.BuscarBancos(ComboBoxServidor.SelectedItem.ToString(), TextBoxUsuario.Text, TextBoxSenha.Text);
+        }
+
         private void LimparFormulario()
         {
             ListConexoes.SelectedIndex = -1;
@@ -67,7 +72,7 @@ namespace Intech.Ferramentas.Controles.Conexoes
         {
             var conexao = (ConexaoEntidade)ListConexoes.SelectedItem;
 
-            if(conexao != null)
+            if (conexao != null)
             {
                 TextBoxNome.Text = conexao.NOME;
                 ComboBoxProvedor.SelectedItem = conexao.PROVIDER;
@@ -75,6 +80,9 @@ namespace Intech.Ferramentas.Controles.Conexoes
                 TextBoxUsuario.Text = conexao.USUARIO;
                 TextBoxSenha.Text = conexao.SENHA;
                 ComboBoxSistema.SelectedValue = conexao.OID_SISTEMA;
+
+                CarregarBancos();
+                ComboBoxBanco.SelectedItem = conexao.BANCO;
 
                 ModoEdicao = true;
             }
@@ -92,6 +100,7 @@ namespace Intech.Ferramentas.Controles.Conexoes
                 conexao.USUARIO = TextBoxUsuario.Text;
                 conexao.SENHA = TextBoxSenha.Text;
                 conexao.OID_SISTEMA = ((SistemaEntidade)ComboBoxSistema.SelectedItem).OID_SISTEMA;
+                conexao.BANCO = ComboBoxBanco.SelectedItem.ToString();
 
                 ConexaoService.Atualizar(conexao);
 
@@ -134,7 +143,7 @@ namespace Intech.Ferramentas.Controles.Conexoes
 
         private void ButtonAtualizarBancos_Click(object sender, EventArgs e)
         {
-            ComboBoxBanco.DataSource = ConexaoService.BuscarBancos(ComboBoxServidor.SelectedItem.ToString(), TextBoxUsuario.Text, TextBoxSenha.Text);
+            CarregarBancos();
         }
     }
 }

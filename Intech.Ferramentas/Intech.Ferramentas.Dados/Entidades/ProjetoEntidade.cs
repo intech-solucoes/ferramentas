@@ -4,9 +4,9 @@ using Dapper.Contrib.Extensions;
 
 namespace Intech.Ferramentas.Dados.Entidades
 {
-    [Table("PROJETO")]
-    public class ProjetoEntidade
-    {
+	[Table("PROJETO")]
+	public class ProjetoEntidade
+	{
 		[Key]
 		public decimal OID_PROJETO { get; set; }
 		public string NOM_PROJETO { get; set; }
@@ -17,6 +17,6 @@ namespace Intech.Ferramentas.Dados.Entidades
 		public decimal? OID_PROJETO_API { get; set; }
 		[Write(false)] public List<VersaoEntidade> Versoes { get; set; }
 		[Write(false)] public SistemaEntidade Sistema { get; set; }
-        
-    }
+		[Write(false)] public List<DependenciaEntidade> Dependencias { get; set; }
+	}
 }
