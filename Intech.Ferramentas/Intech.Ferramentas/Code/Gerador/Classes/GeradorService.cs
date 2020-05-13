@@ -1,4 +1,5 @@
 ﻿using Intech.Ferramentas.Code.Services;
+using Intech.Ferramentas.Dados.Dominios;
 using Intech.Ferramentas.Dados.Entidades;
 using Intech.Lib.Web.API;
 using System;
@@ -199,10 +200,12 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             {
                 SB = new StringBuilder();
 
-                GerarImports(service);
-                GerarDeclaracaoClasse(service);
-                GerarMetodos(service);
-                Fechar(service);
+                    GerarImports(proj, service);
+                    GerarDeclaracaoClasse(service);
+                    GerarMetodos(service);
+                    Fechar(service);
+                    File.WriteAllText(Path.Combine(dirServices, $"{service.Nome}Service.tsx"), SB.ToString(), Encoding.UTF8);
+                }
 
                 foreach (var proj in ProjetosSelecionados)
                 {
@@ -211,9 +214,13 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             }
         }
 
-        private void GerarImports(Service service)
+        private void GerarImports(ProjetoEntidade proj, Service service)
         {
-            SB.AppendLine("import { BaseService, RequestType, ResponseType } from \"@intechprev/react-service\";");
+            var serviceLib = "react-service";
+            if (proj.IND_TIPO_PROJETO == DMN_TIPO_PROJETO.MOBILE)
+                serviceLib = "rn-service";
+
+            SB.AppendLine($"import {{ BaseService, RequestType, ResponseType }} from \"@intech/{serviceLib }\";");
 
             foreach (var import in service.Imports)
             {
@@ -253,7 +260,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
                 var rota = metodo.Rota.Replace("[action]", metodo.Nome);
 
-                SB.Append($"\t\tthis.CreateRequest<{metodo.Retorno}>(RequestType.{metodo.Tipo}, null, `{rota}`");
+                SB.Append($"\t\tthis.CreateRequest<{metodo.Retorno}>(RequestType.{metodo.Tipo}, `{rota}`");
 
                 var bodyParams = metodo.Parametros.Where(x => !x.IsQueryString).ToList();
                 if (bodyParams.Count > 0)
