@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <Version>0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,9 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controles\PageControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="Controles\PageControl.cs" />
   </ItemGroup>
 
   <ItemGroup>

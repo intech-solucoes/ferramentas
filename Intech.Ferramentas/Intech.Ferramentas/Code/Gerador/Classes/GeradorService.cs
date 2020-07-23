@@ -82,72 +82,75 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                     var httpMethodAttribute = endpoint.CustomAttributes.FirstOrDefault(x => x.AttributeType.BaseType.Name == "HttpMethodAttribute");
 
                     if (httpMethodAttribute == null)
-                        throw new Exception($"Nenhum atributo HttpGet ou HttpPost encontrado no método {endpoint.Name}");
+                        continue;
+                        //throw new Exception($"Nenhum atributo HttpGet ou HttpPost encontrado no método {endpoint.Name}");
 
                     var caminhoRota = httpMethodAttribute.ConstructorArguments.Count > 0 ? (string)httpMethodAttribute.ConstructorArguments[0].Value : "";
                     caminhoRota = caminhoRota.Replace("{", "${");
                     var tipoRota = httpMethodAttribute.AttributeType.Name == "HttpGetAttribute" ? "GET" : "POST";
 
                     TipoResposta resposta = TipoResposta.Normal;
-                    var retorno = "any";
 
                     var retornoAttr = endpoint.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == nameof(RetornoAttribute));
 
                     if (retornoAttr != null)
                     {
                         // Busca o tipo de retorno
-                        retorno = (string)retornoAttr.ConstructorArguments[0].Value;
+                        var retorno = (string)retornoAttr.ConstructorArguments[0].Value;
 
                         // Verifica se é uma lista
                         if ((bool)retornoAttr.ConstructorArguments[1].Value)
                             retorno = $"Array<{retorno}>";
 
                         resposta = (TipoResposta)retornoAttr.ConstructorArguments[2].Value;
-                    }
 
-                    var metodoObj = new ServiceMetodo
-                    {
-                        Nome = endpoint.Name,
-                        Rota = caminhoRota,
-                        Tipo = tipoRota,
-                        Retorno = retorno,
-                        Resposta = resposta.ToDescriptionString(),
-                        Parametros = new List<ServiceParametro>()
-                    };
-
-                    // Extrair parametros
-                    var parametros = endpoint.GetParameters();
-
-                    foreach (var parametro in parametros)
-                    {
-                        var paramAttrs = parametro.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == "FromServicesAttribute");
-                        if (paramAttrs == null)
+                        var metodoObj = new ServiceMetodo
                         {
-                            var param = new ServiceParametro
+                            Nome = endpoint.Name,
+                            Rota = caminhoRota,
+                            Tipo = tipoRota,
+                            Retorno = retorno,
+                            Resposta = resposta.ToDescriptionString(),
+                            Parametros = new List<ServiceParametro>()
+                        };
+
+                        // Extrair parametros
+                        var parametros = endpoint.GetParameters();
+
+                        foreach (var parametro in parametros)
+                        {
+                            var paramAttrs = parametro.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == "FromServicesAttribute");
+                            if (paramAttrs == null)
                             {
-                                Nome = parametro.Name,
-                                Tipo = MapeiaTipoTS(parametro.ParameterType.Name),
-                                IsQueryString = metodoObj.Rota.Contains($"{{{parametro.Name}}}")
-                            };
+                                var nullable = parametro.ParameterType.Name == "Nullable`1";
 
-                            metodoObj.Parametros.Add(param);
+                                var param = new ServiceParametro
+                                {
+                                    Nome = parametro.Name,
+                                    Tipo = MapeiaTipoTS(parametro.ParameterType, nullable),
+                                    IsQueryString = metodoObj.Rota.Contains($"{{{parametro.Name}}}"),
+                                    Nulavel = nullable
+                                };
 
-                            if (param.Tipo.Contains("Entidade") && !serviceObj.Imports.Contains(param.Tipo) && !string.IsNullOrEmpty(param.Tipo.Trim()))
-                                serviceObj.Imports.Add(param.Tipo);
+                                metodoObj.Parametros.Add(param);
+
+                                if (param.Tipo.Contains("Entidade") && !serviceObj.Imports.Contains(param.Tipo) && !string.IsNullOrEmpty(param.Tipo.Trim()))
+                                    serviceObj.Imports.Add(param.Tipo);
+                            }
                         }
-                    }
 
-                    var ret = metodoObj.Retorno.Replace("Array<", "").Replace(">", "");
-                    if (!serviceObj.Imports.Contains(ret)
-                        && ret != "string"
-                        && ret != "boolean"
-                        && ret != "number"
-                        && ret != "any")
-                    {
-                        serviceObj.Imports.Add(ret);
-                    }
+                        var ret = metodoObj.Retorno.Replace("Array<", "").Replace(">", "");
+                        if (!serviceObj.Imports.Contains(ret)
+                            && ret != "string"
+                            && ret != "boolean"
+                            && ret != "number"
+                            && ret != "any")
+                        {
+                            serviceObj.Imports.Add(ret);
+                        }
 
-                    serviceObj.Metodos.Add(metodoObj);
+                        serviceObj.Metodos.Add(metodoObj);
+                    }
                 }
 
                 ListaServices.Add(serviceObj);
@@ -155,11 +158,20 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
             DescarregarDLL();
         }
-
-        protected string MapeiaTipoTS(string type)
+        protected string MapeiaTipoTS(Type type, bool nullable)
         {
-            var lista = type.Contains("List<");
-            var tipo = type.Replace("List<", "").Replace(">", "");
+            var tipo = type.Name;
+
+            if (nullable)
+                tipo = type.GenericTypeArguments[0].Name;
+
+            return MapeiaTipoTS(tipo, nullable);
+        }
+
+        protected string MapeiaTipoTS(string tipo, bool nullable)
+        {
+            var lista = tipo.Contains("List<");
+            tipo = tipo.Replace("List<", "").Replace(">", "");
 
             var numbers = new string[] { "BIGINT", "FLOAT", "LONG", "MONEY", "NUMERIC", "NUMBER", "SMALLINT", "SMALLMONEY", "DECIMAL", "INT", "INT32", "INT16" };
             var strings = new string[] { "STRING", "TEXT", "CHAR", "VARCHAR", "VARCHAR2", "NVARCHAR", "ANSISTRING", "VARBINARY", "NCHAR" };
@@ -182,7 +194,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 if (tipo.Contains("List<"))
                 {
                     tipo = tipo.Replace("List<", "").Replace(">", "");
-                    tipo = MapeiaTipoTS(tipo);
+                    tipo = MapeiaTipoTS(tipo, nullable);
                 }
             }
 
@@ -219,7 +231,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 {
                     SB = new StringBuilder();
 
-                    GerarImports(service);
+                    GerarImports(proj, service);
                     GerarDeclaracaoClasse(service);
                     GerarMetodos(service);
                     Fechar(service);
@@ -273,7 +285,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 for (var i = 0; i < metodo.Parametros.Count; i++)
                 {
                     var param = metodo.Parametros[i];
-                    SB.Append($"{param.Nome}: {param.Tipo}");
+                    SB.Append($"{param.Nome}{(param.Nulavel ? "?" : "")}: {param.Tipo}");
 
                     if (i + 1 < metodo.Parametros.Count)
                         SB.Append(", ");

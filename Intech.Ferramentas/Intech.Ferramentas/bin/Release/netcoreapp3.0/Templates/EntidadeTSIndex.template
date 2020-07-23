@@ -1,0 +1,9 @@
+﻿@for(int i = 0; i < @Model.Count; i++) {
+    @Raw("import " + @Model[i] + " from \"./" + @Model[i] + "\";\n")
+}
+
+@Raw("export {")
+@for(int i = 0; i < @Model.Count; i++) {
+    @Raw("\t" + @Model[i] + ",\n")
+}
+@Raw("}")
