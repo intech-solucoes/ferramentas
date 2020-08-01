@@ -1,7 +1,9 @@
 ﻿#region Usings
+using DevExpress.CodeParser;
 using Intech.Ferramentas.Code;
 using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 #endregion
 
@@ -24,6 +26,7 @@ namespace Intech.Ferramentas.Controles.Home
                 TextBoxDiretorioGIT.Text = userConfig.GitBase;
                 ComboBoxUrlApi.SelectedItem = userConfig.UrlApi;
             }
+            labelVersao.Text = $"{Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
 
             ButtonProcurarDiretorio.Image = FontAwesome.Instance
                     .GetImage(new FontAwesome.Properties(FontAwesome.Type.FolderOpenO)
