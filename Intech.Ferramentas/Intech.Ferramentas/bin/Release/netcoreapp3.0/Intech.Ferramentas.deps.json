@@ -6,9 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.0": {
-      "Intech.Ferramentas/0.0.3": {
+      "Intech.Ferramentas/0.0.4": {
         "dependencies": {
-          "DevExpress.Reporting.Core": "18.1.12",
+          "DevExpress.Reporting.Core": "18.1.14",
           "Intech.Ferramentas.Dados": "1.0.0",
           "Intech.Lib.JWT": "1.1.2",
           "Intech.Lib.TradutorSqlOracle": "1.1.0",
@@ -46,47 +46,47 @@
           }
         }
       },
-      "DevExpress.Charts/18.1.12": {
+      "DevExpress.Charts/18.1.14": {
         "dependencies": {
-          "DevExpress.Charts.Core": "18.1.12",
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
+          "DevExpress.Charts.Core": "18.1.14",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.XtraCharts.v18.1.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Charts.Core/18.1.12": {
+      "DevExpress.Charts.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
+          "DevExpress.Data": "18.1.14",
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Charts.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.CodeParser/18.1.12": {
+      "DevExpress.CodeParser/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
+          "DevExpress.Data": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.CodeDom": "4.4.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.CodeParser.v18.1.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Data/18.1.12": {
+      "DevExpress.Data/18.1.14": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.ComponentModel.Annotations": "4.5.0",
@@ -99,17 +99,17 @@
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Data.v18.1.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.DataAccess/18.1.12": {
+      "DevExpress.DataAccess/18.1.14": {
         "dependencies": {
-          "DevExpress.CodeParser": "18.1.12",
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
-          "DevExpress.Xpo": "18.1.12",
+          "DevExpress.CodeParser": "18.1.14",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
+          "DevExpress.Xpo": "18.1.14",
           "Microsoft.Extensions.Configuration": "3.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.1.2",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
@@ -121,69 +121,69 @@
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.DataAccess.v18.1.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Gauges.Core/18.1.12": {
+      "DevExpress.Gauges.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
+          "DevExpress.Data": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.XtraGauges.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Office.Core/18.1.12": {
+      "DevExpress.Office.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Office.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Pdf.Core/18.1.12": {
+      "DevExpress.Pdf.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
+          "DevExpress.Data": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Pdf.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.PivotGrid.Core/18.1.12": {
+      "DevExpress.PivotGrid.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.PivotGrid.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Printing.Core/18.1.12": {
+      "DevExpress.Printing.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Pdf.Core": "18.1.12",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Pdf.Core": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.ComponentModel.Annotations": "4.5.0",
           "System.Drawing.Common": "4.7.0",
@@ -192,25 +192,25 @@
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Printing.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Reporting.Core/18.1.12": {
+      "DevExpress.Reporting.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Charts": "18.1.12",
-          "DevExpress.Charts.Core": "18.1.12",
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.DataAccess": "18.1.12",
-          "DevExpress.Gauges.Core": "18.1.12",
-          "DevExpress.Office.Core": "18.1.12",
-          "DevExpress.PivotGrid.Core": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
-          "DevExpress.RichEdit.Core": "18.1.12",
-          "DevExpress.RichEdit.Export": "18.1.12",
-          "DevExpress.Sparkline.Core": "18.1.12",
-          "DevExpress.Xpo": "18.1.12",
+          "DevExpress.Charts": "18.1.14",
+          "DevExpress.Charts.Core": "18.1.14",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.DataAccess": "18.1.14",
+          "DevExpress.Gauges.Core": "18.1.14",
+          "DevExpress.Office.Core": "18.1.14",
+          "DevExpress.PivotGrid.Core": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
+          "DevExpress.RichEdit.Core": "18.1.14",
+          "DevExpress.RichEdit.Export": "18.1.14",
+          "DevExpress.Sparkline.Core": "18.1.14",
+          "DevExpress.Xpo": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.ComponentModel.Annotations": "4.5.0",
           "System.Data.Common": "4.3.0",
@@ -219,58 +219,58 @@
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.XtraReports.v18.1.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.RichEdit.Core/18.1.12": {
+      "DevExpress.RichEdit.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Office.Core": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Office.Core": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.RichEdit.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.RichEdit.Export/18.1.12": {
+      "DevExpress.RichEdit.Export/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
-          "DevExpress.Office.Core": "18.1.12",
-          "DevExpress.Printing.Core": "18.1.12",
-          "DevExpress.RichEdit.Core": "18.1.12",
+          "DevExpress.Data": "18.1.14",
+          "DevExpress.Office.Core": "18.1.14",
+          "DevExpress.Printing.Core": "18.1.14",
+          "DevExpress.RichEdit.Core": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.RichEdit.v18.1.Export.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Sparkline.Core/18.1.12": {
+      "DevExpress.Sparkline.Core/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
+          "DevExpress.Data": "18.1.14",
           "NETStandard.Library": "2.0.3",
           "System.Drawing.Common": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Sparkline.v18.1.Core.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
-      "DevExpress.Xpo/18.1.12": {
+      "DevExpress.Xpo/18.1.14": {
         "dependencies": {
-          "DevExpress.Data": "18.1.12",
+          "DevExpress.Data": "18.1.14",
           "Microsoft.Extensions.DependencyInjection": "2.2.0",
           "NETStandard.Library": "2.0.3",
           "System.Data.SqlClient": "4.8.0",
@@ -278,8 +278,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/DevExpress.Xpo.v18.1.dll": {
-            "assemblyVersion": "18.1.12.0",
-            "fileVersion": "18.1.12.0"
+            "assemblyVersion": "18.1.14.0",
+            "fileVersion": "18.1.14.0"
           }
         }
       },
@@ -2478,7 +2478,7 @@
     }
   },
   "libraries": {
-    "Intech.Ferramentas/0.0.3": {
+    "Intech.Ferramentas/0.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2497,110 +2497,110 @@
       "path": "dapper.contrib/2.0.30",
       "hashPath": "dapper.contrib.2.0.30.nupkg.sha512"
     },
-    "DevExpress.Charts/18.1.12": {
+    "DevExpress.Charts/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-urUnklzxgKFWqIevqGtERIgPW0jNysl01PIkTdJMoK71N7RlFVFPejPQshfm8jZNMVGxrauqz442nzTvpTKyPg==",
-      "path": "devexpress.charts/18.1.12",
-      "hashPath": "devexpress.charts.18.1.12.nupkg.sha512"
+      "sha512": "sha512-iPnnZBtux+ZX6yuleK2LOwglKAGWhLXbzlDlJZ47GdgTcK4/l1lWC5yNHjfu3QSIgb6BN1qqLMJN87iPEA1cqw==",
+      "path": "devexpress.charts/18.1.14",
+      "hashPath": "devexpress.charts.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Charts.Core/18.1.12": {
+    "DevExpress.Charts.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KSC5qbJgeZeWmTPzv+6avI7W1+gqIuUYkCnIIRZY9QhLV+hLr+NsOx7zLxstxDxMyAzEiryFzZT44sF0WfFS+w==",
-      "path": "devexpress.charts.core/18.1.12",
-      "hashPath": "devexpress.charts.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-O7FTvxjBHD+imQl5w3Nv2igB2V9f6p5T8C2jTrMIvGC4WNWfyQedEJ5yyduIYV/FxV5ZxmtYwS5Hr2kAWMDBug==",
+      "path": "devexpress.charts.core/18.1.14",
+      "hashPath": "devexpress.charts.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.CodeParser/18.1.12": {
+    "DevExpress.CodeParser/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f88Tw+m0B6f+gjhdPiBFUaMn3/5yo0QHf8qr69cUV1w6gRti/WIDunSX+PIPMSgaKr+bns7kQl9lmYYQilld4A==",
-      "path": "devexpress.codeparser/18.1.12",
-      "hashPath": "devexpress.codeparser.18.1.12.nupkg.sha512"
+      "sha512": "sha512-QL+l4qrlXMPjbCf5ZezleGQPJCn+8Kd4g3LnQMvuAETezU6B4j85tIMo5tKPj4lwVJNbRJjS3oI6H6y+u1snBQ==",
+      "path": "devexpress.codeparser/18.1.14",
+      "hashPath": "devexpress.codeparser.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Data/18.1.12": {
+    "DevExpress.Data/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XlU7g6RagYVSIStEUSpSSATVhc81SEDrJ/uLsfMeXhBwC5VVnfyzxAGwuaoE8cXfFNetnEK68xkr+KqgEJsWbA==",
-      "path": "devexpress.data/18.1.12",
-      "hashPath": "devexpress.data.18.1.12.nupkg.sha512"
+      "sha512": "sha512-CG9nI+PWcernUy0Z5eIR1AR+LNMYfiLl2lKxrVm/fCBVIbQdDpHD5Z3aQBGn7TS7+/Gw54tKq1Ps5MmzsYxXPw==",
+      "path": "devexpress.data/18.1.14",
+      "hashPath": "devexpress.data.18.1.14.nupkg.sha512"
     },
-    "DevExpress.DataAccess/18.1.12": {
+    "DevExpress.DataAccess/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lT/ksdqhSetZxP0wBFvOYjvLC1T8+dnI2q8ghEieyHDXKnLP0xxtny3588ANwPQ+qSi3uvLRfGFKwkCQM2CLEA==",
-      "path": "devexpress.dataaccess/18.1.12",
-      "hashPath": "devexpress.dataaccess.18.1.12.nupkg.sha512"
+      "sha512": "sha512-cWevH7cwf2Qsbnheu0smvPANEjACjC8A/R/T43WpFhdhEg+s7N+fmu2Y6FhYbwE32dsKqA/se2gLBzXSw6KCxw==",
+      "path": "devexpress.dataaccess/18.1.14",
+      "hashPath": "devexpress.dataaccess.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Gauges.Core/18.1.12": {
+    "DevExpress.Gauges.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wR0VInZvcAK1kBSbur9Psg0g63NmU+p02lpCqvtpBKCJIaZcFDu6dImveizVLAq/Y/Dk33cn67S2Vpe4Q8hqfw==",
-      "path": "devexpress.gauges.core/18.1.12",
-      "hashPath": "devexpress.gauges.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-1pjlgt2qH3bjltqRU7WmaD8QkgspmB8qMH8cEUUOQN1cmMDW30cLud/U7NCUnhAo2UIhLKOiDwr2zkMxiCaGUQ==",
+      "path": "devexpress.gauges.core/18.1.14",
+      "hashPath": "devexpress.gauges.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Office.Core/18.1.12": {
+    "DevExpress.Office.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fuGrAEJHl9W4fvhPeQCDseowB3BfqowBxuR0oybz3LUMpThA7KOmVUo1EwDIFkvEiFyHMS+zhsFjmTVUCt5q6A==",
-      "path": "devexpress.office.core/18.1.12",
-      "hashPath": "devexpress.office.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-WhpUsqjSqqpPVYuFZUs55rC0Mdqu+1bvg78aTLcVDOhLZL6ycIzRiWd1V+SMLndpxHWfuFCtvPRORXAD4uEq2A==",
+      "path": "devexpress.office.core/18.1.14",
+      "hashPath": "devexpress.office.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Pdf.Core/18.1.12": {
+    "DevExpress.Pdf.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-t5yDv2hi1l9O0yGC+OCLSW4oNzK9pJd53xqbSAyecQxcv/igkKC9OjE/mYMpQqIx9A8rQDvtkaO4YTrnIe4W+A==",
-      "path": "devexpress.pdf.core/18.1.12",
-      "hashPath": "devexpress.pdf.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-jR79FT43wTpedH4WoYEkdVAoHhCSxrGQVTdv8K87s1tXy1Z9zCJYXgiY5VyBFt8kIwsfwalF8oGJJBXyCj3LTQ==",
+      "path": "devexpress.pdf.core/18.1.14",
+      "hashPath": "devexpress.pdf.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.PivotGrid.Core/18.1.12": {
+    "DevExpress.PivotGrid.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qKdnT8+aA/IRivul8Zf2poTAyQN5XeCZVfzO6HIC/G0/prGlXLFbdWsAxjcc5CZh0T5PzsyQkNin7Aq3V03j/w==",
-      "path": "devexpress.pivotgrid.core/18.1.12",
-      "hashPath": "devexpress.pivotgrid.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-H03WiyFN/6W7Oi64GhvNHGIkz1Q4djnVQS1y2pC/G4i/hgHwvCOlLr9pmnfrbnpqnfX10y1UivHdGBydSkvuLg==",
+      "path": "devexpress.pivotgrid.core/18.1.14",
+      "hashPath": "devexpress.pivotgrid.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Printing.Core/18.1.12": {
+    "DevExpress.Printing.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-b8geMPR2FZ9/LiOqdFP1MK8WKhmXjRLf6zilt2ELLlz3i4JC6Jg1r7zAHNDegBU8E4fptdOnbp/xDQJbwxMbcw==",
-      "path": "devexpress.printing.core/18.1.12",
-      "hashPath": "devexpress.printing.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-mUTHkmHLveNZ4bBu6fe6bjAriJFFf5D1q494f1mmLCDe0mTo1tdBojb7rB0Ap9J5ZPgO2deMkL/JJ6s+jqoIYg==",
+      "path": "devexpress.printing.core/18.1.14",
+      "hashPath": "devexpress.printing.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Reporting.Core/18.1.12": {
+    "DevExpress.Reporting.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lkGs1Iyj8FWqryBr3pHAF2kCHGlE9+tRA2kByPwZldirlIsOcjG9LcgJKoJuNKqn8/EFYLpkSM0XKdQlR4/Tmg==",
-      "path": "devexpress.reporting.core/18.1.12",
-      "hashPath": "devexpress.reporting.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-qBrc+IKfBdTPsIUnQ5awHsQWkyOWqeeXCTxKKKhqkYfgeM7wa0RQC/Mp371/Jaa4acXK6xT66fuZrnaUbfGcFA==",
+      "path": "devexpress.reporting.core/18.1.14",
+      "hashPath": "devexpress.reporting.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.RichEdit.Core/18.1.12": {
+    "DevExpress.RichEdit.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cUoc15ZB56SQiDLKKQVFAQJvH1+cbLW9Jrlsh5IbZ2THYrRM0eDsQObjo3rmxdh/n1swKLS/mGNMqQvYAWoJbA==",
-      "path": "devexpress.richedit.core/18.1.12",
-      "hashPath": "devexpress.richedit.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-Mx7PdVXPtBa3h0NjZvfcKuEyF9N5LDQ3VYE6V5rQzQSgShsXtw3fyBCoOByr0lEHHb60kh6bUGibbrwMww/lvg==",
+      "path": "devexpress.richedit.core/18.1.14",
+      "hashPath": "devexpress.richedit.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.RichEdit.Export/18.1.12": {
+    "DevExpress.RichEdit.Export/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lOt0StbOmlh4Y5na3VcGF6cJRq/+QqLuGF51UESAJX9AXgz3Cy4ZtdnvLi7kWgmHhhL3olQrJeSA7UiEgO0DCQ==",
-      "path": "devexpress.richedit.export/18.1.12",
-      "hashPath": "devexpress.richedit.export.18.1.12.nupkg.sha512"
+      "sha512": "sha512-Wz2QDRRi2N+vMyPnmiNs+ezxLUdOkwDsVyh61UC0f6PtqRSfLqQhTffWSRfHZt11sTqApVKmSnPUHqvZmN2+ag==",
+      "path": "devexpress.richedit.export/18.1.14",
+      "hashPath": "devexpress.richedit.export.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Sparkline.Core/18.1.12": {
+    "DevExpress.Sparkline.Core/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7xZZotbOJSEycNFUrXCq6wjg5xI1PiNy5Sg93IzMTqknYByceCkf4fNOPisB65N+9M55B98fea34OSeEhByR4A==",
-      "path": "devexpress.sparkline.core/18.1.12",
-      "hashPath": "devexpress.sparkline.core.18.1.12.nupkg.sha512"
+      "sha512": "sha512-lzSYQgIArjkrxZ8gIj072NIipWGjJdm6aEij/4tHZHavbeSubSDxKI3OdyXRl/puisk0Qc112byFV5v+m9g20Q==",
+      "path": "devexpress.sparkline.core/18.1.14",
+      "hashPath": "devexpress.sparkline.core.18.1.14.nupkg.sha512"
     },
-    "DevExpress.Xpo/18.1.12": {
+    "DevExpress.Xpo/18.1.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-e5BG/C/dFdqtl9iiw6d+7yxBwlepAv9/W7KxU3VENa3cp73mWZfTOOM+gu1i1HyB3DMx2WNpQ/cF09lXe6O98g==",
-      "path": "devexpress.xpo/18.1.12",
-      "hashPath": "devexpress.xpo.18.1.12.nupkg.sha512"
+      "sha512": "sha512-K/PiRCwXVt2/79xYsxEhfUV2AB4NlAUOgGTrjIclg2zMSxpchXHav5yJsSZ9WY3AgTuvQl+A9cr7YBu7V3bMZw==",
+      "path": "devexpress.xpo/18.1.14",
+      "hashPath": "devexpress.xpo.18.1.14.nupkg.sha512"
     },
     "Intech.Lib.Dapper/1.1.2": {
       "type": "package",
@@ -2619,14 +2619,14 @@
     "Intech.Lib.JWT/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-p/Nd9iW+BL6TGxys4mKQ7jL/0jPIwFU5gL9+M3tarJp4eJWpKF7I7naAYHbu6cDLamo169xP2OKVL3n9WWer1w==",
+      "sha512": "sha512-6O0i913gnHcgNLczkjSW5ZJYHbZq0XKviMhQnd1RAH2t6LsjHL2H4LV9Ms++1hcqmobS7EDsfxJBjj9yxCyufg==",
       "path": "intech.lib.jwt/1.1.2",
       "hashPath": "intech.lib.jwt.1.1.2.nupkg.sha512"
     },
     "Intech.Lib.TradutorSqlOracle/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5CLzwRs0/6ur7UvpKPyEGrtlNjqnmnE+bKd8I0IcyIVNYVkxN5AuXhhu3I12JjYEEwrthspxaJdU0Ly8kNPM7w==",
+      "sha512": "sha512-EkDVNOpDhs02BKe7w79qxaHkmGfrh5X0nmOuuBdTJb2CtRmN7Vy1G5I3J51zfYFjicFmvQs/AbgMV4aBGNardw==",
       "path": "intech.lib.tradutorsqloracle/1.1.0",
       "hashPath": "intech.lib.tradutorsqloracle.1.1.0.nupkg.sha512"
     },

@@ -58,8 +58,9 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 .Single(x => x.GetName().Name == assembly.GetName().Name)
                 .GetTypes()
                 .Where(x
-                    => x.BaseType.Name == "BaseController"
-                    && !x.Name.Contains("Base")
+                    => x.CustomAttributes.Any(x => x.AttributeType.Name == "ApiControllerAttribute")
+                    //=> x.BaseType.Name == "BaseController"
+                    //&& !x.Name.Contains("Base")
                 )
                 .ToList();
 
@@ -90,67 +91,81 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                     var tipoRota = httpMethodAttribute.AttributeType.Name == "HttpGetAttribute" ? "GET" : "POST";
 
                     TipoResposta resposta = TipoResposta.Normal;
+                    var retorno = "any";
 
                     var retornoAttr = endpoint.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == nameof(RetornoAttribute));
 
                     if (retornoAttr != null)
                     {
                         // Busca o tipo de retorno
-                        var retorno = (string)retornoAttr.ConstructorArguments[0].Value;
+                        retorno = (string)retornoAttr.ConstructorArguments[0].Value;
 
                         // Verifica se é uma lista
                         if ((bool)retornoAttr.ConstructorArguments[1].Value)
                             retorno = $"Array<{retorno}>";
 
                         resposta = (TipoResposta)retornoAttr.ConstructorArguments[2].Value;
+                    }
 
-                        var metodoObj = new ServiceMetodo
+                    var metodoObj = new ServiceMetodo
+                    {
+                        Nome = endpoint.Name,
+                        Rota = caminhoRota,
+                        Tipo = tipoRota,
+                        Retorno = retorno,
+                        Resposta = resposta.ToDescriptionString(),
+                        Parametros = new List<ServiceParametro>()
+                    };
+
+                    // Extrair parametros
+                    var parametros = endpoint.GetParameters();
+
+                    foreach (var parametro in parametros)
+                    {
+                        var paramAttrs = parametro.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == "FromServicesAttribute");
+                        if (paramAttrs == null)
                         {
-                            Nome = endpoint.Name,
-                            Rota = caminhoRota,
-                            Tipo = tipoRota,
-                            Retorno = retorno,
-                            Resposta = resposta.ToDescriptionString(),
-                            Parametros = new List<ServiceParametro>()
-                        };
+                            ServiceParametro param;
 
-                        // Extrair parametros
-                        var parametros = endpoint.GetParameters();
-
-                        foreach (var parametro in parametros)
-                        {
-                            var paramAttrs = parametro.CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == "FromServicesAttribute");
-                            if (paramAttrs == null)
+                            if (parametro.ParameterType.Name == "Nullable`1")
                             {
-                                var nullable = parametro.ParameterType.Name == "Nullable`1";
+                                var type = parametro.ParameterType.GenericTypeArguments[0].Name;
 
-                                var param = new ServiceParametro
+                                param = new ServiceParametro
+                                {
+                                    Nome = parametro.Name + "?",
+                                    Tipo = MapeiaTipoTS(type),
+                                    IsQueryString = metodoObj.Rota.Contains($"{{{parametro.Name}}}")
+                                };
+                            }
+                            else
+                            {
+                                param = new ServiceParametro
                                 {
                                     Nome = parametro.Name,
-                                    Tipo = MapeiaTipoTS(parametro.ParameterType, nullable),
-                                    IsQueryString = metodoObj.Rota.Contains($"{{{parametro.Name}}}"),
-                                    Nulavel = nullable
+                                    Tipo = MapeiaTipoTS(parametro.ParameterType.Name),
+                                    IsQueryString = metodoObj.Rota.Contains($"{{{parametro.Name}}}")
                                 };
-
-                                metodoObj.Parametros.Add(param);
-
-                                if (param.Tipo.Contains("Entidade") && !serviceObj.Imports.Contains(param.Tipo) && !string.IsNullOrEmpty(param.Tipo.Trim()))
-                                    serviceObj.Imports.Add(param.Tipo);
                             }
-                        }
 
-                        var ret = metodoObj.Retorno.Replace("Array<", "").Replace(">", "");
-                        if (!serviceObj.Imports.Contains(ret)
-                            && ret != "string"
-                            && ret != "boolean"
-                            && ret != "number"
-                            && ret != "any")
-                        {
-                            serviceObj.Imports.Add(ret);
-                        }
+                            metodoObj.Parametros.Add(param);
 
-                        serviceObj.Metodos.Add(metodoObj);
+                            if (param.Tipo.Contains("Entidade") && !serviceObj.Imports.Contains(param.Tipo) && !string.IsNullOrEmpty(param.Tipo.Trim()))
+                                serviceObj.Imports.Add(param.Tipo);
+                        }
                     }
+
+                    var ret = metodoObj.Retorno.Replace("Array<", "").Replace(">", "");
+                    if (!serviceObj.Imports.Contains(ret)
+                        && ret != "string"
+                        && ret != "boolean"
+                        && ret != "number"
+                        && ret != "any")
+                    {
+                        serviceObj.Imports.Add(ret);
+                    }
+
+                    serviceObj.Metodos.Add(metodoObj);
                 }
 
                 ListaServices.Add(serviceObj);
@@ -158,20 +173,11 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
             DescarregarDLL();
         }
-        protected string MapeiaTipoTS(Type type, bool nullable)
+
+        protected string MapeiaTipoTS(string type)
         {
-            var tipo = type.Name;
-
-            if (nullable)
-                tipo = type.GenericTypeArguments[0].Name;
-
-            return MapeiaTipoTS(tipo, nullable);
-        }
-
-        protected string MapeiaTipoTS(string tipo, bool nullable)
-        {
-            var lista = tipo.Contains("List<");
-            tipo = tipo.Replace("List<", "").Replace(">", "");
+            var lista = type.Contains("List<");
+            var tipo = type.Replace("List<", "").Replace(">", "");
 
             var numbers = new string[] { "BIGINT", "FLOAT", "LONG", "MONEY", "NUMERIC", "NUMBER", "SMALLINT", "SMALLMONEY", "DECIMAL", "INT", "INT32", "INT16" };
             var strings = new string[] { "STRING", "TEXT", "CHAR", "VARCHAR", "VARCHAR2", "NVARCHAR", "ANSISTRING", "VARBINARY", "NCHAR" };
@@ -194,7 +200,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 if (tipo.Contains("List<"))
                 {
                     tipo = tipo.Replace("List<", "").Replace(">", "");
-                    tipo = MapeiaTipoTS(tipo, nullable);
+                    tipo = MapeiaTipoTS(tipo);
                 }
             }
 
@@ -285,7 +291,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 for (var i = 0; i < metodo.Parametros.Count; i++)
                 {
                     var param = metodo.Parametros[i];
-                    SB.Append($"{param.Nome}{(param.Nulavel ? "?" : "")}: {param.Tipo}");
+                    SB.Append($"{param.Nome}: {param.Tipo}");
 
                     if (i + 1 < metodo.Parametros.Count)
                         SB.Append(", ");

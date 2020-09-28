@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.labelVersao = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.LabelUpdate = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ComboBoxUrlApi = new System.Windows.Forms.ComboBox();
@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -52,26 +52,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Versão:";
             // 
-            // labelVersao
+            // label2
             // 
-            this.labelVersao.AutoSize = true;
-            this.labelVersao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelVersao.Location = new System.Drawing.Point(81, 16);
-            this.labelVersao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelVersao.Name = "labelVersao";
-            this.labelVersao.Size = new System.Drawing.Size(41, 20);
-            this.labelVersao.TabIndex = 1;
-            this.labelVersao.Text = "0.0.1";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(81, 16);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "0.0.4";
             // 
             // LabelUpdate
             // 
             this.LabelUpdate.AutoSize = true;
-            this.LabelUpdate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LabelUpdate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUpdate.Location = new System.Drawing.Point(8, 57);
             this.LabelUpdate.Name = "LabelUpdate";
             this.LabelUpdate.Size = new System.Drawing.Size(187, 20);
             this.LabelUpdate.TabIndex = 2;
-            this.LabelUpdate.Text = "Nova versão disponível!";
+            this.LabelUpdate.Text = " ";
             // 
             // groupBox1
             // 
@@ -125,7 +125,7 @@
             this.ButtonSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonSalvar.FlatAppearance.BorderSize = 0;
             this.ButtonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonSalvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonSalvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSalvar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.ButtonSalvar.Location = new System.Drawing.Point(6, 140);
             this.ButtonSalvar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -170,9 +170,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LabelUpdate);
-            this.Controls.Add(this.labelVersao);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
             this.Size = new System.Drawing.Size(767, 433);
@@ -187,7 +187,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelVersao;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LabelUpdate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TextBoxDiretorioGIT;

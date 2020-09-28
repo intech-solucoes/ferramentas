@@ -4104,7 +4104,7 @@
     "Intech.Lib.JWT/1.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-p/Nd9iW+BL6TGxys4mKQ7jL/0jPIwFU5gL9+M3tarJp4eJWpKF7I7naAYHbu6cDLamo169xP2OKVL3n9WWer1w==",
+      "sha512": "sha512-6O0i913gnHcgNLczkjSW5ZJYHbZq0XKviMhQnd1RAH2t6LsjHL2H4LV9Ms++1hcqmobS7EDsfxJBjj9yxCyufg==",
       "path": "intech.lib.jwt/1.1.2",
       "hashPath": "intech.lib.jwt.1.1.2.nupkg.sha512"
     },

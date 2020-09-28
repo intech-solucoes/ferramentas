@@ -1,7 +1,5 @@
 ﻿using Intech.Ferramentas.Code.Services;
-using Intech.Ferramentas.Dados.Dominios;
 using Intech.Ferramentas.Dados.Entidades;
-using Intech.Lib.Web.API;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -219,7 +217,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 {
                     SB = new StringBuilder();
 
-                    GerarImports(service);
+                    GerarImports(proj, service);
                     GerarDeclaracaoClasse(service);
                     GerarMetodos(service);
                     Fechar(service);
