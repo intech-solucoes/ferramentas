@@ -4,9 +4,9 @@ using Dapper.Contrib.Extensions;
 
 namespace Intech.Ferramentas.Dados.Entidades
 {
-    [Table("VERSAO")]
-    public class VersaoEntidade
-    {
+	[Table("VERSAO")]
+	public class VersaoEntidade
+	{
 		[Key]
 		public decimal OID_VERSAO { get; set; }
 		public string TXT_VERSAO { get; set; }
@@ -14,6 +14,5 @@ namespace Intech.Ferramentas.Dados.Entidades
 		public decimal OID_PROJETO { get; set; }
 		public DateTime DTA_UPLOAD { get; set; }
 		[Write(false)] public ProjetoEntidade Projeto { get; set; }
-        
-    }
+	}
 }

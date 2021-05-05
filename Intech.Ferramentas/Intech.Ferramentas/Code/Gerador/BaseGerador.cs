@@ -63,7 +63,7 @@ namespace Intech.Ferramentas.Code.Gerador
             foreach (var sqlFile in arquivosSQL)
             {
                 if (arquivosJaProcessados.Contains(sqlFile.Name))
-                    return;
+                    continue;
 
                 var nomeQuery = sqlFile.Name.Replace(".oracle", string.Empty).Replace(".sqlserver", string.Empty).Replace(".sql", string.Empty);
 

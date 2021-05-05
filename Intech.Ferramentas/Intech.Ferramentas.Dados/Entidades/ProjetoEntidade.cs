@@ -15,6 +15,7 @@ namespace Intech.Ferramentas.Dados.Entidades
 		public string TXT_NAMESPACE { get; set; }
 		public decimal OID_SISTEMA { get; set; }
 		public decimal? OID_PROJETO_API { get; set; }
+		public decimal? OID_CLIENTE { get; set; }
 		[Write(false)] public List<VersaoEntidade> Versoes { get; set; }
 		[Write(false)] public SistemaEntidade Sistema { get; set; }
 		[Write(false)] public List<DependenciaEntidade> Dependencias { get; set; }

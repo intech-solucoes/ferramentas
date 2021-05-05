@@ -10,7 +10,7 @@
       "NETCOREAPP",
       "NETCOREAPP3_0"
     ],
-    "languageVersion": "",
+    "languageVersion": "8.0",
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,
@@ -22,12 +22,13 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.0": {
-      "Intech.Ferramentas.API/0.0.1": {
+      "Intech.Ferramentas.API/1.0.0": {
         "dependencies": {
           "Intech.Ferramentas.Dados": "1.0.0",
-          "Intech.Lib.Dapper": "1.1.2",
           "Intech.Lib.JWT": "1.1.2",
-          "Intech.Lib.Util": "1.1.3",
+          "Intech.Lib.TradutorSqlOracle": "1.1.0",
+          "Intech.Lib.Util": "1.3.1",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
@@ -320,48 +321,41 @@
           "Intech.Ferramentas.API.dll": {}
         }
       },
-      "Dapper/2.0.30": {
+      "Dapper/2.0.78": {
         "dependencies": {
-          "System.Reflection.Emit.Lightweight": "4.6.0"
+          "System.Reflection.Emit.Lightweight": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.30.32292"
+            "fileVersion": "2.0.78.45418"
           }
         },
         "compile": {
           "lib/netstandard2.0/Dapper.dll": {}
         }
       },
-      "Dapper.Contrib/2.0.30": {
+      "Dapper.Contrib/2.0.78": {
         "dependencies": {
-          "Dapper": "2.0.30",
-          "Microsoft.CSharp": "4.6.0",
-          "System.Reflection.Emit": "4.6.0"
+          "Dapper": "2.0.78",
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/Dapper.Contrib.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.30.32292"
+            "fileVersion": "2.0.78.45418"
           }
         },
         "compile": {
           "lib/netstandard2.0/Dapper.Contrib.dll": {}
         }
       },
-      "Intech.Lib.Dapper/1.1.2": {
-        "dependencies": {
-          "Dapper.Contrib": "2.0.30",
-          "Intech.Lib.Web": "1.2.1",
-          "Newtonsoft.Json": "12.0.3",
-          "Oracle.ManagedDataAccess.Core": "2.19.60",
-          "System.Data.SqlClient": "4.8.0"
-        },
+      "Intech.Lib.Dapper/1.2.0": {
         "runtime": {
           "lib/netstandard2.0/Intech.Lib.Dapper.dll": {
-            "assemblyVersion": "1.1.2.0",
-            "fileVersion": "1.1.2.0"
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
           }
         },
         "compile": {
@@ -396,11 +390,22 @@
           "lib/netstandard2.0/Intech.Lib.JWT.dll": {}
         }
       },
-      "Intech.Lib.Util/1.1.3": {
+      "Intech.Lib.TradutorSqlOracle/1.1.0": {
+        "runtime": {
+          "lib/net472/Intech.Lib.TradutorSqlOracle.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net472/Intech.Lib.TradutorSqlOracle.dll": {}
+        }
+      },
+      "Intech.Lib.Util/1.3.1": {
         "runtime": {
           "lib/netstandard2.0/Intech.Lib.Util.dll": {
-            "assemblyVersion": "1.1.3.0",
-            "fileVersion": "1.1.3.0"
+            "assemblyVersion": "1.3.1.0",
+            "fileVersion": "1.3.1.0"
           }
         },
         "compile": {
@@ -433,6 +438,20 @@
         },
         "compile": {
           "lib/netstandard2.0/MailKit.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.0.3": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "3.0.3.0",
+            "fileVersion": "3.0.320.7303"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -708,7 +727,7 @@
           "lib/netstandard2.0/Microsoft.CodeAnalysis.Workspaces.dll": {}
         }
       },
-      "Microsoft.CSharp/4.6.0": {},
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Data.SqlClient/1.0.19249.1": {
         "dependencies": {
           "Microsoft.Identity.Client": "3.0.8",
@@ -779,7 +798,7 @@
       "Microsoft.EntityFrameworkCore.Analyzers/3.0.0": {},
       "Microsoft.EntityFrameworkCore.Design/3.0.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.6.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.EntityFrameworkCore.Relational": "3.0.0"
         },
         "runtime": {
@@ -880,7 +899,7 @@
       "Microsoft.Extensions.Primitives/3.0.0": {},
       "Microsoft.Identity.Client/3.0.8": {
         "dependencies": {
-          "Microsoft.CSharp": "4.6.0",
+          "Microsoft.CSharp": "4.7.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Net.NameResolution": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
@@ -920,6 +939,37 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols/5.5.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "5.6.0",
+          "Microsoft.IdentityModel.Tokens": "5.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll": {
+            "assemblyVersion": "5.5.0.0",
+            "fileVersion": "5.5.0.60624"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.5.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols": "5.5.0",
+          "Newtonsoft.Json": "12.0.3",
+          "System.IdentityModel.Tokens.Jwt": "5.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+            "assemblyVersion": "5.5.0.0",
+            "fileVersion": "5.5.0.60624"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {}
         }
       },
       "Microsoft.IdentityModel.Tokens/5.6.0": {
@@ -1186,7 +1236,7 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
-      "Oracle.ManagedDataAccess.Core/2.19.60": {
+      "Oracle.ManagedDataAccess.Core/2.19.100": {
         "runtime": {
           "lib/netstandard2.0/Oracle.ManagedDataAccess.dll": {
             "assemblyVersion": "2.0.19.1",
@@ -1730,9 +1780,9 @@
           "System.Linq": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.6.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.6.0",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
@@ -1860,7 +1910,7 @@
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.6.0",
+          "System.Reflection.Emit.Lightweight": "4.7.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
@@ -1888,7 +1938,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Emit/4.6.0": {},
+      "System.Reflection.Emit/4.7.0": {},
       "System.Reflection.Emit.ILGeneration/4.3.0": {
         "dependencies": {
           "System.Reflection": "4.3.0",
@@ -1896,7 +1946,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Reflection.Emit.Lightweight/4.6.0": {},
+      "System.Reflection.Emit.Lightweight/4.7.0": {},
       "System.Reflection.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -2363,7 +2413,7 @@
           "System.IO": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Reflection": "4.3.0",
-          "System.Reflection.Emit": "4.6.0",
+          "System.Reflection.Emit": "4.7.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
@@ -2379,10 +2429,14 @@
       },
       "Intech.Ferramentas.Dados/1.0.0": {
         "dependencies": {
-          "Intech.Lib.Dapper": "1.1.2",
+          "Dapper.Contrib": "2.0.78",
+          "Intech.Lib.Dapper": "1.2.0",
           "Intech.Lib.Email": "1.1.1",
-          "Intech.Lib.Util": "1.1.3",
-          "Microsoft.Extensions.Configuration": "3.0.0"
+          "Intech.Lib.Util": "1.3.1",
+          "Intech.Lib.Web": "1.2.1",
+          "Microsoft.Extensions.Configuration": "3.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "Oracle.ManagedDataAccess.Core": "2.19.100"
         },
         "runtime": {
           "Intech.Ferramentas.Dados.dll": {}
@@ -4068,31 +4122,31 @@
     }
   },
   "libraries": {
-    "Intech.Ferramentas.API/0.0.1": {
+    "Intech.Ferramentas.API/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Dapper/2.0.30": {
+    "Dapper/2.0.78": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nL0VEpvunjIQ3jTI1x27b7BS3BnRnn5b2vhxsU2pWEd9SljF5WUQLoV/83qXTm0yaHmejRV/ndI3EApGlrgPqw==",
-      "path": "dapper/2.0.30",
-      "hashPath": "dapper.2.0.30.nupkg.sha512"
+      "sha512": "sha512-vLPwL2HZXp/DN17Eu7sg6GMEj02alq7jcy6atn5Gv8i96b9Hu1UoxlCrhInUPfSFLQQiD8O7pdWAE1fdUEO/1Q==",
+      "path": "dapper/2.0.78",
+      "hashPath": "dapper.2.0.78.nupkg.sha512"
     },
-    "Dapper.Contrib/2.0.30": {
+    "Dapper.Contrib/2.0.78": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JGolfLhdswl8/TiX3tOWeR2KcbKUk4QeRj8H1nQrmaGHjyfhFlVUI2oK0z30hfnSS/5hWYndB1KMKVn5+bnJig==",
-      "path": "dapper.contrib/2.0.30",
-      "hashPath": "dapper.contrib.2.0.30.nupkg.sha512"
+      "sha512": "sha512-sUfDVIf8LlHNiz3MfUFodeyRiemfN1JFkPxYjCxFWlwNPg1iQ49mB+0E89TkywWs4X8fiRWOVDQgtH5FtzK5Kw==",
+      "path": "dapper.contrib/2.0.78",
+      "hashPath": "dapper.contrib.2.0.78.nupkg.sha512"
     },
-    "Intech.Lib.Dapper/1.1.2": {
+    "Intech.Lib.Dapper/1.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Ku4FyOINncLZhUIkIhGwCTOWqxzYDZ1HLx/6WpHzTkqlNDKf4ApGVmqorPNFagOhdFfAV8qhrLszyQyPBG0f9w==",
-      "path": "intech.lib.dapper/1.1.2",
-      "hashPath": "intech.lib.dapper.1.1.2.nupkg.sha512"
+      "sha512": "sha512-9nFqOQa5VnbDfBJkOEqH1ImWn/lBhZ9CK4CN4DFs+Fwn0bLo2S0Cnpz8yaV/xK7RmJRK/+OzSDBIx+h+PhxLRA==",
+      "path": "intech.lib.dapper/1.2.0",
+      "hashPath": "intech.lib.dapper.1.2.0.nupkg.sha512"
     },
     "Intech.Lib.Email/1.1.1": {
       "type": "package",
@@ -4108,12 +4162,19 @@
       "path": "intech.lib.jwt/1.1.2",
       "hashPath": "intech.lib.jwt.1.1.2.nupkg.sha512"
     },
-    "Intech.Lib.Util/1.1.3": {
+    "Intech.Lib.TradutorSqlOracle/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dQszCCiyAUAySTArC++4zr8qwhqfJqPx5iCsnl0ImRtrzpvGFYoVB2s6GMK3pcCxg7XLVQ+5uzgn3I2YFBUjWA==",
-      "path": "intech.lib.util/1.1.3",
-      "hashPath": "intech.lib.util.1.1.3.nupkg.sha512"
+      "sha512": "sha512-EkDVNOpDhs02BKe7w79qxaHkmGfrh5X0nmOuuBdTJb2CtRmN7Vy1G5I3J51zfYFjicFmvQs/AbgMV4aBGNardw==",
+      "path": "intech.lib.tradutorsqloracle/1.1.0",
+      "hashPath": "intech.lib.tradutorsqloracle.1.1.0.nupkg.sha512"
+    },
+    "Intech.Lib.Util/1.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-G8fLUPQXmDs3LJ1omJPOKAuYnPvdlvL9eL/8TQEMFf06O/Jtou36n7AspsPgjxcfH+kr49fsbrTTLLsKyaewbw==",
+      "path": "intech.lib.util/1.3.1",
+      "hashPath": "intech.lib.util.1.3.1.nupkg.sha512"
     },
     "Intech.Lib.Web/1.2.1": {
       "type": "package",
@@ -4128,6 +4189,13 @@
       "sha512": "sha512-txopK34kCTVfM8cGewvv2KZBsSuE8iXJ5xbdRa5dOIxw9SLjGzpyHiQvcTW8i3XQm70cBRhlBCpPy22qU35N+A==",
       "path": "mailkit/2.4.1",
       "hashPath": "mailkit.2.4.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3agHVU8W52KaXVkfGuaftc8OGnyiH4Xqanaqwx/RugdraDvT4KGt9MgFOF7selwon5iP4Cs++Mj4ynpYUy7fEQ==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.0.3",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.3.0.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
@@ -4199,12 +4267,12 @@
       "path": "microsoft.codeanalysis.workspaces.common/3.3.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.3.3.0.nupkg.sha512"
     },
-    "Microsoft.CSharp/4.6.0": {
+    "Microsoft.CSharp/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow==",
-      "path": "microsoft.csharp/4.6.0",
-      "hashPath": "microsoft.csharp.4.6.0.nupkg.sha512"
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/1.0.19249.1": {
       "type": "package",
@@ -4367,6 +4435,20 @@
       "path": "microsoft.identitymodel.logging/5.6.0",
       "hashPath": "microsoft.identitymodel.logging.5.6.0.nupkg.sha512"
     },
+    "Microsoft.IdentityModel.Protocols/5.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m1gwAQwZjUxzRBC+4H40vYSo9Cms9yUbMdW492rQoXHU77G/ItiKxpk2+W9bWYcdsKUDKudye7im3T3MlVxEkg==",
+      "path": "microsoft.identitymodel.protocols/5.5.0",
+      "hashPath": "microsoft.identitymodel.protocols.5.5.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-21F4QlbaD5CXNs2urNRCO6vljbbrhv3gmGT8P18SKGKZ9IYBCn29extoJriHiPfhABd5b8S7RcdKU50XhERkYg==",
+      "path": "microsoft.identitymodel.protocols.openidconnect/5.5.0",
+      "hashPath": "microsoft.identitymodel.protocols.openidconnect.5.5.0.nupkg.sha512"
+    },
     "Microsoft.IdentityModel.Tokens/5.6.0": {
       "type": "package",
       "serviceable": true,
@@ -4486,12 +4568,12 @@
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
     },
-    "Oracle.ManagedDataAccess.Core/2.19.60": {
+    "Oracle.ManagedDataAccess.Core/2.19.100": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hQqREt883jwr0LYrYgOtkqgZ3TbEyCGm/eekwA1Vth66aD66752PRKBbTvM9b1a71ewuvaXRy2T9KVwlSMYaTw==",
-      "path": "oracle.manageddataaccess.core/2.19.60",
-      "hashPath": "oracle.manageddataaccess.core.2.19.60.nupkg.sha512"
+      "sha512": "sha512-ISGSsundxgtb+Wff68QOFjrWuOomaFOZucXtQUblF84ITqZRJY+VePXhcSbHWNnDWDeHX2reG1xjHwoh1o23gg==",
+      "path": "oracle.manageddataaccess.core/2.19.100",
+      "hashPath": "oracle.manageddataaccess.core.2.19.100.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.8.5": {
       "type": "package",
@@ -4962,12 +5044,12 @@
       "path": "system.reflection/4.3.0",
       "hashPath": "system.reflection.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.Emit/4.6.0": {
+    "System.Reflection.Emit/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qAo4jyXtC9i71iElngX7P2r+zLaiHzxKwf66sc3X91tL5Ks6fnQ1vxL04o7ZSm3sYfLExySL7GN8aTpNYpU1qw==",
-      "path": "system.reflection.emit/4.6.0",
-      "hashPath": "system.reflection.emit.4.6.0.nupkg.sha512"
+      "sha512": "sha512-VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "path": "system.reflection.emit/4.7.0",
+      "hashPath": "system.reflection.emit.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
       "type": "package",
@@ -4976,12 +5058,12 @@
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "hashPath": "system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.Emit.Lightweight/4.6.0": {
+    "System.Reflection.Emit.Lightweight/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-j/V5HVvxvBQ7uubYD0PptQW2KGsi1Pc2kZ9yfwLixv3ADdjL/4M78KyC5e+ymW612DY8ZE4PFoZmWpoNmN2mqg==",
-      "path": "system.reflection.emit.lightweight/4.6.0",
-      "hashPath": "system.reflection.emit.lightweight.4.6.0.nupkg.sha512"
+      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
+      "path": "system.reflection.emit.lightweight/4.7.0",
+      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Extensions/4.3.0": {
       "type": "package",

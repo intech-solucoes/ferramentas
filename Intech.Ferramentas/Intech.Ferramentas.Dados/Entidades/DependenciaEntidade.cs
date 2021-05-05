@@ -8,7 +8,7 @@ namespace Intech.Ferramentas.Dados.Entidades
 	public class DependenciaEntidade
 	{
 		[Key]
-		public decimal ID { get; set; }
+		public decimal OID_DEPENDENCIA { get; set; }
 		public string TXT_DIRETORIO { get; set; }
 		public decimal OID_PROJETO { get; set; }
 	}

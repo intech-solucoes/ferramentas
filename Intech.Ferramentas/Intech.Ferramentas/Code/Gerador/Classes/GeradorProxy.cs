@@ -6,7 +6,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 {
     public class GeradorProxy
     {
-        public StringBuilder StringEntidade { get; private set; }
+        public StringBuilder SB { get; private set; }
 
         private readonly SistemaEntidade Sistema;
         private readonly Entidade Entidade;
@@ -19,35 +19,42 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
         public string Gerar()
         {
-            StringEntidade = new StringBuilder();
+            SB = new StringBuilder();
 
             GerarUsings();
             GerarDeclaracaoClasse();
+            GerarConstrutor();
             Fechar();
 
-            return StringEntidade.ToString();
+            return SB.ToString();
         }
 
         #region Métodos Privados
 
         private void GerarUsings()
         {
-            StringEntidade.AppendLine($"using {Sistema.TXT_NAMESPACE_DADOS}.DAO;");
-            StringEntidade.AppendLine();
+            SB.AppendLine($"using {Sistema.TXT_NAMESPACE_DADOS}.DAO;");
+            SB.AppendLine($"using System.Data;");
+            SB.AppendLine();
         }
 
         private void GerarDeclaracaoClasse()
         {
-            StringEntidade.AppendLine($"namespace {Sistema.TXT_NAMESPACE_NEGOCIO}.Proxy");
-            StringEntidade.AppendLine("{");
-            StringEntidade.AppendLine($"\tpublic class {Entidade.Nome}Proxy : {Entidade.Nome}DAO");
-            StringEntidade.AppendLine("\t{");
+            SB.AppendLine($"namespace {Sistema.TXT_NAMESPACE_NEGOCIO}.Proxy");
+            SB.AppendLine("{");
+            SB.AppendLine($"\tpublic class {Entidade.Nome}Proxy : {Entidade.Nome}DAO");
+            SB.AppendLine("\t{");
+        }
+
+        private void GerarConstrutor()
+        {
+            SB.AppendLine($"\t\tpublic {Entidade.Nome}Proxy (IDbTransaction tx = null) : base(tx) {{ }}");
         }
 
         private void Fechar()
         {
-            StringEntidade.AppendLine("\t}");
-            StringEntidade.AppendLine("}");
+            SB.AppendLine("\t}");
+            SB.AppendLine("}");
         }
 
         #endregion

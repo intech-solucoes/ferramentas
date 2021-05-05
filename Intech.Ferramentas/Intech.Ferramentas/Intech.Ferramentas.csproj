@@ -5,13 +5,12 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DevExpress.Reporting.Core" Version="18.1.12" />
     <PackageReference Include="Intech.Lib.JWT" Version="1.1.2" />
-    <PackageReference Include="Intech.Lib.TradutorSqlOracle" Version="1.1.0" />
     <PackageReference Include="Intech.Lib.Web" Version="1.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
@@ -20,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\lib\Intech.Lib.TradutorSqlOracle\Intech.Lib.TradutorSqlOracle.csproj" />
     <ProjectReference Include="..\Intech.Ferramentas.Dados\Intech.Ferramentas.Dados.csproj" />
   </ItemGroup>
 

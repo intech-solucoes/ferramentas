@@ -7,12 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Ferramentas.Dados", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Ferramentas.API", "Intech.Ferramentas.API\Intech.Ferramentas.API.csproj", "{9643B5DD-F58C-485C-A990-523BB7BD8ACE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intech.Ferramentas.Design", "Intech.Ferramentas.Design\Intech.Ferramentas.Design.csproj", "{72830264-8DD3-44D4-BAC0-4EFCC085599B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intech.Ferramentas", "Intech.Ferramentas\Intech.Ferramentas.csproj", "{7AC3218E-5811-4C32-8A1D-4873FAE05852}"
-	ProjectSection(ProjectDependencies) = postProject
-		{72830264-8DD3-44D4-BAC0-4EFCC085599B} = {72830264-8DD3-44D4-BAC0-4EFCC085599B}
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intech.Lib.TradutorSqlOracle", "..\..\lib\Intech.Lib.TradutorSqlOracle\Intech.Lib.TradutorSqlOracle.csproj", "{3143C793-4C24-48E6-85EF-AC2131FFA514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorServices", "GeradorServices\GeradorServices.csproj", "{9073517C-A697-468A-B4B3-569582A5A5E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,14 +27,18 @@ Global
 		{9643B5DD-F58C-485C-A990-523BB7BD8ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9643B5DD-F58C-485C-A990-523BB7BD8ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9643B5DD-F58C-485C-A990-523BB7BD8ACE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72830264-8DD3-44D4-BAC0-4EFCC085599B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72830264-8DD3-44D4-BAC0-4EFCC085599B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72830264-8DD3-44D4-BAC0-4EFCC085599B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72830264-8DD3-44D4-BAC0-4EFCC085599B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7AC3218E-5811-4C32-8A1D-4873FAE05852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AC3218E-5811-4C32-8A1D-4873FAE05852}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AC3218E-5811-4C32-8A1D-4873FAE05852}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AC3218E-5811-4C32-8A1D-4873FAE05852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3143C793-4C24-48E6-85EF-AC2131FFA514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3143C793-4C24-48E6-85EF-AC2131FFA514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3143C793-4C24-48E6-85EF-AC2131FFA514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3143C793-4C24-48E6-85EF-AC2131FFA514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9073517C-A697-468A-B4B3-569582A5A5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9073517C-A697-468A-B4B3-569582A5A5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9073517C-A697-468A-B4B3-569582A5A5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9073517C-A697-468A-B4B3-569582A5A5E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

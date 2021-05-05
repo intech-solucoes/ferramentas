@@ -29,6 +29,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
 
             GerarUsings();
             GerarDeclaracaoClasse();
+            GerarConstrutor();
             GerarMetodos();
             Fechar();
 
@@ -45,6 +46,7 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             SB.AppendLine($"using {Sistema.TXT_NAMESPACE_ENTIDADES};");
             SB.AppendLine("using System;");
             SB.AppendLine("using System.Collections.Generic;");
+            SB.AppendLine("using System.Data;");
             SB.AppendLine("using System.Linq;");
             SB.AppendLine();
         }
@@ -55,6 +57,12 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
             SB.AppendLine("{");
             SB.AppendLine($"\tpublic abstract class {Entidade.Nome}DAO : BaseDAO<{Entidade.Nome}Entidade>");
             SB.AppendLine("\t{");
+        }
+
+        private void GerarConstrutor()
+        {
+            SB.AppendLine($"\t\tpublic {Entidade.Nome}DAO (IDbTransaction tx = null) : base(tx) {{ }}");
+            SB.AppendLine();
         }
 
         private void GerarMetodos()
@@ -107,6 +115,8 @@ namespace Intech.Ferramentas.Code.Gerador.Classes
                 SB.Append("{\n");
 
                 SB.Append("\t\t\t\t");
+                SB.Append("if(Transaction == null)\n");
+                SB.Append("\t\t\t\t\t");
                 SB.Append("Conexao.Close();\n");
                 SB.Append("\t\t\t");
                 SB.Append("}\n");

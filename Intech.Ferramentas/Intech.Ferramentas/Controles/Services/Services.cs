@@ -29,6 +29,14 @@ namespace Intech.Ferramentas.Controles.Services
             CarregarDependentes();
         }
 
+        private void CarregarProjetos()
+        {
+            ComboBoxProjeto.DataSource = ProjetoService
+                            .Listar()
+                            .Where(x => x.IND_TIPO_PROJETO == "API")
+                            .ToList();
+        }
+
         private void CarregarDependentes()
         {
             var projeto = (ProjetoEntidade)ComboBoxProjeto.SelectedItem;
@@ -37,14 +45,6 @@ namespace Intech.Ferramentas.Controles.Services
                 .Where(x => x.OID_PROJETO_API == projeto.OID_PROJETO)
                 .ToList();
             CheckedListBoxDependentes.DisplayMember = "NOM_PROJETO";
-        }
-
-        private void CarregarProjetos()
-        {
-            ComboBoxProjeto.DataSource = ProjetoService
-                            .Listar()
-                            .Where(x => x.IND_TIPO_PROJETO == "API")
-                            .ToList();
         }
 
         private void CheckBoxTodos_CheckedChanged(object sender, EventArgs e)

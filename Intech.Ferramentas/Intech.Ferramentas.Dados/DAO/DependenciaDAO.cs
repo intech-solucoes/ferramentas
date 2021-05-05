@@ -4,12 +4,15 @@ using Intech.Lib.Web;
 using Intech.Ferramentas.Dados.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace Intech.Ferramentas.Dados.DAO
 {
 	public abstract class DependenciaDAO : BaseDAO<DependenciaEntidade>
 	{
+		public DependenciaDAO (IDbTransaction tx = null) : base(tx) { }
+
 		public virtual List<DependenciaEntidade> BuscarPorOidProjeto(decimal OID_PROJETO)
 		{
 			try
@@ -23,7 +26,8 @@ namespace Intech.Ferramentas.Dados.DAO
 			}
 			finally
 			{
-				Conexao.Close();
+				if(Transaction == null)
+					Conexao.Close();
 			}
 		}
 

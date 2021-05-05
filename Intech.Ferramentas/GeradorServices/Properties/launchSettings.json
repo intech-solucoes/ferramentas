@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GeradorServices": {
+      "commandName": "Project",
+      "commandLineArgs": "26 C:\\git\\intech http://localhost/Ferramentas"
+    }
+  }
+}

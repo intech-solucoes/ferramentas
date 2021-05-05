@@ -146,6 +146,7 @@ namespace Intech.Ferramentas.Controles.Dados
         public List<string> GetAllMethodNames(string strFileName)
         {
             List<string> methodNames = new List<string>();
+            var fileName = new FileInfo(strFileName).Name.Split('.')[0];
             var strMethodLines = File.ReadAllLines(strFileName);
 
             var metodos = strMethodLines.Where(a => (a.Contains("protected") ||
@@ -156,8 +157,12 @@ namespace Intech.Ferramentas.Controles.Dados
             {
                 if (item.IndexOf("(") != -1)
                 {
-                    string strTemp = string.Join("", item.Substring(0, item.IndexOf("(")).Reverse());
-                    methodNames.Add(string.Join("", strTemp.Substring(0, strTemp.IndexOf(" ")).Reverse()));
+                    var linha = item.Replace("\t\t", "");
+                    string strTemp = string.Join("", linha.Substring(0, linha.IndexOf("(")).Reverse()).Trim();
+                    string methodName = string.Join("", strTemp.Substring(0, strTemp.IndexOf(" ")).Reverse());
+
+                    if (methodName != fileName)
+                        methodNames.Add(methodName);
                 }
             }
             return methodNames.Distinct().ToList();

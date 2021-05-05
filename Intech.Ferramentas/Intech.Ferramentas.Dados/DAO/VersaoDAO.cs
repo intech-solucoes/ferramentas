@@ -1,17 +1,17 @@
-﻿#region Usings
-using Dapper;
+﻿using Dapper;
 using Intech.Lib.Dapper;
 using Intech.Lib.Web;
 using Intech.Ferramentas.Dados.Entidades;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-#endregion
+using System.Data;
+using System.Linq;
 
 namespace Intech.Ferramentas.Dados.DAO
-{   
-    public abstract class VersaoDAO : BaseDAO<VersaoEntidade>
-    {
-        
-    }
+{
+	public abstract class VersaoDAO : BaseDAO<VersaoEntidade>
+	{
+		public VersaoDAO (IDbTransaction tx = null) : base(tx) { }
+
+	}
 }

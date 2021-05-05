@@ -40,7 +40,7 @@ namespace Intech.Ferramentas.API.Controllers
             new ConexaoProxy().Deletar(Conexao);
 
         [HttpGet("[action]/{server}/{user}/{senha}")]
-        public IActionResult BuscarBancos(string server, string user, string senha)
+        public IEnumerable<string> BuscarBancos(string server, string user, string senha)
         {
             var conexao = BaseDAO.CriarConexao(new AppSettings
             {
@@ -50,7 +50,7 @@ namespace Intech.Ferramentas.API.Controllers
 
             var databases = conexao.Query<string>("SELECT name FROM master.dbo.sysdatabases WHERE name not in ('master', 'tempdb', 'model','msdb') ORDER BY name");
 
-            return Ok(databases);
+            return databases;
         }
 
         [HttpGet("[action]/{server}/{user}/{senha}/{database}/{tabela}/{sinonimo}")]

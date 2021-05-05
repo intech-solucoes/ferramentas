@@ -26,5 +26,15 @@ namespace Intech.Ferramentas.Dados.Proxy
 
             return lista;
         }
+
+        public override ProjetoEntidade BuscarPorChave(object chave)
+        {
+            var projeto = base.BuscarPorChave(chave);
+
+            projeto.Sistema = new SistemaProxy().BuscarPorChave(projeto.OID_SISTEMA);
+            projeto.Dependencias = new DependenciaProxy().BuscarPorOidProjeto(projeto.OID_PROJETO);
+
+            return projeto;
+        }
     }
 }
