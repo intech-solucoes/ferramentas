@@ -13,6 +13,7 @@ namespace Intech.Ferramentas.API.Controllers
     {
         public bool Admin => Convert.ToBoolean(User.Claims.GetValue("Admin"));
         public string Cpf => User.Claims.GetValue("Cpf");
+        public string Nome => User.Claims.GetValue("Nome");
 
         [HttpGet("admin")]
         [Authorize("Bearer")]
@@ -20,10 +21,7 @@ namespace Intech.Ferramentas.API.Controllers
         {
             try
             {
-                if (Admin)
-                    return Ok(true);
-                else
-                    return Ok(false);
+                return Ok(new { Admin, Nome });
             }
             catch (Exception ex)
             {
@@ -43,7 +41,8 @@ namespace Intech.Ferramentas.API.Controllers
             {
                 var claims = new List<KeyValuePair<string, string>> {
                     new KeyValuePair<string, string>("Cpf", user.Cpf),
-                    new KeyValuePair<string, string>("Admin", true.ToString())
+                    new KeyValuePair<string, string>("Admin", true.ToString()),
+                    new KeyValuePair<string, string>("Nome", "Rony Moura")
                 };
 
                 var token = AuthenticationToken.Generate(signingConfigurations, tokenConfigurations, user.Cpf, claims);
